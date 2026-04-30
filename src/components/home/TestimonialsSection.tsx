@@ -6,23 +6,51 @@ const testimonials = [
   {
     rating: 5,
     quote:
-      'LeadStrategus transformed how we find and prioritize accounts. What used to take our SDR team a full week now happens automatically overnight.',
-    name: 'Priya Sharma',
-    role: 'VP of Sales, TechScale India',
+      "LeadStrategus's commitment to in-depth understanding exceeded initial project goals.",
+    name: 'Abhishek Rungta',
+    role: 'CEO, Indus Net Technologies Limited',
   },
   {
     rating: 5,
     quote:
-      'The system approach is what sets them apart. Our agents feed data into each other seamlessly. Pipeline velocity increased by 3x in the first quarter.',
-    name: 'Rahul Mehta',
-    role: 'Revenue Operations Lead, CloudBridge',
+      'They were flexible enough to make any last-minute changes.',
+    name: 'Jeffrey Rakesh',
+    role: 'Head of Strategic Initiatives, Stibo Systems',
   },
   {
     rating: 5,
     quote:
-      'We replaced four separate tools with LeadStrategus. Fewer logins, better data, and outreach that actually converts.',
-    name: 'Anita Desai',
-    role: 'Head of Growth, DataForge',
+      'I liked the deep interest with which they worked on different aspects.',
+    name: 'Srinibas Behera',
+    role: 'Founder & CEO, Retigence',
+  },
+  {
+    rating: 5,
+    quote:
+      'Their expertise in digging out information through secondary research at every stage was very impressive.',
+    name: 'Vidya A Mohan',
+    role: 'Director, Ernst & Young',
+  },
+  {
+    rating: 5,
+    quote:
+      "LeadStrategus' ABM model is extremely well-researched.",
+    name: 'Anonymous',
+    role: 'Head of Marketing, Speridian',
+  },
+  {
+    rating: 5,
+    quote:
+      'They delivered on time and were dedicated to their work.',
+    name: 'Ravi Kumar',
+    role: 'Director of Technology, AskMeIdentity',
+  },
+  {
+    rating: 5,
+    quote:
+      'We had a good time working with LeadStrategus across multiple instances.',
+    name: 'Prashant Shetty',
+    role: 'Former VP, SOA IT Solutions',
   },
 ];
 
@@ -87,7 +115,7 @@ export default function TestimonialsSection() {
               const { translateX, scale, opacity, zIndex } = getCardProps(i);
               return (
                 <motion.div
-                  key={t.name}
+                  key={t.name + i}
                   animate={{ x: translateX, scale, opacity, zIndex }}
                   transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
                   style={{
