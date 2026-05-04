@@ -104,10 +104,15 @@ function HeroSection() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-900 tracking-tight leading-[1.15]">
-            Meet the People Behind the Pipeline
+            <div>
+              Not another AI startup.
+            </div>
+            <div className="mt-1 text-navy-700 font-semibold">
+              A consulting firm that productised itself.
+            </div>
           </h1>
           <p className="mt-4 text-lg text-gray-600 leading-[1.7] max-w-2xl mx-auto">
-            A team of strategists, builders, and operators designing AI systems that drive real revenue.
+            Meet the operators, GTM practitioners, and engineers behind LeadStrategus.ai. Eight years of consulting. Twenty-seven years of the founder building this exact motion at AWS, SAP, Oracle, Gartner, and Pluralsight.
           </p>
         </motion.div>
       </div>
