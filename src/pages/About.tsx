@@ -51,7 +51,7 @@ const teamMembers = [
   {
     name: 'Abisho George', role: 'Strategy Consultant',
     description: 'Works on market intelligence, helping teams understand where to play and who to target before outreach begins.',
-    fullBio: "Abisho runs the market mapping, ICP definition, and account targeting research that determines which companies the agents monitor and how they are prioritised. His work sits at the foundation of the platform — if the strategic inputs are wrong, the agents watch the wrong accounts. He works across the GTM and engineering teams to ensure that market intelligence is built into how the platform thinks, not added as an afterthought.",
+    fullBio: "Abisho works on the layer that determines whether the entire outbound motion points in the right direction. He runs market mapping, ICP definition, and account targeting research, the inputs that shape which companies the agents monitor and how they are scored. He works across the GTM and engineering teams to keep that strategic intelligence current as markets and client targets evolve.",
     image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400',
     linkedin: 'https://www.linkedin.com/in/abishogeorge/',
     email: 'abisho.g@leadstrategus.com',
@@ -342,7 +342,7 @@ export default function About() {
 
               <div className="space-y-5">
                 <p className="text-gray-500 leading-[1.9] text-base">
-                  For eight years, LeadStrategus ran as a meeting-generating agency. Humans doing the work — reading Naukri every morning, tracking tender portals, pulling annual reports, mapping hiring patterns to purchase timelines.
+                  For eight years, LeadStrategus ran as a meeting-generating agency. Humans doing the work - reading Naukri every morning, tracking tender portals, pulling annual reports, mapping hiring patterns to purchase timelines.
                 </p>
                 <p className="text-gray-500 leading-[1.9] text-base">
                   It worked. 5.0 on Clutch. Meetings with Fortune 50s. Pipeline for enterprise clients across India and globally.
