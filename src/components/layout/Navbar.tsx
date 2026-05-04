@@ -55,7 +55,7 @@ export default function Navbar() {
               to="/contact"
               className="px-4 py-2 rounded-xl bg-navy-900 text-white text-sm font-medium hover:bg-navy-800 transition-colors"
             >
-              Book Demo
+              Book a Call with Kingshuk
             </Link>
           </div>
 
@@ -97,7 +97,7 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className="block w-full text-center px-4 py-2 rounded-xl bg-navy-900 text-white text-sm font-medium"
                 >
-                  Book Demo
+                  Book a Call with Kingshuk
                 </Link>
               </div>
             </div>
