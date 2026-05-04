@@ -17,10 +17,10 @@ export default function CTASection() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(186,117,23,0.15),transparent_50%)]" />
           <div className="relative">
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
-              Ready to build your revenue engine?
+              Ready to see what's after the DIY ceiling?
             </h2>
             <p className="text-lg text-gray-300 max-w-xl mx-auto mb-8">
-              Explore the full agent system, or talk to us about a custom deployment.
+              Explore the full agent system, or talk to Kingshuk about a custom deployment.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
@@ -34,7 +34,7 @@ export default function CTASection() {
                 to="/contact"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-white/20 text-white font-medium hover:bg-white/10 transition-colors"
               >
-                Book Demo
+                Book a Call with Kingshuk
               </Link>
             </div>
           </div>
