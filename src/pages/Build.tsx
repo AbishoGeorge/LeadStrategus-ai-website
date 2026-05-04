@@ -24,11 +24,13 @@ const offerings = [
     icon: Rocket,
     title: 'Full System Deployment',
     subtitle: 'Deploy the pipeline',
-    description: 'Deploy the complete LeadStrategus agent system. End-to-end pipeline from discovery to revenue.',
+    description: 'Deploy the complete LeadStrategus.ai Contextual Intelligence pipeline - signal monitoring, context assembly, outreach, and meeting booking. End-to-end, operator-guided.',
     features: [
       'All 7 funnel stages',
-      'Connected agent workflows',
-      'Centralized dashboard',
+      'LinkedIn Sales Nav + Naukri + Monster + tenders + news signals',
+      'Operator-guided setup in 2–3 weeks',
+      'Context dossiers per account, continuously refreshed',
+      'Centralised dashboard',
       'Priority support',
     ],
     cta: 'Talk to Us',
@@ -41,7 +43,7 @@ const offerings = [
     icon: Wrench,
     title: 'Custom Agent Build',
     subtitle: 'Built for you',
-    description: 'Need something specific? We build agents tailored to your exact workflow and data sources.',
+    description: 'Need something specific? We build agents tailored to your exact workflow, data sources, and ICP.',
     features: [
       'Your logic, our infrastructure',
       'Custom data integrations',
@@ -151,7 +153,7 @@ export default function Build() {
                 Not sure which option fits?
               </h2>
               <p className="text-gray-300 mb-6">
-                We will help you figure it out. No pressure, no sales pitch.
+                We will help you figure it out. Bring your current stack, your numbers, and what's frustrating you. No pressure. Honest answer either way.
               </p>
               <Link
                 to="/contact"
