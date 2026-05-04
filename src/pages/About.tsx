@@ -9,10 +9,10 @@ import { useSeo } from '../lib/useSeo';
 /* ─── Data ─────────────────────────────────────────────────────────────────── */
 
 const values = [
-  { icon: Target, title: 'Product-first', description: 'We ship products, not slide decks. Every agent solves a real problem for real revenue teams.' },
-  { icon: Cpu, title: 'System thinking', description: 'Agents are powerful alone. Connected, they become unstoppable. We design for the whole pipeline.' },
-  { icon: Layers, title: 'Modular by design', description: 'Start with one agent. Add more when ready. Deploy the full system when the time is right.' },
-  { icon: Zap, title: 'Built for speed', description: 'Fast to deploy. Fast to iterate. No six-month implementation cycles. No consultants required.' },
+  { icon: Target, title: 'Context before copy', description: 'We obsess over the input before the LLM writes a word. Context is the differentiator. Everything else is downstream.' },
+  { icon: Cpu, title: 'Signal depth is the moat', description: 'Naukri, Monster, and Indian tenders are invisible to every US-built tool. That structural advantage compounds every month we run.' },
+  { icon: Layers, title: 'The operator is the product', description: '8 years of consulting. 27 years of the founder running this exact motion at AWS, SAP, Oracle, Gartner, and Pluralsight. That pattern recognition is not in the software alone, it is in the weekly calibration.' },
+  { icon: Zap, title: 'No autonomous spray', description: 'Every outreach draft queues for human approval. No burned domains. No 11x-style churn. The watching is automated. The sending is intentional.' },
 ];
 
 const teamMembers = [
