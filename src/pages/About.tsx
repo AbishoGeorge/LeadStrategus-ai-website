@@ -67,16 +67,19 @@ const teamMembers = [
 ];
 
 const achievements = [
-  { value: '50+', label: 'GTM Systems Built' },
-  { value: '100K+', label: 'Leads Processed' },
-  { value: '5+', label: 'Industries Served' },
-  { value: '3x', label: 'Avg. Pipeline Velocity Gain' },
+  { value: '8+', label: 'Years running pipeline programmes' },
+  { value: '30K+', label: 'Enterprise and mid-market clients served' },
+  { value: '100K+', label: 'Outbound messages, signals, and campaigns processed' },
+  { value: '5.0', label: 'Stars on Clutch' },
+  { value: '18', label: 'Meetings booked at BSMA Brussels 2024 - 280 companies reached, 12 Fortune 50 opportunities
+
+' },
 ];
 
 const howWeWork = [
-  { title: 'AI meets GTM expertise', body: "We don't bolt AI onto outdated playbooks. Every system is designed by people who have run sales pipelines and built the technology to automate them." },
-  { title: 'Outcomes over activity', body: "Vanity metrics don't close deals. We measure success by pipeline generated, meetings booked, and revenue unlocked — not emails sent." },
-  { title: 'Systems, not campaigns', body: 'A one-off campaign decays the moment it ends. We build compounding pipeline infrastructure that works every day without manual input.' },
+  { title: 'Context before we write a word', body: "We don't bolt AI onto an empty list. Every account gets a structured context dossier, hiring signals, tender filings, tech-stack shifts, news events, before the messaging layer is invoked. Same LLM as everyone else. Different input, different output." },
+  { title: 'Meetings, not activity metrics', body: "Vanity metrics don't close deals. We measure success by pipeline generated, meetings booked, and revenue unlocked - not emails sent, agent runs, or dashboards viewed." },
+  { title: 'Compounding intelligence, not one-off campaigns', body: 'A campaign decays the moment it ends. Contextual Intelligence compounds - signals get richer, the ICP model gets sharper, the operator gets smarter about your market every week.' },
 ];
 
 /* ─── Animation variants ────────────────────────────────────────────────────── */
@@ -524,7 +527,7 @@ export default function About() {
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-electric-300 mb-4">By the numbers</span>
             <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight">What We've Built</h2>
             <p className="mt-4 text-blue-200/70 text-base max-w-md mx-auto leading-relaxed">
-              Numbers that reflect real pipeline work, not marketing projections.
+              Numbers from real pipeline work, not marketing projections.
             </p>
           </motion.div>
 
@@ -679,17 +682,17 @@ export default function About() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-50/70 rounded-full blur-3xl pointer-events-none" />
             <div className="relative">
               <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 leading-tight mb-5">
-                Want to see how this team can build your pipeline?
+                Want to see what 27 years of demand-gen, encoded into an engine, looks like for your pipeline?
               </h2>
               <p className="text-gray-500 leading-[1.8] mb-10 max-w-xl mx-auto text-base">
-                Talk to us about your growth goals. We'll show you exactly how we'd automate your pipeline from discovery to booked meetings.
+                Talk to us about your growth goals. We will show you exactly how we'd automate your pipeline from discovery to booked meetings.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link
                   to="/contact"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-navy-900 text-white text-sm font-semibold hover:bg-navy-800 transition-colors shadow-lg shadow-navy-900/20"
                 >
-                  Book Demo <ArrowRight className="w-4 h-4" />
+                  Book a Call with Kingshuk <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/agents"
