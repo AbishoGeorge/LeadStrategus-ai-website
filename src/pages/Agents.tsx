@@ -38,7 +38,7 @@ export default function Agents() {
               Agent Catalog
             </h1>
             <p className="mt-3 text-lg text-gray-500 max-w-2xl">
-              Every agent in the LeadStrategus system. Pick one, combine many, or deploy the full pipeline.
+              Every agent in the LeadStrategus.ai Contextual Intelligence system. Pick one, combine many, or deploy the full pipeline.
             </p>
           </motion.div>
         </div>
