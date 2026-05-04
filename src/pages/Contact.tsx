@@ -61,10 +61,10 @@ export default function Contact() {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight">
-                Let's talk.
+                Book a call with Kingshuk.
               </h1>
               <p className="mt-4 text-lg text-gray-500">
-                Whether you want to try an agent, deploy the full system, or build something custom.
+                Twenty minutes, no slides. Whether you want to try a single agent, deploy the full Contextual Intelligence pipeline, or get an honest second opinion on your current DIY stack.
               </p>
 
               <div className="mt-10 space-y-6">
@@ -74,7 +74,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-navy-900">Email</h3>
-                    <p className="text-sm text-gray-500 mt-0.5">hello@leadstrategus.com</p>
+                    <p className="text-sm text-gray-500 mt-0.5">hello@leadstrategus.ai</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
