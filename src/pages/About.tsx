@@ -594,11 +594,16 @@ export default function About() {
               <span className="w-1.5 h-1.5 rounded-full bg-electric-500" />
               <span className="text-xs font-semibold text-electric-600 tracking-widest uppercase">Built by GTM + AI Experts</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-navy-900 leading-tight mb-5">
-              Meet the People Behind the Pipeline
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-900 tracking-tight leading-[1.15]">
+              <div>
+                Not another AI startup.
+              </div>
+              <div className="mt-1 text-navy-700 font-semibold">
+                A consulting firm that productised itself.
+              </div>
             </h2>
             <p className="text-gray-400 leading-[1.8] text-base">
-              A team of strategists, builders, and operators designing AI systems that drive real revenue.
+              Meet the operators, GTM practitioners, and engineers behind LeadStrategus.ai. Eight years of consulting. Twenty-seven years of the founder building this exact motion at AWS, SAP, Oracle, Gartner, and Pluralsight.
             </p>
           </motion.div>
 
