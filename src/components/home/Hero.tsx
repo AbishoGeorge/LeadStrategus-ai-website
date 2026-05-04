@@ -21,10 +21,15 @@ export default function Hero() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 leading-tight tracking-tight">
-            Contextual Intelligence for B2B Sales.{' '}
-            <span className="bg-gradient-to-r from-electric-500 to-electric-700 bg-clip-text text-transparent">
-              ChatGPT + Claude + Clay got you 80% of the way. We take it the rest.
-            </span>
+            <div>
+              Contextual Intelligence for B2B Sales.
+            </div>
+          
+            <div className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-semibold">
+              <span className="bg-gradient-to-r from-electric-500 to-electric-700 bg-clip-text text-transparent">
+                ChatGPT + Claude + Clay got you 80% of the way. We take it the rest.
+              </span>
+            </div>
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
