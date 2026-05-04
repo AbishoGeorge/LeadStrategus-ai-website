@@ -33,7 +33,7 @@ export default function FAQ() {
               Frequently Asked Questions
             </h1>
             <p className="mt-3 text-lg text-gray-500">
-              Get clear answers about LeadStrategus
+              Get clear answers about LeadStrategus.ai
             </p>
           </motion.div>
         </div>
