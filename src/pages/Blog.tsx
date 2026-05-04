@@ -65,10 +65,10 @@ export default function Blog() {
               B2B AI & Revenue Intelligence
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight">
-              Insights that move<br className="hidden sm:block" /> your pipeline.
+              Blog
             </h1>
             <p className="mt-4 text-lg text-white/60 leading-relaxed max-w-xl">
-              Thinking on AI agents, buying signals, and modern B2B revenue systems — from the team building them.
+              Thinking on Contextual Intelligence, intent signals, and B2B revenue systems.
             </p>
           </motion.div>
 
