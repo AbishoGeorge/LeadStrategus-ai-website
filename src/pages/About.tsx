@@ -71,9 +71,6 @@ const achievements = [
   { value: '30K+', label: 'Enterprise and mid-market clients served' },
   { value: '100K+', label: 'Outbound messages, signals, and campaigns processed' },
   { value: '5.0', label: 'Stars on Clutch' },
-  { value: '18', label: 'Meetings booked at BSMA Brussels 2024 - 280 companies reached, 12 Fortune 50 opportunities
-
-' },
 ];
 
 const howWeWork = [
