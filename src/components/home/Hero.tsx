@@ -21,14 +21,14 @@ export default function Hero() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 leading-tight tracking-tight">
-            Find the right accounts.{' '}
+            Contextual Intelligence for B2B Sales.{' '}
             <span className="bg-gradient-to-r from-electric-500 to-electric-700 bg-clip-text text-transparent">
-              Before your competitors do.
+              ChatGPT + Claude + Clay got you 80% of the way. We take it the rest.
             </span>
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
-            One system. From discovery to revenue. AI agents that find, qualify, prioritize, and convert your next best customers.
+            LeadStrategus.ai monitors buying signals across LinkedIn Sales Nav, Naukri, Monster, tenders, and news - assembles a context dossier per account, then drafts outreach from the signal. You approve. It sends. Meetings land on your calendar.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -43,7 +43,7 @@ export default function Hero() {
               to="/contact"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-navy-200 text-navy-900 font-medium hover:border-navy-300 hover:bg-navy-50 transition-all"
             >
-              Book Demo
+              Book a Call with Kingshuk
             </Link>
           </div>
         </motion.div>
