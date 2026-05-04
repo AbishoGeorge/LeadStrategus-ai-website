@@ -607,13 +607,13 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 justify-items-center">
+          <div className="flex flex-wrap justify-center gap-7">
             {teamMembers.map((member, i) => (
               <motion.div
                 key={member.name}
                 variants={fadeUp} initial="hidden" whileInView="show"
                 viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="group relative w-full max-w-sm bg-white border border-gray-100/80 rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden cursor-pointer"
+                className="group relative w-full sm:w-[calc(50%-14px)] lg:w-[calc(33.333%-18.7px)] max-w-sm bg-white border border-gray-100/80 rounded-3xl shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden cursor-pointer"
                 onClick={() => setSelectedMember(member)}
               >
                 {/* Top accent line */}
