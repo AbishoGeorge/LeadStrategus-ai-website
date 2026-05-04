@@ -5,13 +5,13 @@ import logoImg from '../../assets/logo.png';
 const productLinks = [
   { label: 'All Agents', to: '/agents' },
   { label: 'Custom Build', to: '/build' },
-  { label: 'Book Demo', to: '/contact' },
+  { label: 'Book a Call with Kingshuk', to: '/contact' },
 ];
 
 const resourceLinks = [
   { label: 'FAQ', to: '/faq' },
   { label: 'Use Cases', to: '/use-cases' },
-  { label: 'Why LeadStrategus', to: '/why' },
+  { label: 'Why LeadStrategus.ai', to: '/why' },
 ];
 
 const companyLinks = [
@@ -38,10 +38,7 @@ export default function Footer() {
                 <img src={logoImg} alt="LeadStrategus" className="h-7 w-auto brightness-0 invert" />
               </Link>
               <p className="text-gray-400 text-sm leading-relaxed">
-                AI agents for B2B revenue teams.
-              </p>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                From discovery to revenue.
+                Contextual Intelligence for B2B Sales.
               </p>
               <p className="text-gray-500 text-sm mt-3">Bengaluru, India</p>
             </div>
