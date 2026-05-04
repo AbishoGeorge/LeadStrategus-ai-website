@@ -17,7 +17,7 @@ const offerings = [
   {
     icon: Rocket,
     title: 'Full System Deploy',
-    desc: 'Deploy the complete agent pipeline for end-to-end revenue operations.',
+    desc: 'Deploy the complete Contextual Intelligence pipeline, from signal monitoring to booked meeting.',
     to: '/build',
   },
   {
