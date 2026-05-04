@@ -15,24 +15,24 @@ export const faqCategories: FAQCategory[] = [
     slug: 'general',
     items: [
       {
-        question: 'What is LeadStrategus?',
+        question: 'What is LeadStrategus.ai?',
         answer:
-          'LeadStrategus is an AI-powered platform that provides specialized agents for every stage of the B2B sales funnel. From account discovery to meeting conversion, our agents automate and optimize the entire revenue pipeline.',
+          'A Contextual Intelligence Engine for B2B sales. It monitors buying signals, LinkedIn Sales Nav, Naukri, Monster, tenders, company news, annual reports - assembles a context dossier per account, and drafts outreach grounded in that specific context. Not an AI SDR. Not a database. The signal and context layer your outbound has been missing.',
       },
       {
-        question: 'Who is LeadStrategus built for?',
+        question: 'Who is LeadStrategus.ai built for?',
         answer:
-          'LeadStrategus is built for B2B revenue teams including sales development reps, account executives, marketing operations, and revenue leaders who want to automate prospecting, qualification, and outreach at scale.',
+          'Solo operators, freelance growth marketers, one-person sales consultants, and founder-sellers who have built a ChatGPT + Clay DIY stack and hit the maintenance ceiling. Also: revenue teams at companies selling into India, or into Indian arms of global enterprises, where Naukri, Monster, and tender signals are invisible to their current tools.',
       },
       {
         question: 'Do I need technical expertise to use the platform?',
         answer:
-          'No. Our agents are designed to be deployed with minimal setup. You configure your parameters, and the agents handle the rest. For custom builds, our team works directly with you to tailor the system to your workflow.',
+          'No. Unlike Clay, which requires RevOps engineering time to configure, LeadStrategus.ai is set up by our operator team. You tell us your ICP and signal model. We make the engine run.',
       },
       {
         question: 'How is LeadStrategus different from other sales tools?',
         answer:
-          'Most sales tools are point solutions that require manual stitching. LeadStrategus is a connected system of AI agents that covers the entire funnel. Each agent does one thing well, and together they form an automated pipeline from discovery to revenue.',
+          'We start before everyone else does. Every other outbound tool starts after the watching has happened - you bring the list, they send the list. We monitor the market continuously for signals that predict buying intent, then act on what we see. The context depth and the India signal layer (Naukri, Monster, tenders) are the structural moat.',
       },
     ],
   },
@@ -43,22 +43,22 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'Can I use individual agents or do I need the full system?',
         answer:
-          'Both. You can pick individual agents from our marketplace and use them standalone, or deploy the full system for end-to-end pipeline automation. Start with one agent and scale when ready.',
+          'Individual agents are available from our marketplace - pick one, plug it into your existing stack, pay per use. Most teams start with 2–3 agents and expand when they see what the signal depth unlocks.',
       },
       {
         question: 'How do agents work together?',
         answer:
-          'Each agent handles a specific funnel stage and passes enriched data to the next. For example, the Account Discovery agent feeds qualified accounts to the Buying Intent agent, which then routes high-intent prospects to the Outreach agent.',
+          'Agents pass data between stages automatically. The Naukri Job Scraper feeds the Hiring Intent Interpreter. The Intent Signal Aggregator scores across all sources. The Account Prioritisation Agent tells you which 50 accounts to work this week. The LinkedIn Message Generator writes from the specific signal that triggered the score. One connected pipeline, no manual exports.',
       },
       {
         question: 'Can I request a custom agent?',
         answer:
-          'Yes. Our Custom Build service lets you request agents tailored to your exact workflow, data sources, and business logic. We handle the infrastructure, you define the requirements.',
+          'Yes. The Custom Build option is specifically for this, agents built to your exact workflow, data sources, and ICP, on our infrastructure, maintained by our operators.',
       },
       {
         question: 'What integrations do you support?',
         answer:
-          'Our agents work with publicly available data sources and can integrate with common CRM platforms, email systems, and enrichment tools. Contact us for specific integration requirements.',
+          'API access is included. We integrate with major CRMs and email sequencers. Bring specific integration requirements to the scoping call.',
       },
     ],
   },
@@ -69,17 +69,17 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'Is LeadStrategus compliant with data regulations?',
         answer:
-          'Our agents operate on publicly available data and user-provided inputs. Users are responsible for ensuring their usage complies with applicable laws and platform terms of service in their jurisdiction.',
+          'All agents operate on publicly available data and user inputs. Users are responsible for ensuring compliance with applicable laws and platform terms.',
       },
       {
         question: 'Do you store my data?',
         answer:
-          'We process data as needed to deliver agent functionality. We do not sell or share your data with third parties. Refer to our Privacy Policy for detailed information about data handling practices.',
+          'Details in the Trust Center. We do not sell your data to third parties.',
       },
       {
         question: 'Can I use LeadStrategus for cold outreach?',
         answer:
-          'Our agents can assist with outreach workflows, but users must ensure compliance with anti-spam laws such as CAN-SPAM, GDPR, and other applicable regulations. We provide tools, not legal advice.',
+          'Yes, within applicable laws and platform terms. Unlike autonomous AI SDRs, every outreach draft requires your approval before it sends, so you stay in control of what leaves your domain.',
       },
     ],
   },
@@ -90,17 +90,17 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'How many agents are currently available?',
         answer:
-          'We have a growing catalog of agents covering account discovery, buying intent detection, account prioritization, messaging and outreach, monitoring and reactivation, meeting conversion, and data operations. Check our Agent Catalog for the latest availability.',
+          'Seven are live now. Over 25 are in active development across all 7 funnel stages. Full catalogue on the Agents page with live/coming-soon status.',
       },
       {
         question: 'What does "Coming Soon" mean on an agent?',
         answer:
-          'Agents marked as "Coming Soon" are in active development and will be available shortly. You can contact us to get early access or be notified when they launch.',
+          'In active development within the current roadmap cycle. Flag specific agents at the scoping call if they are critical to your use case.',
       },
       {
         question: 'Can agents run without human supervision?',
         answer:
-          'Agents are designed to operate autonomously within the parameters you set. However, we recommend periodic review of outputs, especially during initial deployment, to ensure alignment with your business goals.',
+          'The signal monitoring and context-assembly layers run continuously. The send layer does not, every outreach draft queues for your approval. This is a deliberate design choice. Operators who ran autonomous AI SDRs in 2024-2025 know why.',
       },
     ],
   },
@@ -111,17 +111,17 @@ export const faqCategories: FAQCategory[] = [
       {
         question: 'What data sources do your agents use?',
         answer:
-          'Our agents work with publicly available business data, company websites, job postings, news, financial filings, and other open sources. We do not scrape private or gated platforms without authorization.',
+          'LinkedIn Sales Navigator, Naukri, Monster India, government tender portals (GeM, CPPP, all major state portals, PSU boards), company news and events, annual reports and public filings, technographic signals. All publicly available data.',
       },
       {
         question: 'How accurate is the data?',
         answer:
-          'We use multiple data points and cross-referencing to maintain high accuracy. However, publicly available data can change rapidly. Our Data Ops agents include validation and enrichment steps to keep information current.',
+          'Multi-source cross-referencing with continuous context refresh. Context dossiers update when the underlying signal changes, not on a weekly export cycle. Our operator reviews flagged accounts where signal confidence is low.',
       },
       {
         question: 'Can I bring my own data?',
         answer:
-          'Yes. You can feed your own account lists, CRM exports, or custom datasets into our agents. This is especially useful for Custom Build deployments where agents are tailored to your specific data ecosystem.',
+          'Yes. Bring your existing target account list, CRM exports, and ICP definitions. The Contextual Intelligence layer enriches what you have, it does not replace it.',
       },
     ],
   },
