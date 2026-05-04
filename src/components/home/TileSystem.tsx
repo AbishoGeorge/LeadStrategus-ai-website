@@ -272,10 +272,10 @@ export default function TileSystem() {
           className="text-center mb-8"
         >
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-            One system. From discovery to revenue.
+            Seven signal sources. One connected pipeline.
           </h2>
           <p className="mt-2 text-sm text-gray-500 max-w-2xl mx-auto">
-            Every stage of your B2B funnel, powered by specialized AI agents that work together as a connected system.
+            Every stage of your B2B funnel, powered by specialised AI agents that work together, each one fed by the real-market signals your competitors can't see.
           </p>
         </motion.div>
 
