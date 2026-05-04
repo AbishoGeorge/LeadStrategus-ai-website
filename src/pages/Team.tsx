@@ -39,13 +39,6 @@ const teamMembers = [
     image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400',
     linkedin: '#',
   },
-  {
-    name: 'Ananya Rao',
-    role: 'Product Designer',
-    description: 'Makes complex pipeline intelligence feel simple and intuitive.',
-    image: 'https://images.pexels.com/photos/3756681/pexels-photo-3756681.jpeg?auto=compress&cs=tinysrgb&w=400',
-    linkedin: '#',
-  },
 ];
 
 const achievements = [
