@@ -19,7 +19,7 @@ const comparisonRows = [
   {
     category: 'Signal depth',
     us: 'LinkedIn Sales Nav + Naukri + Monster + tenders + news + annual reports',
-    them: 'LinkedIn and Apollo — Naukri, Monster, and tenders structurally invisible',
+    them: 'LinkedIn and Apollo - Naukri, Monster, and tenders structurally invisible',
   },
   {
     category: 'Context per account',
@@ -28,18 +28,18 @@ const comparisonRows = [
   },
   {
     category: 'Messaging quality',
-    us: 'Written from the specific signal that triggered the account — not generic',
+    us: 'Written from the specific signal that triggered the account, not generic',
     them: 'Drifts into template territory by Month 3 without someone tuning the prompt',
   },
   {
     category: 'Maintenance burden',
-    us: 'Zero — our operator team maintains it weekly',
+    us: 'Zero, our operator team maintains it weekly',
     them: '10+ hours a week after Month 3; founder doing RevOps instead of closing',
   },
   {
     category: 'India signal',
-    us: 'Native — Naukri, Monster, GeM, CPPP, state portals, PSU boards',
-    them: 'None — structural blind spot of every US-built tool',
+    us: 'Native - Naukri, Monster, GeM, CPPP, state portals, PSU boards',
+    them: 'None, structural blind spot of every US-built tool',
   },
   {
     category: 'Operator expertise',
@@ -53,29 +53,29 @@ const comparisonRows = [
   },
   {
     category: 'Setup time',
-    us: '2–3 weeks, operator-guided',
-    them: '1 weekend prototype; 3–6 months to production-grade',
+    us: '2-3 weeks, operator-guided',
+    them: '1 weekend prototype; 3-6 months to production-grade',
   },
 ];
 
 const whyCards = [
   {
     icon: Workflow,
-    title: 'Automate pipeline building',
+    title: 'The signal nobody else has',
     description:
-      'Replace manual prospecting with AI agents that discover, qualify, and prioritize accounts around the clock without human intervention.',
+      'Naukri, Monster, and Indian tenders are invisible to every US-built tool. If your market includes India, or global companies with Indian operations, this is a structural moat that compounds every month you run it.',
   },
   {
     icon: Settings,
-    title: 'Built for real workflows',
+    title: 'Context before the LLM writes a word',
     description:
-      'Every agent maps to an actual step in your sales process. No abstract features or dashboards that nobody uses.',
+      'Same LLM as your DIY stack. Different input. A real context dossier per account, hiring signals, recent tender filings, tech-stack shifts, the CMO who joined eleven days ago, produces outreach that prospects actually reply to.',
   },
   {
     icon: Layers,
-    title: 'Works as a system, not tools',
+    title: 'An operator, not just a platform',
     description:
-      'Agents pass data between stages automatically. One connected pipeline from discovery to revenue, not ten disconnected tools.',
+      'Every deployment includes operator time from the LeadStrategus team. Pattern recognition from 8 years of consulting and 27 years of the founder running this motion at AWS, SAP, Oracle, Gartner, and Pluralsight, applied to your account list weekly.',
   },
 ];
 
@@ -331,13 +331,15 @@ function IdealChoiceSection() {
         >
           <div className="p-6 sm:p-8 rounded-2xl bg-electric-50/50 border border-electric-100 shadow-sm">
             <h3 className="text-lg font-bold text-navy-900 mb-4">
-              Choose LeadStrategus if:
+              Choose LeadStrategus.ai if:
             </h3>
             <ul className="space-y-3">
               {[
-                'You want to automate prospecting and pipeline building',
-                'You need scalable pipeline generation without adding headcount',
-                'You want faster execution from discovery to booked meetings',
+                'You have built a ChatGPT + Clay DIY stack and hit the maintenance ceiling',
+                'You sell into India, or into Indian arms of global companies, and your current tools miss the hiring and tender signals',
+                'Your founder is doing outbound manually and the time cost is hurting you',
+                'You need signal depth and context-rich messaging with a human keeping it calibrated',
+          
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <Check className="w-4 h-4 text-electric-500 shrink-0 mt-0.5" />
@@ -353,8 +355,9 @@ function IdealChoiceSection() {
             </h3>
             <ul className="space-y-3">
               {[
-                'You prefer fully manual workflows with complete control over every step',
-                "You don't need to scale beyond a small number of accounts",
+                'You are early-stage, still finding PMF, and your ICP might change next quarter',
+                'Your volume is under 50 accounts a month and you are hitting targets',
+                "You want full autonomous send with no human review, that is not us, by design",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <X className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" />
@@ -419,7 +422,7 @@ function ContactFormSection() {
               Ready to get started?
             </h2>
             <p className="text-gray-600 leading-[1.7] mb-6">
-              Tell us about your team and goals. We will show you how LeadStrategus agents can automate your pipeline and accelerate revenue.
+              Tell us about your team, your current stack, and what's frustrating you. We'll show you exactly how LeadStrategus.ai fits, and tell you honestly if it doesn't.
             </p>
             <p className="text-sm text-gray-500">
               Typical response time: within 24 hours on business days.
@@ -581,16 +584,16 @@ function FinalCTASection() {
           transition={{ duration: 0.4 }}
         >
           <h2 className="text-2xl sm:text-3xl font-bold text-navy-900 tracking-tight leading-tight mb-4">
-            Ready to automate your pipeline?
+            Ready to move past the DIY ceiling?
           </h2>
           <p className="text-gray-600 leading-[1.7] mb-8 max-w-xl mx-auto">
-            Talk to our team and see how LeadStrategus agents can replace manual prospecting with intelligent automation.
+            Talk to Kingshuk and see how LeadStrategus.ai turns the signals your competitors can't see into meetings on your calendar.
           </p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-navy-900 text-white text-sm font-medium hover:bg-navy-800 transition-colors"
           >
-            Contact Sales
+            Book a Call with Kingshuk
             <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
