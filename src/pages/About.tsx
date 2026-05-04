@@ -74,9 +74,9 @@ const achievements = [
 ];
 
 const howWeWork = [
-  { title: 'Context before we write a word', body: "We don't bolt AI onto an empty list. Every account gets a structured context dossier, hiring signals, tender filings, tech-stack shifts, news events, before the messaging layer is invoked. Same LLM as everyone else. Different input, different output." },
-  { title: 'Meetings, not activity metrics', body: "Vanity metrics don't close deals. We measure success by pipeline generated, meetings booked, and revenue unlocked - not emails sent, agent runs, or dashboards viewed." },
-  { title: 'Compounding intelligence, not one-off campaigns', body: 'A campaign decays the moment it ends. Contextual Intelligence compounds - signals get richer, the ICP model gets sharper, the operator gets smarter about your market every week.' },
+  { title: 'From manual research to always-on monitoring', body: "We used to do this by hand, scanning Naukri, reading tenders, tracking news. Now agents do it continuously, across seven signal sources, without an analyst sitting at a desk. The watching never stops. Neither does the pipeline." },
+  { title: 'From campaign thinking to compounding intelligence', body: "Manual outbound runs in batches. Campaigns start, end, and decay. The agent model runs differently, every signal logged makes the next decision sharper. The ICP model improves. The timing gets more precise. Intelligence compounds instead of resetting." },
+  { title: 'From human approval bottlenecks to human judgment at the right moment', body: 'We did not remove humans from the loop, we moved them to where they matter. Agents do the watching, the interpreting, the drafting. You approve the send. The grind is automated. The judgment stays yours.' },
 ];
 
 /* ─── Animation variants ────────────────────────────────────────────────────── */
@@ -350,19 +350,23 @@ export default function About() {
 
               <div className="space-y-5">
                 <p className="text-gray-500 leading-[1.9] text-base">
-                  Most B2B revenue teams are stuck in a paradox: they have access to more tools than ever, yet spend less time actually selling. Hours are lost to manual research, fragmented data, and tool-switching — all before a single conversation with a prospect.
+                  For eight years, LeadStrategus ran as a meeting-generating agency. Humans doing the work — reading Naukri every morning, tracking tender portals, pulling annual reports, mapping hiring patterns to purchase timelines.
                 </p>
                 <p className="text-gray-500 leading-[1.9] text-base">
-                  We saw this firsthand working across sales-led and product-led growth teams. The problem wasn't effort — it was infrastructure. Teams were stitching together point solutions that weren't designed to work together, leading to inconsistent pipeline and unpredictable revenue.
+                  It worked. 5.0 on Clutch. Meetings with Fortune 50s. Pipeline for enterprise clients across India and globally.
                 </p>
-                <p className="text-gray-500 leading-[1.9] text-base">The existing market wasn't solving it. Enterprise tools came with:</p>
+                <p className="text-gray-500 leading-[1.9] text-base">
+                  But every insight lived inside a person. Every signal required someone to spot it. Every campaign started from scratch. The motion was proven, it just couldn't scale beyond the hours in a human day.
+                </p>
+                <p className="text-gray-500 leading-[1.9] text-base">So we asked the obvious question: what if we encoded everything we'd learned into agents that never sleep?
+                </p>
               </div>
 
               <ul className="mt-6 space-y-3.5">
                 {[
-                  'Expensive CRMs that require months of configuration and dedicated admins',
-                  'Risky transitions between vendors, with data loss and workflow disruption',
-                  'One-size-fits-all solutions that ignore the nuances of your specific market and motion',
+                  'Eight years of signal patterns, now running continuously',
+                  'Every campaign insight, now informing the next one automatically',
+                  'The same motion that booked Fortune 50 meetings, now available without a full agency retainer',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3.5">
                     <div className="mt-1.5 w-5 h-5 rounded-full bg-electric-100 flex items-center justify-center shrink-0">
@@ -390,8 +394,9 @@ export default function About() {
               </div>
               {/* Floating stat card */}
               <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl border border-gray-100 px-5 py-4">
-                <p className="text-2xl font-bold text-navy-900">70%</p>
-                <p className="text-xs text-gray-400 mt-0.5 leading-tight">of sales time<br />wasted on admin</p>
+                <p className="text-2xl font-bold text-navy-900">8+</p>
+                <p className="text-xs text-gray-400 mt-0.5 leading-tight">years of pipeline intelligence<br />now encoded
+                </p>
               </div>
               {/* Decorative blob */}
               <div className="absolute -top-8 -right-8 w-48 h-48 bg-electric-100/40 rounded-full blur-2xl pointer-events-none" />
@@ -411,23 +416,26 @@ export default function About() {
               viewport={{ once: true }} transition={{ duration: 0.55 }}
             >
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-electric-500 mb-4">Our Purpose</span>
-              <h2 className="text-4xl sm:text-5xl font-bold text-navy-900 leading-[1.1] mb-8">Why we're here</h2>
+              <h2 className="text-4xl sm:text-5xl font-bold text-navy-900 leading-[1.1] mb-8">Why we built the agents</h2>
 
               <div className="space-y-5">
                 <p className="text-gray-500 leading-[1.9] text-base">
-                  We exist to give B2B revenue teams an unfair advantage. Most teams are buried in manual work — researching prospects, stitching together disconnected tools, writing the same outreach over and over.
+                  The manual motion worked. But it had a ceiling.
                 </p>
                 <p className="text-gray-500 leading-[1.9] text-base">
-                  That work isn't strategy. It's overhead. And it compounds — the more time your team spends on tasks that don't close deals, the slower your pipeline moves and the harder it becomes to scale.
+                  A human analyst can watch 20 accounts a day. An agent watches 2,000. A researcher reads one tender portal. The engine reads twelve simultaneously. An SDR rewrites the same opening line for every prospect. The agent writes from the specific signal that triggered that account, this morning.
                 </p>
-                <p className="text-gray-500 leading-[1.9] text-base">We built LeadStrategus to solve this at the infrastructure level:</p>
+                <p className="text-gray-500 leading-[1.9] text-base">
+                  We didn't build LeadStrategus.ai to replace what we were doing. We built it to do what we were doing, at a scale no human team ever could.
+                </p>
+                <p className="text-gray-500 leading-[1.9] text-base">The result:</p>
               </div>
 
               <ul className="mt-6 space-y-3.5">
                 {[
-                  'Replace manual research and outreach with always-on AI agents',
-                  'Scale pipeline generation without scaling headcount or spend',
-                  'Connect your systems so data flows without manual intervention',
+                  'Always-on monitoring across LinkedIn, Naukri, Monster, tenders, news, and tech-stack sources',
+                  'Signal interpretation that runs while you sleep, not while your analyst is at their desk',
+                  'Outreach drafted from real context, not recycled templates',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3.5">
                     <div className="mt-1.5 w-5 h-5 rounded-full bg-electric-100 flex items-center justify-center shrink-0">
@@ -456,7 +464,7 @@ export default function About() {
               {/* Floating stat card */}
               <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl border border-gray-100 px-5 py-4">
                 <p className="text-2xl font-bold text-navy-900">3x</p>
-                <p className="text-xs text-gray-400 mt-0.5 leading-tight">avg. pipeline<br />velocity gain</p>
+                <p className="text-xs text-gray-400 mt-0.5 leading-tight">avg. pipeline velocity<br />vs. manual outbound</p>
               </div>
               {/* Decorative blob */}
               <div className="absolute -top-8 -right-8 w-48 h-48 bg-electric-100/40 rounded-full blur-2xl pointer-events-none" />
