@@ -15,10 +15,10 @@ export default function UseCases() {
             className="text-center max-w-2xl mx-auto"
           >
             <h1 className="text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight">
-              How Teams Use LeadStrategus
+              How Teams Use LeadStrategus.ai
             </h1>
             <p className="mt-3 text-lg text-gray-500">
-              Real workflows powered by AI agents
+              Real workflows powered by Contextual Intelligence
             </p>
           </motion.div>
         </div>
