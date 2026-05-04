@@ -17,29 +17,44 @@ import { supabase } from '../lib/supabase';
 
 const comparisonRows = [
   {
-    category: 'Speed',
-    us: 'Agents run 24/7, surfacing accounts in minutes',
-    them: 'Manual research takes hours per account',
+    category: 'Signal depth',
+    us: 'LinkedIn Sales Nav + Naukri + Monster + tenders + news + annual reports',
+    them: 'LinkedIn and Apollo — Naukri, Monster, and tenders structurally invisible',
   },
   {
-    category: 'Data Accuracy',
-    us: 'Multi-source cross-referencing with continuous updates',
-    them: 'Static lists that go stale within weeks',
+    category: 'Context per account',
+    us: 'Structured dossier, continuously refreshed from real-market signals',
+    them: 'What you remember to ask the LLM, updated when you find the time',
   },
   {
-    category: 'Automation',
-    us: 'End-to-end pipeline automation across funnel stages',
-    them: 'Fragmented tools requiring manual stitching',
+    category: 'Messaging quality',
+    us: 'Written from the specific signal that triggered the account — not generic',
+    them: 'Drifts into template territory by Month 3 without someone tuning the prompt',
   },
   {
-    category: 'Scalability',
-    us: 'Process thousands of accounts simultaneously',
-    them: 'Limited by team size and manual capacity',
+    category: 'Maintenance burden',
+    us: 'Zero — our operator team maintains it weekly',
+    them: '10+ hours a week after Month 3; founder doing RevOps instead of closing',
   },
   {
-    category: 'Personalization',
-    us: 'Context-aware messaging generated per account',
-    them: 'Generic templates with basic merge fields',
+    category: 'India signal',
+    us: 'Native — Naukri, Monster, GeM, CPPP, state portals, PSU boards',
+    them: 'None — structural blind spot of every US-built tool',
+  },
+  {
+    category: 'Operator expertise',
+    us: '27 years demand-gen DNA, applied to your account list every week',
+    them: 'Whoever is on your team and has time for it',
+  },
+  {
+    category: 'Scale ceiling',
+    us: 'Unlimited',
+    them: '~200 accounts before context quality collapses',
+  },
+  {
+    category: 'Setup time',
+    us: '2–3 weeks, operator-guided',
+    them: '1 weekend prototype; 3–6 months to production-grade',
   },
 ];
 
