@@ -56,14 +56,6 @@ const teamMembers = [
     linkedin: '#',
     email: 'karan@leadstrategus.com',
   },
-  {
-    name: 'Ananya Rao', role: 'Product Designer',
-    description: 'Makes complex pipeline intelligence feel simple and intuitive.',
-    fullBio: 'Ananya brings a product design philosophy rooted in clarity and user trust. She translates the complexity of multi-agent pipeline systems into interfaces that feel natural and approachable. Her work spans the full design spectrum — from agent configuration flows to the dashboards that help teams understand and act on pipeline data.',
-    image: 'https://images.pexels.com/photos/3756681/pexels-photo-3756681.jpeg?auto=compress&cs=tinysrgb&w=400',
-    linkedin: '#',
-    email: 'ananya@leadstrategus.com',
-  },
 ];
 
 const achievements = [
