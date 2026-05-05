@@ -587,13 +587,13 @@ function FinalCTASection() {
             Ready to move past the DIY ceiling?
           </h2>
           <p className="text-gray-600 leading-[1.7] mb-8 max-w-xl mx-auto">
-            Talk to Kingshuk and see how LeadStrategus.ai turns the signals your competitors can't see into meetings on your calendar.
+            Talk to the Team and see how LeadStrategus.ai turns the signals your competitors can't see into meetings on your calendar.
           </p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-navy-900 text-white text-sm font-medium hover:bg-navy-800 transition-colors"
           >
-            Book a Call with Kingshuk
+            Book a Call
             <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
