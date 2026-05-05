@@ -22,18 +22,18 @@ export default function Hero() {
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 leading-tight tracking-tight">
             <div>
-              Contextual Intelligence for B2B Sales.
+              B2B Pipeline, on Autopilot.
             </div>
           
             <div className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-semibold">
               <span className="bg-gradient-to-r from-electric-500 to-electric-700 bg-clip-text text-transparent">
-                ChatGPT + Claude + Clay got you 80% of the way. We take it the rest.
+                LeadStrategus.ai finds the signal, writes the email, and books the meeting. You just show up.
               </span>
             </div>
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
-            LeadStrategus.ai monitors buying signals across LinkedIn Sales Nav, Naukri, Monster, tenders, and news - assembles a context dossier per account, then drafts outreach from the signal. You approve. It sends. Meetings land on your calendar.
+            LeadStrategus does the hunting so your team can focus on closing.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
