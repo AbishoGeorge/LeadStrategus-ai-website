@@ -2,100 +2,290 @@ import { motion } from 'framer-motion';
 
 export default function TermsOfService() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50/50 to-white">
-      <section className="pt-12 sm:pt-20 pb-16 sm:pb-24">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white">
+      <section className="py-16 sm:py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="space-y-12 text-gray-700 leading-relaxed"
           >
-            <h1 className="text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight mb-2">
-              Terms of Service
-            </h1>
-            <p className="text-sm text-gray-400 mb-10">
-              Last updated: April 15, 2026
-            </p>
 
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-lg font-bold text-navy-900 mb-3">
-                  1. Acceptance of Terms
-                </h2>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  By accessing or using LeadStrategus and its services, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, you may not use our platform.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-bold text-navy-900 mb-3">
-                  2. Usage Responsibility
-                </h2>
-                <p className="text-sm text-gray-600 leading-relaxed mb-3">
-                  Users are solely responsible for how they use the data and outputs provided by LeadStrategus agents. This includes ensuring compliance with:
-                </p>
-                <ul className="list-disc list-inside space-y-1.5 text-sm text-gray-600 ml-2">
-                  <li>All applicable local, national, and international laws</li>
-                  <li>Anti-spam regulations (CAN-SPAM, GDPR, and others)</li>
-                  <li>Third-party platform terms of service</li>
-                  <li>Data protection and privacy regulations in your jurisdiction</li>
-                </ul>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-bold text-navy-900 mb-3">
-                  3. No Misuse
-                </h2>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  You agree not to use LeadStrategus for any unlawful, deceptive, or harmful purpose. This includes but is not limited to: sending unsolicited bulk communications in violation of applicable laws, scraping or accessing private or gated data without authorization, impersonating individuals or organizations, or any activity that violates the rights of others.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-bold text-navy-900 mb-3">
-                  4. No Liability
-                </h2>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  LeadStrategus provides its services "as is" without warranties of any kind, express or implied. We are not liable for any direct, indirect, incidental, or consequential damages arising from your use of our platform, including but not limited to loss of data, revenue, or business opportunities. The accuracy, completeness, and timeliness of data provided by our agents cannot be guaranteed.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-bold text-navy-900 mb-3">
-                  5. Intellectual Property
-                </h2>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  All content, technology, branding, and agent designs on the LeadStrategus platform are the intellectual property of LeadStrategus. You may not reproduce, distribute, or create derivative works without prior written consent.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-bold text-navy-900 mb-3">
-                  6. Account Termination
-                </h2>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  We reserve the right to suspend or terminate access to our services at our discretion, particularly in cases of terms violation, misuse, or activities that may harm the platform or other users.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-lg font-bold text-navy-900 mb-3">
-                  7. Changes to Terms
-                </h2>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  We may update these terms from time to time. Continued use of the platform after changes constitutes acceptance of the revised terms. We recommend reviewing this page periodically.
-                </p>
-              </div>
-
-              <div className="pt-6 border-t border-gray-100">
-                <p className="text-sm text-gray-400">
-                  For questions about these terms, contact us at{' '}
-                  <a href="mailto:email@leadstrategus.com" className="text-electric-500 hover:text-electric-600 transition-colors">
-                    email@leadstrategus.com
-                  </a>
-                </p>
-              </div>
+            {/* HEADER */}
+            <div>
+              <h1 className="text-3xl font-bold text-navy-900">Terms of Service</h1>
+              <p className="mt-3 text-sm whitespace-pre-line text-gray-600">
+Effective Date: April 15, 2026
+Last Updated: April 15, 2026
+Governing Entity: LeadStrategus Pvt. Ltd.
+              </p>
+              <p className="mt-6 text-sm text-gray-700">
+Please read these Terms of Service carefully before using the LeadStrategus platform. By accessing or using the Platform, you confirm that you have read, understood, and agree to be bound by these Terms. If you do not agree, do not use the Platform.
+              </p>
             </div>
+
+            {/* 1 */}
+            <section>
+              <h2 className="text-xl font-semibold text-navy-900">1. Acceptance of Terms</h2>
+              <p className="text-sm whitespace-pre-line">
+By registering for, accessing, or using the LeadStrategus platform, website, AI agents, or any associated tools or services (collectively, the "Platform"), you ("User" or "you") agree to these Terms of Service ("Terms") on behalf of yourself and, where applicable, your organisation.
+These Terms constitute a legally binding agreement between you and LeadStrategus Pvt. Ltd. ("Company", "we", "us", or "our"), a company incorporated under the laws of India with its registered office at [INSERT REGISTERED OFFICE ADDRESS], India.
+If you are accepting these Terms on behalf of a company or other legal entity, you represent that you have the authority to bind that entity to these Terms. If you lack such authority, you must not accept these Terms or use the Platform.
+              </p>
+            </section>
+
+            {/* 2 */}
+            <section>
+              <h2 className="text-xl font-semibold text-navy-900">2. Description of Service</h2>
+              <p className="text-sm whitespace-pre-line">
+LeadStrategus is a B2B AI-powered platform that provides tools and agents to help businesses with:
+•	Extracting and structuring data from publicly accessible online sources
+•	Automating prospecting and lead generation workflows
+•	Analysing business information to support sales and marketing decisions
+•	Processing user-provided data inputs through configurable AI agents
+
+The Platform is a self-service software product. We do not perform data collection, prospecting, or outreach activities on your behalf as a managed or agency service. You are solely responsible for how you configure, use, and apply any outputs generated by the Platform.
+              </p>
+            </section>
+
+            {/* 3 */}
+            <section>
+              <h2 className="text-xl font-semibold text-navy-900">3. Accounts and Registration</h2>
+              <p className="text-sm whitespace-pre-line">
+To access the Platform, you must create an account and provide accurate, complete, and current registration information. You agree to:
+•	Keep your account credentials confidential and not share them with third parties
+•	Notify us immediately at legal@leadstrategus.com if you suspect unauthorised access to your account
+•	Be responsible for all activity that occurs under your account
+
+We reserve the right to reject registration applications or suspend accounts at our sole discretion, particularly where we have reason to believe that information provided is inaccurate or that intended use violates these Terms.
+              </p>
+            </section>
+
+            {/* 4 */}
+            <section>
+              <h2 className="text-xl font-semibold text-navy-900">4. Subscription, Billing, and Payments</h2>
+              <p className="text-sm whitespace-pre-line">
+4.1 Subscription Plans
+Access to the Platform is offered on a subscription basis. Details of available plans, pricing, and included features are set out on our website and may be updated from time to time. Continued use of the Platform after a pricing update constitutes acceptance of the new pricing.
+
+4.2 Payment Terms
+All fees are charged in advance for the relevant subscription period (monthly or annual). Payments are processed through our third-party payment provider. By providing payment information, you authorise us to charge the applicable fees to your designated payment method.
+•	All fees are exclusive of applicable taxes (including GST), which will be added where applicable
+•	Fees are non-refundable except as expressly stated in Section 4.4 below
+•	If a payment fails, we may suspend access to the Platform until payment is resolved
+
+4.3 Auto-Renewal
+Subscriptions automatically renew at the end of each billing period unless cancelled before the renewal date. You are responsible for managing your subscription and ensuring you cancel before renewal if you do not wish to continue. We will send a renewal reminder where operationally practicable.
+
+4.4 Cancellations and Refunds
+You may cancel your subscription at any time through your account settings or by contacting us at legal@leadstrategus.com. The following terms apply:
+•	Monthly subscriptions: Cancellation takes effect at the end of the current billing month. No partial refunds are issued for the remaining days of the month.
+•	Annual subscriptions: Cancellation takes effect at the end of the current annual term. No refund is provided for unused months of the annual term, except as required by applicable consumer law.
+•	Refund exceptions: If the Platform experiences a verified, sustained outage of more than 72 consecutive hours within a billing period due to our fault, you may request a pro-rata credit for the affected period. Such credits are at our discretion and issued as account credits, not cash refunds.
+•	Wrongful charge: If you are charged in error, notify us within 30 days of the charge. We will investigate and issue a refund where a billing error is confirmed.
+
+4.5 Free Trials
+If we offer a free trial, access is provided for the stated trial period only. At the end of the trial, your subscription will convert to a paid plan unless you cancel before the trial ends. We will notify you before any charge is applied.
+              </p>
+            </section>
+
+            {/* 5 */}
+            <section>
+              <h2 className="text-xl font-semibold text-navy-900">5. User Responsibilities</h2>
+              <p className="text-sm whitespace-pre-line">
+By using the Platform, you represent, warrant, and agree that:
+•	You are solely responsible for ensuring your use of the Platform complies with all applicable laws and regulations in your jurisdiction and any jurisdiction in which you operate.
+•	You are solely responsible for ensuring your use of the Platform complies with the terms of service, usage policies, and acceptable use guidelines of any third-party platform, website, or service from or through which data is accessed.
+•	You will not use the Platform to process, store, or handle data in a manner that violates any applicable data protection or privacy law, including but not limited to the Digital Personal Data Protection Act, 2023 (India) ("DPDP Act"), the General Data Protection Regulation (EU/UK) ("GDPR"), or equivalent laws.
+•	You will obtain all necessary consents, licences, and authorisations before using any data in connection with the Platform.
+•	You will not hold LeadStrategus liable for any consequences arising from your failure to comply with applicable laws or third-party platform policies.
+              </p>
+            </section>
+
+            {/* 6 */}
+            <section>
+              <h2 className="text-xl font-semibold text-navy-900">6. Acceptable Use Policy</h2>
+              <p className="text-sm whitespace-pre-line">
+You agree to use the Platform only for lawful, legitimate business purposes. Permitted uses include:
+•	B2B prospecting and lead research for legitimate commercial purposes
+•	Structuring and analysing publicly available company or professional information
+•	Building internal business datasets for sales and marketing operations
+
+You must not use the Platform in any way that:
+•	Violates any local, national, or international law or regulation
+•	Infringes upon the intellectual property rights or privacy rights of any individual or organisation
+•	Involves the collection or processing of sensitive personal data without a lawful basis
+•	Is intended to harm, harass, or target any individual
+              </p>
+            </section>
+
+            {/* 7 */}
+            <section>
+              <h2 className="text-xl font-semibold text-navy-900">7. Prohibited Activities</h2>
+              <p className="text-sm whitespace-pre-line">
+The following activities are strictly prohibited. Violation may result in immediate account termination and legal action where appropriate.
+
+•	Accessing, extracting, or processing data from private, restricted, password-protected, or non-public areas of any website or platform
+•	Circumventing, bypassing, or disabling any technical protection measure, authentication system, rate limiter, CAPTCHA, or access control implemented by any third party
+•	Using the Platform in a manner that violates the terms of service of any third-party platform, including but not limited to LinkedIn, professional networks, or job boards
+•	Scraping or processing personal data of individuals without a lawful basis under applicable data protection law
+•	Reverse-engineering, decompiling, or disassembling the Platform or attempting to derive its source code
+•	Reselling, sublicensing, or providing unauthorised access to the Platform to third parties
+•	Using the Platform to send unsolicited commercial communications in violation of applicable anti-spam laws
+•	Introducing viruses, malware, or any other harmful code into the Platform or its connected systems
+•	Misrepresenting your identity, organisation, or intended use to obtain or maintain access to the Platform
+              </p>
+            </section>
+
+            {/* 8 */}
+            <section>
+              <h2 className="text-xl font-semibold text-navy-900">8. Third-Party Platforms</h2>
+              <p className="text-sm whitespace-pre-line">
+8.1 No Affiliation
+LeadStrategus Pvt. Ltd. is an independent software company. We have no affiliation, partnership, endorsement, or association with LinkedIn Corporation, Microsoft Corporation, or any other third-party platform referenced in connection with our tools. All third-party names, trademarks, logos, and service marks are the property of their respective owners.
+
+8.2 User Compliance Responsibility
+Where Platform tools operate in connection with data from third-party platforms, it is your sole and exclusive responsibility to:
+•	Review and comply with the terms of service, API usage policies, and data use restrictions of any relevant third-party platform before using our tools in that context
+•	Independently determine whether your intended use case is permitted under the applicable third-party platform's policies
+•	Obtain any necessary authorisation, consent, or licence from the relevant third-party before proceeding
+
+LeadStrategus does not represent that the use of any tool is compliant with any third-party platform's terms. We expressly disclaim all liability for account suspensions, bans, legal actions, or other consequences arising from your use of the Platform in connection with third-party platforms.
+
+8.3 Public Data Focus
+Our Platform is designed to work with publicly accessible data, information visible and accessible without authentication, login credentials, or circumvention of any access control. The Platform is not intended to access private, restricted, or proprietary data. You are responsible for confirming that data you process is lawfully accessible.
+
+8.4 No Guarantee of Compatibility
+Third-party platforms may change their technical infrastructure, APIs, access controls, or terms at any time without notice. LeadStrategus does not guarantee that any tool will remain functional or compatible with any specific third-party platform. We accept no liability for disruptions resulting from third-party platform changes.
+              </p>
+            </section>
+
+            {/* 9–18 (same exact pattern) */}
+{/* 9 */}
+<section>
+  <h2 className="text-xl font-semibold text-navy-900">9. Data Usage and Outputs</h2>
+  <p className="text-sm whitespace-pre-line">
+•	Data outputs are provided for informational and workflow automation purposes only. They do not constitute legal, financial, or professional advice.
+•	LeadStrategus does not verify, guarantee, or warrant the accuracy, completeness, currency, or fitness for purpose of any data output.
+•	You are solely responsible for verifying any data before relying on it for business decisions, outreach, or other purposes.
+•	LeadStrategus is not responsible for errors, inaccuracies, or outdated information in outputs generated by the Platform.
+  </p>
+</section>
+
+{/* 10 */}
+<section>
+  <h2 className="text-xl font-semibold text-navy-900">10. No Affiliation Clause</h2>
+  <p className="text-sm whitespace-pre-line">
+LeadStrategus Pvt. Ltd. is not affiliated with, endorsed by, authorised by, or in any way officially connected to LinkedIn Corporation, Microsoft, Indeed, Glassdoor, ZoomInfo, Apollo.io, or any other third-party data source or platform. Any reference to such platforms is solely for the purpose of describing the nature of our tools and does not imply any partnership, approval, or sponsorship.
+All product names, company names, trade names, and trademarks mentioned on the Platform belong to their respective owners.
+  </p>
+</section>
+
+{/* 11 */}
+<section>
+  <h2 className="text-xl font-semibold text-navy-900">11. Intellectual Property</h2>
+  <p className="text-sm whitespace-pre-line">
+All software, algorithms, AI models, tools, user interfaces, designs, documentation, and content comprising the LeadStrategus Platform are the exclusive intellectual property of LeadStrategus Pvt. Ltd. or its licensors, protected under the Copyright Act, 1957 (India) and applicable international intellectual property laws.
+Subject to these Terms, we grant you a limited, non-exclusive, non-transferable, revocable licence to access and use the Platform for your internal business purposes only. This licence does not include the right to:
+•	Copy, reproduce, or distribute any portion of the Platform
+•	Create derivative works based on the Platform
+•	Use automated tools to scrape content from the Platform itself
+•	Remove or alter any proprietary notices or labels
+  </p>
+</section>
+
+{/* 12 */}
+<section>
+  <h2 className="text-xl font-semibold text-navy-900">12. Limitation of Liability</h2>
+  <p className="text-sm whitespace-pre-line">
+12.1 No Consequential Damages
+TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, LEADSTRATEGUS, ITS DIRECTORS, EMPLOYEES, AGENTS, PARTNERS, AND LICENSORS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING WITHOUT LIMITATION LOSS OF PROFITS, REVENUE, DATA, BUSINESS OPPORTUNITIES, OR GOODWILL, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+12.2 Liability Cap
+TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, OUR TOTAL CUMULATIVE LIABILITY FOR ANY CLAIM ARISING OUT OF OR RELATED TO THESE TERMS OR YOUR USE OF THE PLATFORM SHALL NOT EXCEED THE GREATER OF: (A) THE AMOUNT YOU PAID TO US IN THE THREE (3) MONTHS IMMEDIATELY PRECEDING THE RELEVANT EVENT, OR (B) INR 5,000.
+
+12.3 Specific Exclusions
+Without limiting the foregoing, LeadStrategus accepts no liability for:
+•	Any account suspension, ban, or restriction imposed by a third-party platform
+•	Any legal action initiated against you by a third-party platform or individual
+•	Inaccuracy, incompleteness, or staleness of data outputs
+•	Loss resulting from reliance on Platform outputs for business decisions
+•	Your breach of any third-party platform's terms of service
+•	Interruption, downtime, or unavailability of the Platform or any connected service
+
+Some jurisdictions do not allow certain liability exclusions or limitations. In such jurisdictions, our liability is limited to the minimum extent permitted by law.
+  </p>
+</section>
+
+{/* 13 */}
+<section>
+  <h2 className="text-xl font-semibold text-navy-900">13. Indemnification</h2>
+  <p className="text-sm whitespace-pre-line">
+You agree to indemnify, defend, and hold harmless LeadStrategus and its directors, officers, employees, agents, and licensors from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or related to:
+•	Your use of the Platform
+•	Your violation of these Terms
+•	Your violation of any applicable law, regulation, or third-party rights
+•	Your breach of any third-party platform's terms of service
+•	Any data you submit, process, or generate through the Platform
+  </p>
+</section>
+
+{/* 14 */}
+<section>
+  <h2 className="text-xl font-semibold text-navy-900">14. Disclaimers</h2>
+  <p className="text-sm whitespace-pre-line">
+THE PLATFORM IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT ANY WARRANTY OF ANY KIND. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, LEADSTRATEGUS EXPRESSLY DISCLAIMS ALL WARRANTIES, INCLUDING:
+•	Warranties of merchantability, fitness for a particular purpose, and non-infringement
+•	Any warranty that the Platform will be uninterrupted, error-free, or free of harmful components
+•	Any warranty regarding the accuracy, reliability, or completeness of data outputs
+•	Any warranty that the Platform will remain compatible with any third-party platform or service
+  </p>
+</section>
+
+{/* 15 */}
+<section>
+  <h2 className="text-xl font-semibold text-navy-900">15. Termination</h2>
+  <p className="text-sm whitespace-pre-line">
+We reserve the right to suspend or terminate your access to the Platform at any time, with or without prior notice, if we determine that:
+•	You have violated any provision of these Terms
+•	Your use poses a legal, reputational, or security risk to LeadStrategus or any third party
+•	We are required to do so under applicable law or a regulatory directive
+
+Upon termination, your right to access the Platform will immediately cease. All provisions which by their nature should survive termination (including limitation of liability, indemnification, intellectual property, and governing law) shall survive.
+  </p>
+</section>
+
+{/* 16 */}
+<section>
+  <h2 className="text-xl font-semibold text-navy-900">16. Governing Law and Disputes</h2>
+  <p className="text-sm whitespace-pre-line">
+These Terms are governed by the laws of India. The courts of [City, India, e.g., Bengaluru] shall have exclusive jurisdiction over any dispute arising from these Terms.
+In the event of a dispute, both parties agree to first attempt resolution through good-faith negotiation for a period of thirty (30) days before initiating formal proceedings.
+  </p>
+</section>
+
+{/* 17 */}
+<section>
+  <h2 className="text-xl font-semibold text-navy-900">17. Changes to Terms</h2>
+  <p className="text-sm whitespace-pre-line">
+We may modify these Terms at any time. For material changes, we will notify you through the Platform or by email at least fourteen (14) days before changes take effect where reasonably practicable. Continued use of the Platform after the effective date of changes constitutes acceptance of the revised Terms.
+  </p>
+</section>
+
+{/* 18 */}
+<section>
+  <h2 className="text-xl font-semibold text-navy-900">18. Miscellaneous</h2>
+  <p className="text-sm whitespace-pre-line">
+Severability: If any provision is found invalid or unenforceable, it shall be modified to the minimum extent necessary, and remaining provisions remain in full force.
+
+Entire Agreement: These Terms, together with the Privacy Policy and any applicable DPA, constitute the entire agreement between you and LeadStrategus regarding the Platform.
+
+Contact: legal@leadstrategus.com  ·  [INSERT REGISTERED OFFICE ADDRESS], India
+  </p>
+</section>
+
           </motion.div>
         </div>
       </section>
