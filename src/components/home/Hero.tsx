@@ -48,7 +48,7 @@ export default function Hero() {
               to="/contact"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-navy-200 text-navy-900 font-medium hover:border-navy-300 hover:bg-navy-50 transition-all"
             >
-              Book a Call with Kingshuk
+              Book a Call
             </Link>
           </div>
         </motion.div>
