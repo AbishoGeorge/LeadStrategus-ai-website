@@ -5,7 +5,7 @@ import logoImg from '../../assets/logo.png';
 const productLinks = [
   { label: 'All Agents', to: '/agents' },
   { label: 'Custom Build', to: '/build' },
-  { label: 'Book a Call with Kingshuk', to: '/contact' },
+  { label: 'Book a Call', to: '/contact' },
 ];
 
 const resourceLinks = [
