@@ -20,7 +20,7 @@ export default function CTASection() {
               Ready to see what's after the DIY ceiling?
             </h2>
             <p className="text-lg text-gray-300 max-w-xl mx-auto mb-8">
-              Explore the full agent system, or talk to Kingshuk about a custom deployment.
+              Explore the full agent system, or talk to the team about a custom deployment.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
@@ -34,7 +34,7 @@ export default function CTASection() {
                 to="/contact"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-white/20 text-white font-medium hover:bg-white/10 transition-colors"
               >
-                Book a Call with Kingshuk
+                Book a Call
               </Link>
             </div>
           </div>
