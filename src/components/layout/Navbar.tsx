@@ -96,7 +96,7 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className="block w-full text-center px-4 py-2 rounded-xl bg-navy-900 text-white text-sm font-medium"
                 >
-                  Book a Call with Kingshuk
+                  Book a Call
                 </Link>
               </div>
             </div>
