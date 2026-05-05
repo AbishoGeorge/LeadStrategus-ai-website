@@ -327,6 +327,52 @@ export default function About() {
         </div>
       </section>
 
+      {/* ── METRICS ───────────────────────────────────────────────────────── */}
+      <section className="py-20 sm:py-28 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0B1A32 0%, #142647 50%, #0d3870 100%)' }}>
+        {/* Background decoration */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden>
+          <div className="absolute top-0 left-1/4 w-80 h-80 rounded-full bg-electric-500/10 blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-blue-400/10 blur-3xl" />
+          <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="dot2" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.5" fill="white" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#dot2)" />
+          </svg>
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="show"
+            viewport={{ once: true }} transition={{ duration: 0.5 }}
+            className="text-center mb-14"
+          >
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-electric-300 mb-4">By the numbers</span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight">What We've Built</h2>
+            <p className="mt-4 text-blue-200/70 text-base max-w-md mx-auto leading-relaxed">
+              Numbers from real pipeline work, not marketing projections.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+            {achievements.map((item, i) => (
+              <motion.div
+                key={item.label}
+                variants={fadeUp} initial="hidden" whileInView="show"
+                viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.1 }}
+                className="relative p-8 rounded-3xl bg-white/5 border border-white/10 text-center backdrop-blur-sm hover:bg-white/10 transition-colors duration-300"
+              >
+                <p className="text-4xl sm:text-5xl font-bold text-white tracking-tight">{item.value}</p>
+                <div className="w-6 h-0.5 bg-electric-400/60 mx-auto my-3 rounded-full" />
+                <p className="text-xs font-semibold text-blue-200/70 uppercase tracking-wider leading-snug">{item.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
       {/* ── OUR STORY ─────────────────────────────────────────────────────── */}
       <section className="py-20 sm:py-28" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #eef5fb 50%, #f4f7fb 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -495,52 +541,6 @@ export default function About() {
                 </motion.div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── METRICS ───────────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-28 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0B1A32 0%, #142647 50%, #0d3870 100%)' }}>
-        {/* Background decoration */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden>
-          <div className="absolute top-0 left-1/4 w-80 h-80 rounded-full bg-electric-500/10 blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-blue-400/10 blur-3xl" />
-          <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="dot2" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1.5" fill="white" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#dot2)" />
-          </svg>
-        </div>
-
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={fadeUp} initial="hidden" whileInView="show"
-            viewport={{ once: true }} transition={{ duration: 0.5 }}
-            className="text-center mb-14"
-          >
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-electric-300 mb-4">By the numbers</span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight">What We've Built</h2>
-            <p className="mt-4 text-blue-200/70 text-base max-w-md mx-auto leading-relaxed">
-              Numbers from real pipeline work, not marketing projections.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-            {achievements.map((item, i) => (
-              <motion.div
-                key={item.label}
-                variants={fadeUp} initial="hidden" whileInView="show"
-                viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.1 }}
-                className="relative p-8 rounded-3xl bg-white/5 border border-white/10 text-center backdrop-blur-sm hover:bg-white/10 transition-colors duration-300"
-              >
-                <p className="text-4xl sm:text-5xl font-bold text-white tracking-tight">{item.value}</p>
-                <div className="w-6 h-0.5 bg-electric-400/60 mx-auto my-3 rounded-full" />
-                <p className="text-xs font-semibold text-blue-200/70 uppercase tracking-wider leading-snug">{item.label}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
