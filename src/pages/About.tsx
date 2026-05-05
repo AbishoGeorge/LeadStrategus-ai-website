@@ -442,53 +442,84 @@ export default function About() {
           </div>
         </div>
       </section>
-
+      
       {/* ── OUR PURPOSE ───────────────────────────────────────────────────── */}
-      <section className="py-20 sm:py-28" style={{ background: 'linear-gradient(160deg, #e8f2fc 0%, #f0f7ff 35%, #f8fbff 70%, #ffffff 100%)' }}>
+      <section
+        className="py-20 sm:py-28"
+        style={{
+          background:
+            'linear-gradient(160deg, #e8f2fc 0%, #f0f7ff 35%, #f8fbff 70%, #ffffff 100%)',
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
+      
             {/* Left: text */}
             <motion.div
-              variants={fadeUp} initial="hidden" whileInView="show"
-              viewport={{ once: true }} transition={{ duration: 0.55 }}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              transition={{ duration: 0.55 }}
             >
-              <span className="inline-block text-xs font-bold uppercase tracking-widest text-electric-500 mb-4">Our Purpose</span>
-              <h2 className="text-4xl sm:text-5xl font-bold text-navy-900 leading-[1.1] mb-8">Why we built the agents</h2>
-
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-electric-500 mb-4">
+                Our Purpose
+              </span>
+      
+              <h2 className="text-4xl sm:text-5xl font-bold text-navy-900 leading-[1.1] mb-8">
+                Why we built the agents
+              </h2>
+      
               <div className="space-y-5">
                 <p className="text-gray-500 leading-[1.9] text-base">
-                  The manual motion worked. But it had a ceiling.
+                  The manual motion wasn’t broken. It was constrained.
                 </p>
+      
                 <p className="text-gray-500 leading-[1.9] text-base">
-                  A human analyst can watch 20 accounts a day. An agent watches 2,000. A researcher reads one tender portal. The engine reads twelve simultaneously. An SDR rewrites the same opening line for every prospect. The agent writes from the specific signal that triggered that account, this morning.
+                  A human can track signals. An agent never stops seeing them.
+                  A human can prioritize accounts. An agent does it across thousands in parallel.
+                  A human writes from memory. An agent writes from what changed in the market — this morning.
                 </p>
+      
                 <p className="text-gray-500 leading-[1.9] text-base">
-                  We didn't build LeadStrategus.ai to replace what we were doing. We built it to do what we were doing, at a scale no human team ever could.
+                  The limitation was never execution. It was attention.
                 </p>
-                <p className="text-gray-500 leading-[1.9] text-base">The result:</p>
+      
+                <p className="text-gray-500 leading-[1.9] text-base">
+                  So we stopped optimizing manual workflows and rebuilt the system around continuous intelligence —
+                  where signals don’t wait, and neither does outreach.
+                </p>
+      
+                <p className="text-gray-500 leading-[1.9] text-base font-medium text-navy-700">
+                  We didn’t automate outreach. We automated context.
+                </p>
               </div>
-
+      
               <ul className="mt-6 space-y-3.5">
                 {[
-                  'Always-on monitoring across LinkedIn, Naukri, Monster, tenders, news, and tech-stack sources',
-                  'Signal interpretation that runs while you sleep, not while your analyst is at their desk',
-                  'Outreach drafted from real context, not recycled templates',
+                  'Always-on signal detection across hiring, funding, intent, and tech stack changes',
+                  'Account intelligence that updates continuously, not in campaign cycles',
+                  'Outreach generated from real-time context, not static sequences',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3.5">
                     <div className="mt-1.5 w-5 h-5 rounded-full bg-electric-100 flex items-center justify-center shrink-0">
                       <span className="w-1.5 h-1.5 rounded-full bg-electric-500" />
                     </div>
-                    <span className="text-gray-500 text-sm leading-relaxed">{item}</span>
+                    <span className="text-gray-500 text-sm leading-relaxed">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>
             </motion.div>
-
+      
             {/* Right: visual */}
             <motion.div
-              variants={fadeUp} initial="hidden" whileInView="show"
-              viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.15 }}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: 0.15 }}
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
@@ -499,18 +530,23 @@ export default function About() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-navy-900/40 via-transparent to-electric-500/10" />
               </div>
+      
               {/* Floating stat card */}
               <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl border border-gray-100 px-5 py-4">
                 <p className="text-2xl font-bold text-navy-900">3x</p>
-                <p className="text-xs text-gray-400 mt-0.5 leading-tight">avg. pipeline velocity<br />vs. manual outbound</p>
+                <p className="text-xs text-gray-400 mt-0.5 leading-tight">
+                  avg. pipeline velocity<br />vs. manual outbound
+                </p>
               </div>
+      
               {/* Decorative blob */}
               <div className="absolute -top-8 -right-8 w-48 h-48 bg-electric-100/40 rounded-full blur-2xl pointer-events-none" />
             </motion.div>
+      
           </div>
         </div>
       </section>
-
+      
       {/* ── WHAT DRIVES US ────────────────────────────────────────────────── */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
