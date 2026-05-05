@@ -312,10 +312,10 @@ export default function About() {
               <span className="text-xs font-semibold text-electric-600 tracking-widest uppercase">About LeadStrategus</span>
             </div>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-navy-900 tracking-tight leading-[1.05]">
-              We build systems,{' '}
+              We build systems{' '}
               <span className="relative">
                 <span className="bg-gradient-to-r from-electric-500 to-electric-700 bg-clip-text text-transparent">
-                  not services.
+                  that do the selling for you.
                 </span>
                 <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-electric-400/60 to-transparent rounded-full" />
               </span>
@@ -478,7 +478,7 @@ export default function About() {
                 <p className="text-gray-500 leading-[1.9] text-base">
                   A human can track signals. An agent never stops seeing them.
                   A human can prioritize accounts. An agent does it across thousands in parallel.
-                  A human writes from memory. An agent writes from what changed in the market — this morning.
+                  A human writes from memory. An agent writes from what changed in the market, this morning.
                 </p>
       
                 <p className="text-gray-500 leading-[1.9] text-base">
@@ -486,7 +486,7 @@ export default function About() {
                 </p>
       
                 <p className="text-gray-500 leading-[1.9] text-base">
-                  So we stopped optimizing manual workflows and rebuilt the system around continuous intelligence —
+                  So we stopped optimizing manual workflows and rebuilt the system around continuous intelligence -
                   where signals don’t wait, and neither does outreach.
                 </p>
       
