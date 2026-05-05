@@ -13,13 +13,15 @@ export default function TermsOfService() {
           >
             <div>
               <h1 className="text-3xl font-bold text-navy-900">Terms of Service</h1>
-              <p className="mt-3 text-sm whitespace-pre-line text-gray-600">
-<li>Effective Date: April 15, 2026</li>
-<li>Last Updated: April 15, 2026</li>li>
-<li>Governing Entity: LeadStrategus Pvt. Ltd.</li>li>
-              </p>
+            
+              <ul className="mt-3 text-sm text-gray-600 space-y-1">
+                <li>Effective Date: April 15, 2026</li>
+                <li>Last Updated: April 15, 2026</li>
+                <li>Governing Entity: LeadStrategus Pvt. Ltd.</li>
+              </ul>
+            
               <p className="mt-6 text-sm text-gray-700">
-Please read these Terms of Service carefully before using the LeadStrategus platform. By accessing or using the Platform, you confirm that you have read, understood, and agree to be bound by these Terms. If you do not agree, do not use the Platform.
+                Please read these Terms of Service carefully before using the LeadStrategus platform. By accessing or using the Platform, you confirm that you have read, understood, and agree to be bound by these Terms. If you do not agree, do not use the Platform.
               </p>
             </div>
 
