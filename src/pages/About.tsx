@@ -689,7 +689,7 @@ export default function About() {
                   to="/contact"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-navy-900 text-white text-sm font-semibold hover:bg-navy-800 transition-colors shadow-lg shadow-navy-900/20"
                 >
-                  Book a Call with Kingshuk <ArrowRight className="w-4 h-4" />
+                  Book a Call <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/agents"
