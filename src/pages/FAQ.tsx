@@ -127,13 +127,13 @@ export default function FAQ() {
               Still have questions?
             </h2>
             <p className="text-sm text-gray-500 mb-6">
-              Book a call with Kingshuk. Twenty minutes. Straight answers.
+              Book a call. Twenty minutes. Straight answers.
             </p>
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-navy-900 text-white text-sm font-medium hover:bg-navy-800 transition-colors"
             >
-              Book a Call with Kingshuk
+              Book a Call
               <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
