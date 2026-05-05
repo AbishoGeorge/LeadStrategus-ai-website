@@ -17,7 +17,6 @@ const resourceLinks = [
 const companyLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
-  { label: 'Blog', to: '/blog' },
   { label: 'The Team', to: '/about#team' },
 ];
 
