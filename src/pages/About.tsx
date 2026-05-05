@@ -20,7 +20,7 @@ const teamMembers = [
     name: 'Kingshuk Hazra', role: 'Founder & CEO',
     description: 'Built demand gen engines at AWS, SAP, Oracle, Gartner, and Pluralsight before founding LeadStrategus in 2018.',
     fullBio: 'Kingshuk has spent 25 years building B2B pipeline programmes from the ground up, as the first marketing hire at AWS India, SAP, Oracle Consulting, Gartner, and Pluralsight. He founded LeadStrategus in 2018 to bring that same signal-led, research-backed motion to other B2B teams. Eight years later, LeadStrategus.ai is the automated version of everything the agency learned. Stats graduate and MBA from IIFT.',
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://github.com/AbishoGeorge/LeadStrategus-ai-website/blob/main/public/profile.png?raw=true',
     linkedin: 'https://www.linkedin.com/in/kingshuk/',
     email: 'kingshuk@leadstrategus.com',
   },
