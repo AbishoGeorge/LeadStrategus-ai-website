@@ -61,7 +61,7 @@ export default function Contact() {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight">
-                Book a call with Kingshuk.
+                Let's Talk.
               </h1>
               <p className="mt-4 text-lg text-gray-500">
                 Twenty minutes, no slides. Whether you want to try a single agent, deploy the full Contextual Intelligence pipeline, or get an honest second opinion on your current DIY stack.
