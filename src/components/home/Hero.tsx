@@ -32,10 +32,6 @@ export default function Hero() {
             </div>
           </h1>
 
-          <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
-            LeadStrategus does the hunting so your team can focus on closing.
-          </p>
-
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/agents"
