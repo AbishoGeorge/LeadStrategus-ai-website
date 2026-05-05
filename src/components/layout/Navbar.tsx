@@ -54,7 +54,7 @@ export default function Navbar() {
               to="/contact"
               className="px-4 py-2 rounded-xl bg-navy-900 text-white text-sm font-medium hover:bg-navy-800 transition-colors"
             >
-              Book a Call with Kingshuk
+              Book a Call
             </Link>
           </div>
 
