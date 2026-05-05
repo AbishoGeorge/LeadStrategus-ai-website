@@ -8,14 +8,14 @@ const teamMembers = [
     name: 'Arjun Nair',
     role: 'Founder & CEO',
     description: 'Builds systems that turn data into pipeline.',
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://github.com/AbishoGeorge/LeadStrategus-ai-website/blob/main/public/profile.png?raw=true',
     linkedin: '#',
   },
   {
     name: 'Priya Menon',
     role: 'Head of GTM Strategy',
     description: 'Turns revenue goals into executable AI-driven workflows.',
-    image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://github.com/AbishoGeorge/LeadStrategus-ai-website/blob/main/public/profile.png?raw=true',
     linkedin: '#',
   },
   {
