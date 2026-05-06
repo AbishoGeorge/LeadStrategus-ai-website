@@ -15,7 +15,6 @@ export default function TermsOfService() {
               <h1 className="text-3xl font-bold text-navy-900">Terms of Service</h1>
             
               <ul className="mt-3 text-sm text-gray-600 space-y-1">
-                <li>Effective Date: April 15, 2026</li>
                 <li>Last Updated: April 15, 2026</li>
                 <li>Governing Entity: LeadStrategus Pvt. Ltd.</li>
               </ul>
@@ -61,7 +60,7 @@ export default function TermsOfService() {
               </p>
               <ul className="list-disc pl-5 space-y-1.5 text-sm leading-relaxed">
                 <li>Keep your account credentials confidential and not share them with third parties</li>
-                <li>Notify us immediately at legal@leadstrategus.com if you suspect unauthorised access to your account</li>
+                <li>Notify us immediately at kingshuk@leadstrategus.com if you suspect unauthorised access to your account</li>
                 <li>Be responsible for all activity that occurs under your account</li>
               </ul>
               <p className="text-sm leading-relaxed">
@@ -101,7 +100,7 @@ export default function TermsOfService() {
               <div className="space-y-3">
                 <h3 className="text-lg font-semibold text-navy-900">4.4 Cancellations and Refunds</h3>
                 <p className="text-sm leading-relaxed">
-                  You may cancel your subscription at any time through your account settings or by contacting us at legal@leadstrategus.com. The following terms apply:
+                  You may cancel your subscription at any time through your account settings or by contacting us at kingshuk@leadstrategus.com. The following terms apply:
                 </p>
                 <ul className="list-disc pl-5 space-y-1.5 text-sm leading-relaxed">
                   <li>Monthly subscriptions: Cancellation takes effect at the end of the current billing month. No partial refunds are issued for the remaining days of the month.</li>
@@ -355,7 +354,7 @@ export default function TermsOfService() {
                 Entire Agreement: These Terms, together with the Privacy Policy and any applicable DPA, constitute the entire agreement between you and LeadStrategus regarding the Platform.
               </p>
               <p className="text-sm leading-relaxed">
-                Contact: legal@leadstrategus.com  ·  Bengaluru, India
+                Contact: kingshuk@leadstrategus.com  ·  Bengaluru, India
               </p>
             </section>
           </motion.div>
