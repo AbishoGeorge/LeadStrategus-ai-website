@@ -147,9 +147,7 @@ export default function TrustCenter() {
             <div>
               <h2 className="text-base font-bold text-navy-900 mb-2">7. Contact and Reporting</h2>
               <ul className="space-y-1">
-                <li>General enquiries: hello@leadstrategus.com</li>
-                <li>Privacy concerns: privacy@leadstrategus.com</li>
-                <li>Legal: legal@leadstrategus.com</li>
+                <li>enquiries: kingshuk@leadstrategus.com</li>
               </ul>
 
               <p className="mt-3">
