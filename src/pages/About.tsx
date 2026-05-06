@@ -309,7 +309,7 @@ export default function About() {
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-50 border border-electric-100 mb-7">
               <span className="w-1.5 h-1.5 rounded-full bg-electric-500 animate-pulse" />
-              <span className="text-xs font-semibold text-electric-600 tracking-widest uppercase">About LeadStrategus</span>
+              <span className="text-xs font-semibold text-electric-600 tracking-widest uppercase">About LeadStrategus.ai</span>
             </div>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-navy-900 tracking-tight leading-[1.05]">
               We build systems{' '}
