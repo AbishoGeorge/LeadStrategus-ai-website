@@ -17,7 +17,6 @@ export default function PrivacyPolicy() {
             </h1>
 
             <div className="text-sm text-gray-500 space-y-1 mb-8">
-              <p>Effective Date: April 15, 2026</p>
               <p>Last Updated: April 15, 2026</p>
               <p>Governing Entity: LeadStrategus Pvt. Ltd.</p>
             </div>
@@ -85,7 +84,7 @@ export default function PrivacyPolicy() {
               <h2 className="text-lg font-bold text-navy-900 mb-3">4. Personal Data Processed Through the Platform</h2>
               <p>
                 Where you use the Platform to process data about third parties (e.g., business contact details from public sources):
-                LeadStrategus Pvt. Ltd. acts as a data processor. You, as the user, are the data controller and are solely responsible for establishing a lawful basis for processing such data. You are responsible for honouring any data subject rights requests (access, correction, deletion) relating to personal data you process through the Platform. We do not access or use personal data processed by you through Platform workflows for our own purposes, except as required to provide the service or as required by law. If you require a formal Data Processing Agreement (DPA), which is common for enterprise and EU/UK clients, please refer to Document III of this pack or contact us at legal@leadstrategus.com.
+                LeadStrategus Pvt. Ltd. acts as a data processor. You, as the user, are the data controller and are solely responsible for establishing a lawful basis for processing such data. You are responsible for honouring any data subject rights requests (access, correction, deletion) relating to personal data you process through the Platform. We do not access or use personal data processed by you through Platform workflows for our own purposes, except as required to provide the service or as required by law. If you require a formal Data Processing Agreement (DPA), which is common for enterprise and EU/UK clients, please refer to Document III of this pack or contact us at kingshuk@leadstrategus.com.
               </p>
             </section>
 
@@ -155,7 +154,7 @@ export default function PrivacyPolicy() {
                 <li>Lodge a complaint</li>
               </ul>
               <p className="mt-3">
-                Contact: privacy@leadstrategus.com
+                Contact: kingshuk@leadstrategus.com
               </p>
             </section>
 
@@ -183,7 +182,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-lg font-bold text-navy-900 mb-3">14. Contact</h2>
               <p>
-                Privacy enquiries: privacy@leadstrategus.com<br />
+                Privacy enquiries: kingshuk@leadstrategus.com<br />
                 Registered office: Bengaluru, India
               </p>
             </section>
