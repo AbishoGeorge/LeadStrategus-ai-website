@@ -321,7 +321,7 @@ export default function About() {
               </span>
             </h1>
             <p className="mt-7 text-xl text-gray-400 leading-[1.8] max-w-2xl">
-              LeadStrategus exists because B2B revenue teams deserve better tools. Not more consultants. Not more dashboards. Better systems that do the work.
+              LeadStrategus.ai exists because B2B revenue teams deserve better tools. Not more consultants. Not more dashboards. Better systems that do the work.
             </p>
           </motion.div>
         </div>
