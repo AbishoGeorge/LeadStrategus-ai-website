@@ -74,7 +74,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-navy-900">Email</h3>
-                    <p className="text-sm text-gray-500 mt-0.5">hello@leadstrategus.ai</p>
+                    <p className="text-sm text-gray-500 mt-0.5">kingshuk@leadstrategus.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -156,7 +156,7 @@ export default function Contact() {
                       value={form.email}
                       onChange={(e) => updateField('email', e.target.value)}
                       className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all text-sm"
-                      placeholder="you@company.com"
+                      placeholder="kingshuk@leadstrategus.com"
                     />
                   </div>
 
