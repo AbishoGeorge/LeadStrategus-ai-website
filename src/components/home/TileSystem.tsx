@@ -106,7 +106,7 @@ function StatusBadge({ status }: { status: 'live' | 'coming-soon' }) {
 
 function BrickTile({ agent }: { agent: Agent }) {
   const Icon = agent.icon;
-  const t = themes[agent.stageSlug];
+  const t = themes[agent.stageSlug] ?? themes['account-discovery'];
 
   return (
     <Link
@@ -126,7 +126,7 @@ function BrickTile({ agent }: { agent: Agent }) {
 
 function DesktopStageRow({ stage, stageIndex, isLast }: { stage: FunnelStage; stageIndex: number; isLast: boolean }) {
   const count = stage.agents.length;
-  const t = themes[stage.slug];
+  const t = themes[stage.slug] ?? themes['account-discovery'];
 
   return (
     <div className={`flex ${!isLast ? 'border-b-0' : ''}`}>
@@ -155,7 +155,7 @@ function DesktopStageRow({ stage, stageIndex, isLast }: { stage: FunnelStage; st
 
 function TabletTile({ agent }: { agent: Agent }) {
   const Icon = agent.icon;
-  const t = themes[agent.stageSlug];
+  const t = themes[agent.stageSlug] ?? themes['account-discovery'];
 
   return (
     <Link
@@ -178,7 +178,7 @@ function TabletTile({ agent }: { agent: Agent }) {
 }
 
 function TabletStageRow({ stage, stageIndex }: { stage: FunnelStage; stageIndex: number }) {
-  const t = themes[stage.slug];
+  const t = themes[stage.slug] ?? themes['account-discovery'];
   const cols = stage.agents.length <= 3 ? 3 : stage.agents.length <= 5 ? Math.min(stage.agents.length, 4) : Math.min(stage.agents.length, 5);
 
   return (
@@ -201,7 +201,7 @@ function TabletStageRow({ stage, stageIndex }: { stage: FunnelStage; stageIndex:
 
 function MobileTile({ agent }: { agent: Agent }) {
   const Icon = agent.icon;
-  const t = themes[agent.stageSlug];
+  const t = themes[agent.stageSlug] ?? themes['account-discovery'];
   const isLive = agent.status === 'live';
 
   return (
@@ -234,7 +234,7 @@ function MobileTile({ agent }: { agent: Agent }) {
 }
 
 function MobileStageRow({ stage, stageIndex }: { stage: FunnelStage; stageIndex: number }) {
-  const t = themes[stage.slug];
+  const t = themes[stage.slug] ?? themes['account-discovery'];
 
   return (
     <motion.div
