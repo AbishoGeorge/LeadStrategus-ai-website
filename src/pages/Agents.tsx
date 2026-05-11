@@ -172,26 +172,25 @@ import {
   FileText,
   BarChart2,
   Brain,
-  TrendingUp,
   Star,
   ArrowUpCircle,
-  List,
+  AlignJustify,
   MessageSquare,
   Send,
   Bell,
   Eye,
   RefreshCw,
   Activity,
-  Mail,
+  MailOpen,
   Mic,
   BookOpen,
-  Table,
+  TableProperties,
   Database,
-  Copy,
+  Files,
   CheckSquare,
   UploadCloud,
   PieChart,
-  Image,
+  ImageIcon,
   Users,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -620,7 +619,7 @@ export const allAgents: Agent[] = [
     stage: 'Monitoring & Reactivation',
     stageSlug: 'monitoring',
     status: 'coming-soon',
-    icon: Mail,
+    icon: MailOpen,
     whatItIs:
       'Most reactivation attempts fail because they are generic — a "touching base" note that gives the prospect no reason to respond differently than they did the first time. The Reactivation Message Builder makes this failure impossible by grounding every re-engagement message in specific, observable changes at the account. It uses the Delta Scorer\'s record of what changed — a new funding round, a leadership appointment, a shift in hiring patterns — to construct a message that demonstrates real awareness of the account\'s current situation. The result is outreach that feels like a timely, informed call rather than a recycled sequence.',
     howItWorks:
@@ -696,7 +695,7 @@ export const allAgents: Agent[] = [
     stage: 'Ops',
     stageSlug: 'ops',
     status: 'coming-soon',
-    icon: Table,
+    icon: TableProperties,
     whatItIs:
       "Every pipeline breaks on bad data eventually. The Sheet Formatter Agent is the structural integrity check that ensures every spreadsheet entering the LeadStrategus pipeline meets the schema requirements of downstream agents. It handles the messiness of real-world data: inconsistent column naming, mixed date formats, trailing whitespace, merged cells, and rogue header rows. It's not just a cleaner — it's a schema enforcer that makes every file downstream-ready before it touches a processing agent.",
     howItWorks:
@@ -714,7 +713,7 @@ export const allAgents: Agent[] = [
     stage: 'Ops',
     stageSlug: 'ops',
     status: 'coming-soon',
-    icon: List,
+    icon: AlignJustify,
     whatItIs:
       "\"Accenture\", \"Accenture PLC\", \"Accenture India Pvt Ltd\", and \"accenture.com\" are the same company — but a naive database treats them as four distinct records. The Data Normalisation Agent resolves these fragmentation issues at scale, applying intelligent entity resolution to standardize company names, domains, contact name formats, phone number structures, and geographic identifiers across every data source in the pipeline. It's the invisible layer that makes deduplication, enrichment, and CRM sync reliable.",
     howItWorks:
@@ -732,7 +731,7 @@ export const allAgents: Agent[] = [
     stage: 'Ops',
     stageSlug: 'ops',
     status: 'live',
-    icon: Copy,
+    icon: Files,
     whatItIs:
       "Duplicates in a B2B pipeline are not just a data quality problem — they're a revenue problem. A rep who works two records of the same company wastes capacity. A scoring model that sees the same company twice inflates that company's apparent signal density. The Deduplication Agent uses multi-signal entity matching to identify duplicates across all sources — including near-duplicates that differ only in name variant, subsidiary naming, or domain suffix — and produces a clean master record set that every downstream agent can trust.",
     howItWorks:
@@ -804,7 +803,7 @@ export const allAgents: Agent[] = [
     stage: 'Ops',
     stageSlug: 'ops',
     status: 'live',
-    icon: Image,
+    icon: ImageIcon,
     whatItIs:
       "Valuable prospect data doesn't always arrive in structured formats. Conference attendee lists come as PDFs. Org charts are shared as screenshots. Business card photos sit in a sales rep's camera roll. The Image Text Extractor handles all of these cases, using vision AI to interpret image content and convert it into clean, structured data rows. It bridges the gap between the analog world where prospect data often lives and the digital pipeline where it needs to operate.",
     howItWorks:
