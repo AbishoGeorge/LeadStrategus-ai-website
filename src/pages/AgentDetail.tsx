@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
 import { getAgentById, getAgentsByStage } from '../data/agents';
+import { Helmet } from 'react-helmet-async';
 
 export default function AgentDetail() {
   const { agentId } = useParams<{ agentId: string }>();
@@ -19,6 +20,25 @@ export default function AgentDetail() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50/50 to-white">
+      return (
+  <div className="min-h-screen bg-gradient-to-b from-gray-50/50 to-white">
+
+    <Helmet>
+      <title>{agent.name} | AI Agent | LeadStrategus</title>
+
+      <meta
+        name="description"
+        content={`${agent.name} - AI agent by LeadStrategus for automated B2B workflows, signal detection, and pipeline generation.`}
+      />
+
+      <meta name="robots" content="index, follow" />
+
+      <meta property="og:title" content={`${agent.name} | LeadStrategus AI Agents`} />
+      <meta
+        property="og:description"
+        content="Explore AI agents that automate B2B pipeline generation using real-time market signals."
+      />
+    </Helmet>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
