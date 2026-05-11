@@ -30,8 +30,8 @@ const offerings = [
 
 export default function Home() {
   useSeo(
-    'AI Agents for B2B Lead Generation | LeadStrategus',
-    'Find and convert high-intent B2B accounts using AI agents. Automate your pipeline from discovery to revenue.'
+    'AI Revenue Agents for B2B Pipeline Automation | LeadStrategus',
+    'LeadStrategus builds AI agents that detect buying signals, identify high-intent B2B accounts, and automate pipeline generation from discovery to booked meetings.'
   );
   return (
     <>
