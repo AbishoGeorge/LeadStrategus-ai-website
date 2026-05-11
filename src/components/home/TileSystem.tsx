@@ -472,7 +472,14 @@ function DesktopStageRow({ stage, stageIndex, isLast }: { stage: FunnelStage; st
 
 function TabletStageRow({ stage, stageIndex }: { stage: FunnelStage; stageIndex: number }) {
   const t = themes[stage.slug] ?? themes['account-discovery'];
-  const cols = stage.agents?.length <= 3 ? 3 : stage.agents?.length <= 5 ? Math.min(stage.agents.length, 4) : Math.min(stage.agents.length, 5);
+  const agentCount = (stage.agents ?? []).length;
+
+  const cols =
+    agentCount <= 3
+      ? 3
+      : agentCount <= 5
+      ? Math.min(agentCount, 4)
+      : Math.min(agentCount, 5);
 
   return (
     <div>
