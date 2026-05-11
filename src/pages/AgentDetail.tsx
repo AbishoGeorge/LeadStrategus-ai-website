@@ -102,13 +102,32 @@ export default function AgentDetail() {
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
               {agent.description}
             </p>
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-100 mb-8">
+              <h3 className="text-sm font-semibold text-navy-900 mb-3 uppercase tracking-wider">
+                What it is
+              </h3>
+            
+              <p className="text-gray-600 leading-relaxed">
+                This agent is designed to automate B2B workflows by identifying opportunities, processing data signals, and enabling revenue generation through intelligent automation.
+              </p>
+            </div>
 
             <div className="p-6 rounded-xl bg-gray-50 border border-gray-100 mb-8">
               <h3 className="text-sm font-semibold text-navy-900 mb-3 uppercase tracking-wider">
                 How it works
               </h3>
+            
               <p className="text-gray-600 leading-relaxed">
                 {agent.details}
+              </p>
+            </div>
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-100 mb-8">
+              <h3 className="text-sm font-semibold text-navy-900 mb-3 uppercase tracking-wider">
+                How it fits into the pipeline
+              </h3>
+            
+              <p className="text-gray-600 leading-relaxed">
+                This agent works as part of the LeadStrategus AI pipeline. It collaborates with other agents to move prospects through discovery, enrichment, outreach, and conversion stages.
               </p>
             </div>
 
