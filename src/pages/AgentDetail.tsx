@@ -11,7 +11,9 @@ export default function AgentDetail() {
   if (!agent) return <Navigate to="/agents" replace />;
 
   const Icon = agent.icon;
-  const relatedAgents = getAgentsByStage(agent.stageSlug).filter((a) => a.id !== agent.id);
+  const relatedAgents = getAgentsByStage(agent.stageSlug).filter(
+    (a) => a.id !== agent.id
+  );
 
   const platformKeywords = ['linkedin', 'naukri', 'google scraper'];
   const usesExternalPlatform = platformKeywords.some((kw) =>
@@ -20,31 +22,34 @@ export default function AgentDetail() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50/50 to-white">
-      return (
-  <div className="min-h-screen bg-gradient-to-b from-gray-50/50 to-white">
 
-    <Helmet>
-      <title>{agent.name} | AI Agent | LeadStrategus</title>
+      {/* SEO */}
+      <Helmet>
+        <title>{agent.name} | AI Agent | LeadStrategus</title>
 
-      <meta
-        name="description"
-        content={`${agent.name} - AI agent by LeadStrategus for automated B2B workflows, signal detection, and pipeline generation.`}
-      />
+        <meta
+          name="description"
+          content={`${agent.name} - AI agent by LeadStrategus for automated B2B workflows, signal detection, and pipeline generation.`}
+        />
 
-      <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow" />
 
-      <meta property="og:title" content={`${agent.name} | LeadStrategus AI Agents`} />
-      <meta
-        property="og:description"
-        content="Explore AI agents that automate B2B pipeline generation using real-time market signals."
-      />
-    </Helmet>
+        <meta property="og:title" content={`${agent.name} | LeadStrategus AI Agents`} />
+        <meta
+          property="og:description"
+          content="Explore AI agents that automate B2B pipeline generation using real-time market signals."
+        />
+      </Helmet>
+
+      {/* PAGE WRAPPER */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-20">
+
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
+
           <Link
             to="/agents"
             className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-navy-900 transition-colors mb-8"
@@ -54,27 +59,37 @@ export default function AgentDetail() {
           </Link>
 
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-10">
+
             <div className="flex items-start gap-4 mb-6">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-electric-50 to-blue-50 border border-electric-100 flex items-center justify-center">
                 <Icon className="w-7 h-7 text-electric-600" />
               </div>
+
               <div>
                 <div className="flex items-center gap-3 mb-1">
-                  <h1 className="text-2xl sm:text-3xl font-bold text-navy-900">{agent.name}</h1>
+                  <h1 className="text-2xl sm:text-3xl font-bold text-navy-900">
+                    {agent.name}
+                  </h1>
                 </div>
+
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-medium text-electric-500 bg-electric-50 px-2.5 py-0.5 rounded-lg">
                     {agent.stage}
                   </span>
+
                   <div className="flex items-center gap-1.5">
                     <span
                       className={`w-2 h-2 rounded-full ${
-                        agent.status === 'live' ? 'bg-green-500' : 'bg-amber-400'
+                        agent.status === 'live'
+                          ? 'bg-green-500'
+                          : 'bg-amber-400'
                       }`}
                     />
                     <span
                       className={`text-sm font-medium ${
-                        agent.status === 'live' ? 'text-green-600' : 'text-amber-600'
+                        agent.status === 'live'
+                          ? 'text-green-600'
+                          : 'text-amber-600'
                       }`}
                     >
                       {agent.status === 'live' ? 'Live' : 'Coming Soon'}
@@ -84,11 +99,17 @@ export default function AgentDetail() {
               </div>
             </div>
 
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">{agent.description}</p>
+            <p className="text-lg text-gray-600 leading-relaxed mb-6">
+              {agent.description}
+            </p>
 
             <div className="p-6 rounded-xl bg-gray-50 border border-gray-100 mb-8">
-              <h3 className="text-sm font-semibold text-navy-900 mb-3 uppercase tracking-wider">How it works</h3>
-              <p className="text-gray-600 leading-relaxed">{agent.details}</p>
+              <h3 className="text-sm font-semibold text-navy-900 mb-3 uppercase tracking-wider">
+                How it works
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {agent.details}
+              </p>
             </div>
 
             {usesExternalPlatform && (
@@ -114,6 +135,7 @@ export default function AgentDetail() {
                   Get Notified at Launch
                 </Link>
               )}
+
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 text-navy-900 font-medium hover:bg-gray-50 transition-colors"
@@ -128,6 +150,7 @@ export default function AgentDetail() {
               <h2 className="text-lg font-bold text-navy-900 mb-4">
                 Other agents in {agent.stage}
               </h2>
+
               <div className="grid sm:grid-cols-2 gap-3">
                 {relatedAgents.slice(0, 4).map((related) => {
                   const RelIcon = related.icon;
@@ -140,15 +163,34 @@ export default function AgentDetail() {
                       <div className="w-9 h-9 rounded-lg bg-gray-50 flex items-center justify-center">
                         <RelIcon className="w-4 h-4 text-navy-700" />
                       </div>
+
                       <div className="flex-1 min-w-0">
-                        <h4 className="text-sm font-semibold text-navy-900 truncate">{related.name}</h4>
+                        <h4 className="text-sm font-semibold text-navy-900 truncate">
+                          {related.name}
+                        </h4>
+
                         <div className="flex items-center gap-1.5 mt-0.5">
-                          <span className={`w-1.5 h-1.5 rounded-full ${related.status === 'live' ? 'bg-green-500' : 'bg-amber-400'}`} />
-                          <span className={`text-xs ${related.status === 'live' ? 'text-green-600' : 'text-amber-600'}`}>
-                            {related.status === 'live' ? 'Live' : 'Coming Soon'}
+                          <span
+                            className={`w-1.5 h-1.5 rounded-full ${
+                              related.status === 'live'
+                                ? 'bg-green-500'
+                                : 'bg-amber-400'
+                            }`}
+                          />
+                          <span
+                            className={`text-xs ${
+                              related.status === 'live'
+                                ? 'text-green-600'
+                                : 'text-amber-600'
+                            }`}
+                          >
+                            {related.status === 'live'
+                              ? 'Live'
+                              : 'Coming Soon'}
                           </span>
                         </div>
                       </div>
+
                       <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-electric-500 transition-colors" />
                     </Link>
                   );
@@ -156,6 +198,7 @@ export default function AgentDetail() {
               </div>
             </div>
           )}
+
         </motion.div>
       </div>
     </div>
