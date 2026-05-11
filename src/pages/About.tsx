@@ -5,6 +5,7 @@ import {
   ArrowRight, Linkedin, Mail, Target, Cpu, Layers, Zap, X,
 } from 'lucide-react';
 import { useSeo } from '../lib/useSeo';
+import { Helmet } from 'react-helmet-async';
 
 /* ─── Data ─────────────────────────────────────────────────────────────────── */
 
@@ -165,6 +166,18 @@ export default function About() {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
+      <Helmet>
+  <title>About LeadStrategus | AI Revenue Systems</title>
+  <meta
+    name="description"
+    content="Learn how LeadStrategus builds AI-powered revenue systems that turn market signals into pipeline for B2B companies."
+  />
+  <meta name="robots" content="index, follow" />
+
+  {/* Open Graph (for LinkedIn sharing) */}
+  <meta property="og:title" content="About LeadStrategus | AI Revenue Systems" />
+  <meta property="og:description" content="We build AI systems that generate B2B pipeline using real-time market signals." />
+</Helmet>
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative pt-20 sm:pt-28 pb-24 sm:pb-32 overflow-hidden bg-white">
