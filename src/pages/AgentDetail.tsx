@@ -237,8 +237,11 @@ export default function AgentDetail() {
   const agent = agentId ? getAgentById(agentId) : undefined;
 
   if (!agent) return <Navigate to="/agents" replace />;
+  if (!agent.whatItIs || !agent.howItWorks || !agent.pipelineRole) {
+  return <Navigate to="/agents" replace />;
+  }
 
-  const Icon = agent.icon;
+  const Icon = agent?.icon;
   const relatedAgents = getAgentsByStage(agent.stageSlug).filter(
     (a) => a.id !== agent.id
   );
@@ -290,7 +293,7 @@ export default function AgentDetail() {
 
             <div className="flex items-start gap-4 mb-6">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-electric-50 to-blue-50 border border-electric-100 flex items-center justify-center">
-                <Icon className="w-7 h-7 text-electric-600" />
+                {Icon && <Icon className="w-7 h-7 text-electric-600" />}
               </div>
 
               <div>
