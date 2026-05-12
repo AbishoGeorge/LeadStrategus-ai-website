@@ -369,15 +369,17 @@ export default function AgentDetail() {
 
             <div className="flex flex-col sm:flex-row gap-3">
               {agent.status === 'live' ? (
-                <Link
-                  to="/contact"
+                <a
+                  href={agent.marketplaceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-navy-900 text-white font-medium hover:bg-navy-800 transition-colors"
                 >
                   Use This Agent
                   <ExternalLink className="w-4 h-4" />
-                </Link>
+                </a>
               ) : (
-                <Link
+                <Link  
                   to="/contact"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-amber-500 text-white font-medium hover:bg-amber-600 transition-colors"
                 >
