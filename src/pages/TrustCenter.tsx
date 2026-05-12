@@ -312,7 +312,7 @@ export default function TrustCenter() {
               <p className="mt-5">
                 We will update this section as milestones are achieved.
                 If you have specific security questionnaires or requirements,
-                contact us at legal@leadstrategus.com and we will respond
+                contact us at kingshuk@leadstrategus.com and we will respond
                 as completely as we can.
               </p>
             </div>
@@ -331,23 +331,9 @@ export default function TrustCenter() {
               <ul className="mt-4 space-y-2">
                 <li>
                   <span className="font-medium text-navy-900">
-                    General enquiries:
+                    enquiries:
                   </span>{' '}
-                  hello@leadstrategus.com
-                </li>
-
-                <li>
-                  <span className="font-medium text-navy-900">
-                    Privacy and data concerns:
-                  </span>{' '}
-                  privacy@leadstrategus.com
-                </li>
-
-                <li>
-                  <span className="font-medium text-navy-900">
-                    Legal, compliance, and DPA requests:
-                  </span>{' '}
-                  legal@leadstrategus.com
+                  kingshuk@leadstrategus.com
                 </li>
               </ul>
 
