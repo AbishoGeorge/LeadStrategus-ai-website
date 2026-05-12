@@ -290,31 +290,6 @@ export default function TrustCenter() {
                 </li>
               </ul>
 
-              <p className="mt-6 font-semibold text-navy-900">
-                Security Roadmap (Planned, Not Yet Implemented):
-              </p>
-
-              <ul className="list-disc ml-5 mt-3 space-y-2">
-                <li>
-                  SOC 2 Type II audit: Targeted for initiation within 12 months of commercial launch
-                </li>
-                <li>
-                  ISO 27001 alignment review: Under evaluation for Year 2
-                </li>
-                <li>
-                  Formal penetration testing: Planned ahead of enterprise tier launch
-                </li>
-                <li>
-                  Bug bounty programme: Under consideration for post-launch phase
-                </li>
-              </ul>
-
-              <p className="mt-5">
-                We will update this section as milestones are achieved.
-                If you have specific security questionnaires or requirements,
-                contact us at kingshuk@leadstrategus.com and we will respond
-                as completely as we can.
-              </p>
             </div>
 
             {/* Section 7 */}
