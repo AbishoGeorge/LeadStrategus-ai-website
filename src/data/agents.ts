@@ -174,6 +174,7 @@ export interface Agent {
   whatItIs: string;
   howItWorks: string;
   pipelineRole: string;
+  marketplaceUrl?: string;
 }
 
 export const funnelStages = [
@@ -197,7 +198,7 @@ export const allAgents: Agent[] = [
       'Applies layered Sales Navigator filters to extract high-precision company lists, feeding them directly into your enrichment and intent pipeline.',
     stage: 'Account Discovery',
     stageSlug: 'discovery',
-    status: 'live',
+    status: 'coming-soon',
     icon: Users,
     whatItIs:
       'Most prospecting time is wasted on accounts that were never a fit. This agent connects to LinkedIn Sales Navigator and extracts company lists that match your ICP precisely, filtered by geography, headcount, revenue, and industry. No manual browsing. No copy-paste.',
@@ -208,19 +209,20 @@ export const allAgents: Agent[] = [
   },
   {
     id: 'google-scraper-lead-gen',
-    name: 'Google Scraper Lead Gen',
+    name: 'Google Map Scraper Lead Gen',
     description:
       'Finds companies from web queries and directories when Sales Navigator coverage falls short.',
     details:
-      'Executes structured Google search queries against industry directories, news sources, and company listings to surface accounts that Sales Nav misses.',
+      'Executes structured Google Map search queries against industry directories, news sources, and company listings to surface accounts that Sales Nav misses.',
     stage: 'Account Discovery',
     stageSlug: 'discovery',
     status: 'live',
+    marketplaceUrl: 'https://console.apify.com/actors/tZLuX3GXDQz1wzdod',
     icon: Globe,
     whatItIs:
       'LinkedIn misses mid-market and emerging companies with thin profiles. This agent treats the open web as a lead source, querying directories, trade publications, and government registries to surface ICP-matched accounts that standard database tools overlook.',
     howItWorks:
-      'ICP descriptors are converted into structured Google search queries. The agent fetches results, parses organic listings, and runs entity extraction to pull company names, domains, and metadata. Each result is scored for ICP relevance before being written to the output schema. Duplicates are resolved against the existing account universe.',
+      'ICP descriptors are converted into structured Google Map search queries. The agent fetches results, parses organic listings, and runs entity extraction to pull company names, domains, and metadata. Each result is scored for ICP relevance before being written to the output schema. Duplicates are resolved against the existing account universe.',
     pipelineRole:
       'Runs in parallel with the LinkedIn Sales Nav Scraper as a complementary discovery source. Output is merged and deduplicated into the master account list before flowing into the Firmographic Enricher. Closes blind spots caused by Sales Nav coverage gaps.',
   },
@@ -233,7 +235,8 @@ export const allAgents: Agent[] = [
       'Resolves company identity and appends verified firmographic attributes, giving every account a structured data profile for downstream scoring and personalization.',
     stage: 'Account Discovery',
     stageSlug: 'discovery',
-    status: 'coming-soon',
+    status: 'live',
+    marketplaceUrl: 'https://console.apify.com/actors/0QK7Upg2NolQspHEm',
     icon: Building2,
     whatItIs:
       'A raw account list is just names. This agent turns each name into a structured, intelligence-ready company record by appending verified firmographic data: website, HQ, headcount band, estimated revenue, funding stage, and founding year.',
@@ -254,6 +257,7 @@ export const allAgents: Agent[] = [
     stage: 'Buying Intent',
     stageSlug: 'intent',
     status: 'live',
+    marketplaceUrl: 'https://console.apify.com/actors/mJdJpUBS9HpU29Zeh',
     icon: Briefcase,
     whatItIs:
       'Hiring is a public declaration of where a company is spending budget. This agent captures those signals at scale by systematically extracting LinkedIn job postings across your target account universe and converting them into a structured intent feed.',
@@ -272,6 +276,7 @@ export const allAgents: Agent[] = [
     stage: 'Buying Intent',
     stageSlug: 'intent',
     status: 'live',
+    marketplaceUrl: 'https://console.apify.com/actors/DuwxLSRuZgkyBKu0k/input',
     icon: FileSearch,
     whatItIs:
       'LinkedIn covers only a fraction of active hiring in India. Naukri is where mid-market and technology companies post most of their open roles. This agent closes that coverage gap, ensuring your intent pipeline reflects the full hiring picture of Indian companies.',
@@ -290,6 +295,7 @@ export const allAgents: Agent[] = [
     stage: 'Buying Intent',
     stageSlug: 'intent',
     status: 'live',
+    marketplaceUrl: 'https://console.apify.com/actors/tHZegqCdCz4pOuN9X',
     icon: Brain,
     whatItIs:
       'Job titles are the surface. Descriptions are the signal. This agent reads between the lines of job postings at scale, classifying each one into structured intent categories like cloud infrastructure, ERP modernization, cybersecurity, or AI/ML buildout.',
@@ -379,7 +385,7 @@ export const allAgents: Agent[] = [
       'Synthesizes signals from news, filings, hiring, and web research into a coherent account intelligence brief with scored triggers and recommended actions.',
     stage: 'Buying Intent',
     stageSlug: 'intent',
-    status: 'live',
+    status: 'coming-soon',
     icon: Search,
     whatItIs:
       'Individual signals are useful. Connected intelligence is what drives action. This agent synthesizes hiring patterns, news events, filing disclosures, and tech stack data into a unified account brief that explains why an account is showing intent and what to do next.',
@@ -473,7 +479,7 @@ export const allAgents: Agent[] = [
       'Generates high-relevance LinkedIn messages by drawing on intent signals, firmographic context, and contact role to produce outreach that doesn\'t feel automated.',
     stage: 'Messaging & Outreach',
     stageSlug: 'outreach',
-    status: 'live',
+    status: 'coming-soon',
     icon: MessageSquare,
     whatItIs:
       'Generic outreach damages your brand with high-value prospects. This agent writes personalized LinkedIn messages grounded in real signals, a recent funding event, a specific technology being adopted, or an active hiring pattern, matched to the contact\'s role and seniority.',
@@ -695,7 +701,7 @@ export const allAgents: Agent[] = [
       'Applies multi-signal entity matching to detect duplicates -- including near-matches -- and produces a deduplicated master record set.',
     stage: 'Ops',
     stageSlug: 'ops',
-    status: 'live',
+    status: 'coming-soon',
     icon: Files,
     whatItIs:
       'Duplicates are not just a data quality problem. They are a revenue problem. A rep working two records of the same company wastes capacity. A scoring model that sees the same company twice inflates signal density. This agent removes that problem using multi-signal entity matching across all sources.',
@@ -767,7 +773,7 @@ export const allAgents: Agent[] = [
       'Uses vision models to interpret image content -- tables, business cards, screenshots -- and converts them into structured, pipeline-ready data rows.',
     stage: 'Ops',
     stageSlug: 'ops',
-    status: 'live',
+    status: 'coming-soon',
     icon: ImageIcon,
     whatItIs:
       'Valuable prospect data does not always arrive in structured formats. Conference lists come as PDFs. Org charts are shared as screenshots. Business cards sit in a rep\'s camera roll. This agent converts all of it into clean, structured data rows using vision AI.',
