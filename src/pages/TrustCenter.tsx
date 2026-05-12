@@ -331,7 +331,7 @@ export default function TrustCenter() {
               <ul className="mt-4 space-y-2">
                 <li>
                   <span className="font-medium text-navy-900">
-                    enquiries:
+                    Enquiries:
                   </span>{' '}
                   kingshuk@leadstrategus.com
                 </li>
