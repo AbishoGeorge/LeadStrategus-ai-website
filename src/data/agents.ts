@@ -241,7 +241,7 @@ export const allAgents: Agent[] = [
     whatItIs:
       'A raw account list is just names. This agent turns each name into a structured, intelligence-ready company record by appending verified firmographic data: website, HQ, headcount band, estimated revenue, funding stage, and founding year.',
     howItWorks:
-      'Each company name and domain is passed through a multi-source resolution pipeline. The agent queries business intelligence APIs, cross-references funding databases, and validates domain ownership. An LLM layer reconciles conflicting data and fills gaps using web inference. Output is a normalized firmographic record with source attribution and confidence scores for key fields.',
+      'Each company name and domain is passed through a multi-source resolution pipeline. The agent queries business intelligence APIs, cross-references funding databases, and validates domain ownership. An AI layer reconciles conflicting data and fills gaps using web inference. Output is a normalized firmographic record with source attribution and confidence scores for key fields.',
     pipelineRole:
       'Final step in the discovery layer before accounts enter intent and scoring. Receives raw lists from discovery agents and produces enriched records that the Intent Signal Aggregator and Predictive Account Scoring model can process.',
   },
@@ -283,7 +283,7 @@ export const allAgents: Agent[] = [
     howItWorks:
       'The agent applies role-based, industry-based, and company-based filters to Naukri listings. It extracts job title, required skills, function, experience band, and description. Company-level metrics like total open roles and hiring velocity are computed and appended. Output is schema-normalized to match the LinkedIn job feed so both sources flow through the same pipeline.',
     pipelineRole:
-      'Runs alongside the LinkedIn Job Scraper as a parallel intent source scoped to India. Both feeds converge at the Hiring Intent Interpreter. For India-focused GTM motions, this agent frequently surfaces intent signals 2 to 4 weeks ahead of LinkedIn.',
+      'Operates in parallel with the LinkedIn Job Scraper as an additional India-focused intent source. Both data streams feed into the Hiring Intent Interpreter, helping identify India-specific hiring signals and GTM intent patterns earlier in the buying cycle.',
   },
   {
     id: 'hiring-intent-interpreter',
