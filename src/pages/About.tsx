@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 import {
   ArrowRight, Linkedin, Mail, Target, Cpu, Layers, Zap, X,
 } from 'lucide-react';
-import { useSeo } from '../lib/useSeo';
 import { Helmet } from 'react-helmet-async';
 
 /* ─── Data ─────────────────────────────────────────────────────────────────── */
@@ -151,7 +150,6 @@ function TeamModal({ member, onClose }: { member: TeamMember; onClose: () => voi
 /* ─── Page ──────────────────────────────────────────────────────────────────── */
 
 export default function About() {
-  useSeo('About LeadStrategus | AI Revenue Systems', 'We build AI systems, not services. Learn how LeadStrategus helps B2B teams generate pipeline.');
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const { hash } = useLocation();
 

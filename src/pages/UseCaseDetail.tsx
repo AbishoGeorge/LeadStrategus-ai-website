@@ -3,7 +3,6 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useCases } from '../data/useCases';
-import { useSeo } from '../lib/useSeo';
 
 function renderContent(content: string) {
   const blocks = content.trim().split('\n\n');
@@ -37,10 +36,6 @@ export default function UseCaseDetail() {
   const { slug } = useParams<{ slug: string }>();
   const useCase = useMemo(() => useCases.find((uc) => uc.slug === slug), [slug]);
 
-  useSeo(
-    useCase ? `${useCase.title} | LeadStrategus` : 'Use Cases | LeadStrategus',
-    useCase ? useCase.metaDescription : 'Explore how AI agents power real B2B revenue workflows.'
-  );
 
   if (!useCase) return <Navigate to="/use-cases" replace />;
 

@@ -4,15 +4,10 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Filter } from 'lucide-react';
 import { funnelStages, allAgents } from '../data/agents';
 import type { Agent } from '../data/agents';
-import { useSeo } from '../lib/useSeo';
 
 const statusFilters = ['All', 'Live', 'Coming Soon'] as const;
 
 export default function Agents() {
-  useSeo(
-    'AI Sales Agents for Pipeline Growth | LeadStrategus',
-    'Explore AI agents that find, qualify, and convert your next best customers automatically.'
-  );
   const [activeStage, setActiveStage] = useState('all');
   const [activeStatus, setActiveStatus] = useState<typeof statusFilters[number]>('All');
 

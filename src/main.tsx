@@ -1,13 +1,25 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
-import App from './App.tsx';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { routes } from './App.tsx';
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(
+const router = createBrowserRouter(routes);
+
+const app = (
   <StrictMode>
     <HelmetProvider>
-      <App />
+      <RouterProvider router={router} />
     </HelmetProvider>
   </StrictMode>
 );
+
+const container = document.getElementById('root')!;
+
+// Prerendered pages ship real HTML in #root; hydrate it. The SPA fallback ships an empty root.
+if (container.hasChildNodes()) {
+  hydrateRoot(container, app);
+} else {
+  createRoot(container).render(app);
+}

@@ -1,40 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://leadstrategus.ai/</loc>
-  </url>
-
-  <url>
-    <loc>https://leadstrategus.ai/about</loc>
-  </url>
-
-  <url>
-    <loc>https://leadstrategus.ai/agents</loc>
-  </url>
-
-  <url>
-    <loc>https://leadstrategus.ai/build</loc>
-  </url>
-
-  <url>
-    <loc>https://leadstrategus.ai/contact</loc>
-  </url>
-
-  <url>
-    <loc>https://leadstrategus.ai/use-cases</loc>
-  </url>
-
-  <url>
-    <loc>https://leadstrategus.ai/blog</loc>
-  </url>
-
-  <url>
-    <loc>https://leadstrategus.ai/why</loc>
-  </url>
-
-  <url>
-    <loc>https://leadstrategus.ai/faq</loc>
-  </url>
-
+  <url><loc>https://leadstrategus.ai/</loc></url>
+  <url><loc>https://leadstrategus.ai/agents</loc></url>
+  <url><loc>https://leadstrategus.ai/build</loc></url>
+  <url><loc>https://leadstrategus.ai/blog</loc></url>
+  <url><loc>https://leadstrategus.ai/about</loc></url>
+  <url><loc>https://leadstrategus.ai/contact</loc></url>
+  <url><loc>https://leadstrategus.ai/faq</loc></url>
+  <url><loc>https://leadstrategus.ai/use-cases</loc></url>
+  <url><loc>https://leadstrategus.ai/why</loc></url>
+  <url><loc>https://leadstrategus.ai/tos</loc></url>
+  <url><loc>https://leadstrategus.ai/privacy</loc></url>
+  <url><loc>https://leadstrategus.ai/trust</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/linkedin-sales-nav-scraper</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/google-scraper-lead-gen</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/firmographic-enricher</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/linkedin-job-scraper</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/naukri-job-scraper</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/hiring-intent-interpreter</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/tech-stack-detector</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/company-news-events-miner</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/tender-procurement-tracker</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/annual-report-filings-extractor</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/deep-research-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/intent-signal-aggregator</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/predictive-account-scoring</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/ranking-explainability-layer</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/account-prioritization-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/linkedin-msg-generator</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/multi-channel-outreach-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/follow-up-intelligence-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/market-signal-monitor</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/prospecting-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/delta-scorer</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/reactivation-message-builder</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/meeting-prep-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/conversation-intelligence-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/knowledge-extraction-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/sheet-formatter-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/data-normalisation-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/deduplication-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/list-quality-checker-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/crm-update-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/report-generator-agent</loc></url>
+  <url><loc>https://leadstrategus.ai/agents/image-text-extractor</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/hiring-signals-buying-intent</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/ai-agents-vs-workflows</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/account-scoring-beyond-firmographics</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/cold-outreach-dead</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/building-b2b-agent-system</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/data-quality-pipeline</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/icp-definition-revenue-impact</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/gtm-motion-2026</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/personalization-at-scale</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/revenue-operations-ai</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/meeting-conversion-tactics</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/funding-signals-pipeline</loc></url>
+  <url><loc>https://leadstrategus.ai/blog/tech-stack-signals</loc></url>
+  <url><loc>https://leadstrategus.ai/use-cases/discover-high-fit-accounts</loc></url>
+  <url><loc>https://leadstrategus.ai/use-cases/detect-buying-intent</loc></url>
+  <url><loc>https://leadstrategus.ai/use-cases/prioritize-pipeline</loc></url>
+  <url><loc>https://leadstrategus.ai/use-cases/personalize-outreach-at-scale</loc></url>
+  <url><loc>https://leadstrategus.ai/use-cases/convert-meetings-to-pipeline</loc></url>
+  <url><loc>https://leadstrategus.ai/use-cases/reactivate-stale-leads</loc></url>
 </urlset>

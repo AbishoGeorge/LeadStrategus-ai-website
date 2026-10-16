@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import type { RouteObject } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 
 const Home = lazy(() => import('./pages/Home'));
@@ -26,7 +26,7 @@ function PageLoader() {
   );
 }
 
-const router = createBrowserRouter([
+export const routes: RouteObject[] = [
   {
     path: '/',
     element: <Layout />,
@@ -48,8 +48,4 @@ const router = createBrowserRouter([
       { path: 'trust', element: <Suspense fallback={<PageLoader />}><TrustCenter /></Suspense> },
     ],
   },
-]);
-
-export default function App() {
-  return <RouterProvider router={router} />;
-}
+];

@@ -5,7 +5,6 @@ import Hero from '../components/home/Hero';
 import TileSystem from '../components/home/TileSystem';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import CTASection from '../components/home/CTASection';
-import { useSeo } from '../lib/useSeo';
 
 const offerings = [
   {
@@ -29,10 +28,6 @@ const offerings = [
 ];
 
 export default function Home() {
-  useSeo(
-    'AI Revenue Agents for B2B Pipeline Automation | LeadStrategus',
-    'LeadStrategus builds AI agents that detect buying signals, identify high-intent B2B accounts, and automate pipeline generation from discovery to booked meetings.'
-  );
   return (
     <>
       <Hero />
