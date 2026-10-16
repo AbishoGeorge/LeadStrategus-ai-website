@@ -3,15 +3,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Search, ChevronLeft, ChevronRight, Tag } from 'lucide-react';
 import { blogPosts } from '../data/blog';
-import { useSeo } from '../lib/useSeo';
 
 const POSTS_PER_PAGE = 12;
 
 export default function Blog() {
-  useSeo(
-    'B2B AI & GTM Insights Blog | LeadStrategus',
-    'Insights on AI agents, intent signals, and B2B revenue systems to grow your pipeline.'
-  );
 
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);

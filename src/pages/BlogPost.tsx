@@ -3,7 +3,6 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Clock, Calendar, ArrowRight } from 'lucide-react';
 import { blogPosts } from '../data/blog';
-import { useSeo } from '../lib/useSeo';
 
 function renderContent(content: string) {
   const paragraphs = content.trim().split('\n\n');
@@ -41,10 +40,6 @@ export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = useMemo(() => blogPosts.find((p) => p.slug === slug), [slug]);
 
-  useSeo(
-    post ? `${post.title} | LeadStrategus` : 'Blog | LeadStrategus',
-    post ? post.description : 'Insights on AI agents, intent signals, and B2B revenue systems.'
-  );
 
   if (!post) return <Navigate to="/blog" replace />;
 

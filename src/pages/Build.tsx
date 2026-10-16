@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Layers, Rocket, Wrench, ArrowRight, Check } from 'lucide-react';
-import { useSeo } from '../lib/useSeo';
 
 const offerings = [
   {
@@ -58,10 +57,6 @@ const offerings = [
 ];
 
 export default function Build() {
-  useSeo(
-    'Custom AI Agents for B2B Workflows | LeadStrategus',
-    'Build AI agents tailored to your workflow. Automate prospecting, outreach, and pipeline growth.'
-  );
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50/50 to-white">
       <section className="pt-12 pb-8 sm:pt-20 sm:pb-12">

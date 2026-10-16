@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Linkedin } from 'lucide-react';
-import { useSeo } from '../lib/useSeo';
 
 const teamMembers = [
   {
@@ -64,10 +63,6 @@ const howWeWork = [
 ];
 
 export default function Team() {
-  useSeo(
-    'Meet the Team | LeadStrategus',
-    'Meet the team building AI-powered B2B revenue systems and pipeline automation.'
-  );
   return (
     <div className="min-h-screen">
       <HeroSection />

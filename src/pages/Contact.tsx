@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, Mail, MapPin } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-import { useSeo } from '../lib/useSeo';
 
 const requirementOptions = [
   'Individual Agent Access',
@@ -13,10 +12,6 @@ const requirementOptions = [
 ];
 
 export default function Contact() {
-  useSeo(
-    'Contact LeadStrategus | Book a Demo',
-    'Talk to our team about deploying AI agents or building your revenue pipeline system.'
-  );
   const [form, setForm] = useState({
     name: '',
     company: '',

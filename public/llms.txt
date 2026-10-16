@@ -1,0 +1,31 @@
+# LeadStrategus
+
+> LeadStrategus (leadstrategus.ai) is an AI agent platform for B2B revenue teams, based in Bengaluru, India. Its AI agents detect real-market buying signals, identify and prioritise high-intent accounts, write signal-based outreach, and help book meetings, from account discovery through to revenue. Each deployment is run with an operator team that maintains the system weekly.
+
+LeadStrategus differs from US-built sales tools by covering Indian market signals (Naukri and Monster hiring data; GeM, CPPP, state-portal and PSU tenders) alongside LinkedIn, news, and annual-report signals.
+
+## Services
+
+- AI agents across seven B2B funnel stages: Account Discovery, Buying Intent, Account Prioritization, Messaging & Outreach, Monitoring & Reactivation, Meeting Conversion, and Data & Ops.
+- Live agents include LinkedIn and Naukri job scrapers (hiring-intent signals), lead-generation scrapers, and a LinkedIn message generator; more are rolling out.
+- Custom AI agents built for a company's own GTM workflow.
+- Operator-run pipeline: setup in 2–3 weeks, maintained weekly by the LeadStrategus team.
+
+## Pages
+
+- [Home](https://leadstrategus.ai/): Overview of the platform and the seven-stage agent system
+- [AI Agents](https://leadstrategus.ai/agents): Catalogue of all agents by funnel stage, with live/coming-soon status
+- [Use Cases](https://leadstrategus.ai/use-cases): How B2B teams apply the agents
+- [Why LeadStrategus](https://leadstrategus.ai/why): Comparison with traditional sales tools and DIY AI workflows
+- [Build a Custom Agent](https://leadstrategus.ai/build): Custom agent development
+- [Blog](https://leadstrategus.ai/blog): Articles on intent signals, AI agents, and B2B revenue systems
+- [About](https://leadstrategus.ai/about): Company and team
+- [FAQ](https://leadstrategus.ai/faq): Common questions
+- [Trust Center](https://leadstrategus.ai/trust): Security and privacy practices
+- [Sitemap](https://leadstrategus.ai/sitemap.xml): Full list of pages, including every agent, blog post, and use case
+
+## Contact
+
+- Email: kingshuk@leadstrategus.com
+- Contact form / book a call: https://leadstrategus.ai/contact
+- Location: Bengaluru, India
