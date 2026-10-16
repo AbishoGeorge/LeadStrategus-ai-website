@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import logoImg from '../../assets/logo.png';
 
 const productLinks = [
@@ -100,10 +100,6 @@ export default function Footer() {
                   >
                     Contact Sales
                   </Link>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-gray-500 shrink-0" />
-                  <span className="text-sm text-gray-400">+91 9845980970</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="w-3.5 h-3.5 text-gray-500 shrink-0" />
