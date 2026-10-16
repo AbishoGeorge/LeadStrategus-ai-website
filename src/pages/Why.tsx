@@ -377,7 +377,6 @@ function ContactFormSection() {
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
     company: '',
     requirement: '',
   });
@@ -392,14 +391,13 @@ function ContactFormSection() {
       company: form.company,
       email: form.email,
       requirement: form.requirement,
-      message: `Phone: ${form.phone}`,
     });
 
     if (error) {
       setStatus('error');
     } else {
       setStatus('success');
-      setForm({ firstName: '', lastName: '', email: '', phone: '', company: '', requirement: '' });
+      setForm({ firstName: '', lastName: '', email: '', company: '', requirement: '' });
     }
   };
 
@@ -493,19 +491,6 @@ function ContactFormSection() {
                     onChange={(e) => updateField('email', e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all text-sm"
                     placeholder="you@company.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="why-phone" className="block text-sm font-medium text-navy-900 mb-1.5">
-                    Phone
-                  </label>
-                  <input
-                    id="why-phone"
-                    type="tel"
-                    value={form.phone}
-                    onChange={(e) => updateField('phone', e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-electric-500 focus:ring-2 focus:ring-electric-500/20 outline-none transition-all text-sm"
                   />
                 </div>
 
