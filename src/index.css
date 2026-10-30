@@ -28,3 +28,21 @@ body {
     max-width: 100%;
   }
 }
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[marquee_60s_linear_infinite\] {
+    animation-duration: 240s;
+  }
+}
