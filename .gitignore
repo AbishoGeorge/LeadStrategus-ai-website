@@ -22,3 +22,4 @@ dist-ssr
 *.sw?
 .env
 dist-server
+.env.local
