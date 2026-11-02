@@ -74,7 +74,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-navy-900">Location</h3>
-                    <p className="text-sm text-gray-500 mt-0.5">Bengaluru, India</p>
+                    <p className="text-sm text-gray-500 mt-0.5">Bizzhub, Brigade Tech Park, near ITPL Main Road, Pattandur Agrahara, Whitefield, Bengaluru, Karnataka 560066</p>
                   </div>
                 </div>
               </div>

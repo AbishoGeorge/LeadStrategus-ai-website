@@ -354,7 +354,7 @@ export default function TermsOfService() {
                 Entire Agreement: These Terms, together with the Privacy Policy and any applicable DPA, constitute the entire agreement between you and LeadStrategus regarding the Platform.
               </p>
               <p className="text-sm leading-relaxed">
-                Contact: kingshuk@leadstrategus.com  ·  Bengaluru, India
+                Contact: kingshuk@leadstrategus.com  ·  Bizzhub, Brigade Tech Park, near ITPL Main Road, Pattandur Agrahara, Whitefield, Bengaluru, Karnataka 560066
               </p>
             </section>
           </motion.div>

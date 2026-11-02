@@ -110,9 +110,9 @@ export default function Footer() {
                     kingshuk@leadstrategus.com
                   </a>
                 </li>
-                <li className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-gray-500 shrink-0" />
-                  <span className="text-sm text-gray-400">Bengaluru, India</span>
+                <li className="flex items-start gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-gray-500 shrink-0 mt-1" />
+                  <span className="text-sm text-gray-400">Bizzhub, Brigade Tech Park, near ITPL Main Road, Pattandur Agrahara, Whitefield, Bengaluru, Karnataka 560066</span>
                 </li>
               </ul>
             </div>
