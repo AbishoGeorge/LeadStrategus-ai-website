@@ -5,7 +5,7 @@ import { Resend } from 'resend';
 import { createClient } from '@supabase/supabase-js';
 
 const TO_EMAIL = 'kingshuk@leadstrategus.com';
-const FROM_EMAIL = 'Website Contact <contact@leadstrategus.com>';
+const FROM_EMAIL = 'Website Contact <contact@leadstrategus.ai>';
 
 const LIMITS = { name: 100, email: 254, company: 150, requirement: 100, message: 5000, source: 50 };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
