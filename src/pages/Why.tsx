@@ -13,7 +13,7 @@ import {
   AlertCircle,
   ChevronDown,
 } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { submitContact } from '../lib/submitContact';
 
 const comparisonRows = [
   {
@@ -379,25 +379,29 @@ function ContactFormSection() {
     email: '',
     company: '',
     requirement: '',
+    website: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
 
-    const { error } = await supabase.from('contact_submissions').insert({
-      name: `${form.firstName} ${form.lastName}`.trim(),
-      company: form.company,
-      email: form.email,
-      requirement: form.requirement,
-    });
-
-    if (error) {
-      setStatus('error');
-    } else {
+    try {
+      await submitContact({
+        name: `${form.firstName} ${form.lastName}`.trim(),
+        email: form.email,
+        company: form.company,
+        requirement: form.requirement,
+        source: 'Why LeadStrategus page',
+        website: form.website,
+      });
       setStatus('success');
-      setForm({ firstName: '', lastName: '', email: '', company: '', requirement: '' });
+      setForm({ firstName: '', lastName: '', email: '', company: '', requirement: '', website: '' });
+    } catch (err) {
+      setErrorMessage(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+      setStatus('error');
     }
   };
 
@@ -437,7 +441,7 @@ function ContactFormSection() {
               <div className="p-8 rounded-2xl bg-green-50 border border-green-100 text-center shadow-sm">
                 <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-navy-900 mb-2">Message sent</h3>
-                <p className="text-gray-600">We'll get back to you soon.</p>
+                <p className="text-gray-600">Thanks, we'll get back to you soon.</p>
                 <button
                   onClick={() => setStatus('idle')}
                   className="mt-4 text-sm font-medium text-electric-500 hover:text-electric-600"
@@ -528,10 +532,23 @@ function ContactFormSection() {
                   </select>
                 </div>
 
+                {/* Honeypot: hidden from people, bots tend to fill it */}
+                <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', width: 1, height: 1, overflow: 'hidden' }}>
+                  <label htmlFor="why-website">Website</label>
+                  <input
+                    id="why-website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={(e) => updateField('website', e.target.value)}
+                  />
+                </div>
+
                 {status === 'error' && (
                   <div className="flex items-center gap-2 text-sm text-red-600 bg-red-50 px-4 py-2.5 rounded-xl">
                     <AlertCircle className="w-4 h-4 shrink-0" />
-                    Something went wrong. Please try again.
+                    {errorMessage}
                   </div>
                 )}
 
