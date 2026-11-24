@@ -40,8 +40,6 @@ const pic = (base, ext, w, h, alt = "", cls = "", eager = false) => `<picture${c
       <img src="${base}@1x.${ext}" srcset="${base}@1x.${ext} 1x, ${base}@2x.${ext} 2x" width="${w}" height="${h}" alt="${esc(alt)}"${eager ? "" : ' loading="lazy"'} decoding="async">
     </picture>`;
 
-/** Hero illustration: the animated workshop room (src/workshop-room.svg). */
-const ROOM = readFileSync(join(here, "workshop-room.svg"), "utf8");
 
 /** Positions for the 3D animations, written by scripts/make-3d.mjs. */
 const animPath = join(here, "..", "public", "img", "3d", "anim.json");
@@ -170,11 +168,16 @@ export function renderPage(c) {
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
+      <p class="hero-eyebrow"><span class="live-dot" aria-hidden="true"></span>${esc(c.hero.eyebrow)}</p>
       <h1>${esc(c.hero.h1Before)}<span class="grad">${esc(c.hero.h1Gradient)}</span></h1>
       <p class="lead">${esc(c.hero.sub)}</p>
-      <div class="cta-row">${applyBtn("Apply for Cohort 1", "btn-lg")}</div>
+      <ul class="hero-promises">${c.hero.promises.map((t) => `<li>${icon("check")}<span>${esc(t)}</span></li>`).join("")}</ul>
+      <div class="cta-row">${applyBtn("Apply for Cohort 1", "btn-lg")}<a class="btn btn-ghost btn-lg" href="#apply" data-apply-type="private">Ask a question</a></div>
+      <p class="hero-trust">${c.hero.trust.map(esc).join(' <span aria-hidden="true">·</span> ')}</p>
     </div>
-    <div class="hero-visual room"><div class="room-frame">${ROOM}</div>
+    <div class="hero-visual hero-shot">
+      <div class="shot-frame">${pic("/img/hero/workshop-session", "jpg", 768, 512, "A LeadStrategus GTM Engineering Workshop session in progress: a facilitator points to the slide \"AI drafts. You improve. AI executes.\" while participants work on laptops", "", true)}</div>
+      <ul class="shot-facts">${c.hero.facts.map((t, k) => `<li>${icon(k ? "laptop" : "users")}<span>${esc(fill(t))}</span></li>`).join("")}</ul>
     </div>
   </div>
 </section>`;
@@ -277,22 +280,17 @@ export function renderPage(c) {
     id: "programme",
     html: `
     <div class="sec-head with-art wide-art"><div><h2>${esc(c.programme.h2)}</h2><p class="sec-sub">${esc(c.programme.intro)}</p></div>${stonesArt}</div>
-    <div class="ptable-wrap">
-      <table class="ptable">
-        <caption class="sr-only">The 8 stages: what you build, the tools, what you leave with, and who is in control</caption>
-        <thead><tr><th scope="col">Stage</th><th scope="col">What you build · Tools</th><th scope="col">You leave with</th><th scope="col">Control</th></tr></thead>
-        <tbody>${c.programme.stages
-          .map(
-            (s) => `<tr class="${s.control === "human" ? "is-gate" : ""}">
-            <th scope="row"><span class="st-n">${s.n}</span><span class="st-name">${esc(s.stage)}</span></th>
-            <td data-label="What you build · Tools">${esc(s.build)}</td>
-            <td data-label="You leave with">${esc(s.leave)}</td>
-            <td data-label="Control">${pill(s.control)}</td></tr>`
-          )
-          .join("")}</tbody>
-      </table>
-    </div>
-    <p class="note">${esc(c.programme.note)}</p>`,
+    <div class="phases">${c.days.phases
+      .map(
+        (d, i) => `${i ? `<span class="phase-arrow" aria-hidden="true">${icon("arrow-right", "ic-lg")}</span>` : ""}<article class="phase phase-${i ? "b" : "a"}">
+        <p class="phase-tag">${esc(d.tag)}</p>
+        <p class="phase-big"><span class="phase-num">${esc(d.big)}</span><span class="phase-unit">${esc(d.unit)}</span></p>
+        <h3>${esc(d.title)}</h3>
+        <p class="phase-steps">${d.steps.map(esc).join(" <span aria-hidden=\"true\">·</span> ")}</p>
+      </article>`
+      )
+      .join("")}</div>
+    <ul class="outcomes">${c.days.outcomes.map((o) => `<li>${icon(o.icon, "ic-lg")}<h3>${esc(o.title)}</h3><p>${esc(o.text)}</p></li>`).join("")}</ul>`,
   };
 
   const days = {
@@ -382,7 +380,8 @@ export function renderPage(c) {
           }</div>` : ""}
         </article>`
       )
-      .join("")}</div>`,
+      .join("")}</div>
+    <p class="swipe-hint" aria-hidden="true">Swipe to see more →</p>`,
   };
   const personDialogs = people
     .map((f, k) =>
@@ -444,7 +443,8 @@ export function renderPage(c) {
         <ul class="ticks"><li>${icon("check")}At your office or ours</li><li>${icon("check")}Built around your stack</li><li>${icon("check")}Unlimited review slots</li></ul>
         <a class="btn btn-ghost btn-block" href="#apply" data-apply-type="private">Talk to us ${icon("arrow-right")}</a>
       </article>
-    </div>`,
+    </div>
+    <p class="swipe-hint" aria-hidden="true">Swipe to see more →</p>`,
   };
 
   const A = c.apply;
@@ -512,7 +512,7 @@ export function renderPage(c) {
     html: `
     <div class="sec-head"><h2>Questions, answered plainly.</h2></div>
     <div class="faq">${c.faq
-      .map((f, i) => `<details class="faq-item"${i === 0 ? " open" : ""}><summary><span>${esc(f.q)}</span>${icon("plus", "faq-ic")}</summary><div class="faq-a"><p>${esc(f.a)}</p></div></details>`)
+      .map((f) => `<details class="faq-item"><summary><span>${esc(f.q)}</span>${icon("plus", "faq-ic")}</summary><div class="faq-a"><p>${esc(f.a)}</p></div></details>`)
       .join("")}</div>`,
   };
 
@@ -521,7 +521,7 @@ export function renderPage(c) {
   const applySlot = { id: "apply", slot: true, html: "" };
 
   // Alternate white / silver backgrounds across whichever sections are shown.
-  const sections = [why, whyJoin, programme, days, who, faculty, sponsor, pricing, applySlot, faq].filter(Boolean);
+  const sections = [whyJoin, programme, faculty, sponsor, pricing, applySlot, faq].filter(Boolean);
   const body = sections
     .map((s, i) =>
       s.slot
