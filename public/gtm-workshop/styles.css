@@ -596,23 +596,17 @@ body.modal-open { overflow: hidden; }
 /* From learning to real execution: two phase cards + outcomes */
 .gtm-root .phases { display: grid; gap: 16px; align-items: stretch; }
 @media (min-width: 860px) { .gtm-root .phases { grid-template-columns: 1fr auto 1fr; } }
-.gtm-root .phase { position: relative; overflow: hidden; padding: 28px; border-radius: 22px; color: var(--navy); }
-.gtm-root .phase-a { background: linear-gradient(150deg, #FFFFFF 0%, #EEF4FF 100%); border: 1px solid #C7DBFF; box-shadow: 0 10px 28px rgba(0, 102, 255, .08); }
-.gtm-root .phase-b { background: linear-gradient(150deg, #FFFFFF 0%, #FBF0F6 100%); border: 1px solid #F1CFE0; box-shadow: 0 10px 28px rgba(180, 40, 110, .08); }
-.gtm-root .phase::after { content: ""; position: absolute; width: 220px; height: 220px; right: -70px; top: -90px; border-radius: 50%; opacity: .5; pointer-events: none; }
-.gtm-root .phase-a::after { background: radial-gradient(closest-side, rgba(0, 102, 255, .18), transparent); }
-.gtm-root .phase-b::after { background: radial-gradient(closest-side, rgba(225, 6, 0, .14), transparent); }
-.gtm-root .phase-tag { margin: 0 0 14px; font: 700 12px/1 var(--f-head); letter-spacing: .12em; color: var(--ink-3); }
-.gtm-root .phase-big { display: flex; align-items: baseline; gap: 10px; margin: 0; }
-.gtm-root .phase-big .ic { align-self: center; }
-.gtm-root .phase-a .phase-big .ic { color: var(--blue); }
-.gtm-root .phase-b .phase-big .ic { color: #B4286E; }
-.gtm-root .phase-num { font: 800 clamp(56px, 7vw, 76px)/1 var(--f-head); letter-spacing: -.04em; }
-.gtm-root .phase-a .phase-num { background: linear-gradient(180deg, #3B82F6, #0B2A6B); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.gtm-root .phase-b .phase-num { background: linear-gradient(180deg, #FB7185, #9D174D); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.gtm-root .phase-unit { font: 800 italic 30px/1 var(--f-head); color: var(--navy); }
-.gtm-root .phase h3 { margin: 16px 0 6px; padding-top: 16px; border-top: 1px solid rgba(11, 42, 107, .12); font-size: 22px; color: var(--navy); }
-.gtm-root .phase-steps { margin: 0; color: var(--ink-3); }
+.gtm-root .phase { position: relative; padding: 28px; border-radius: var(--r); border: 1px solid; box-shadow: var(--shadow); color: var(--navy); }
+.gtm-root .phase-a { background: var(--red-tint); border-color: #F6C9C7; }
+.gtm-root .phase-b { background: var(--blue-tint); border-color: #C7DBFF; }
+.gtm-root .phase-tag { margin: 0 0 14px; font: 700 12px/1 var(--f-head); letter-spacing: .12em; color: var(--navy); }
+.gtm-root .phase-big { display: flex; align-items: baseline; gap: 8px; margin: 0; }
+.gtm-root .phase-num { font: 800 clamp(56px, 7vw, 72px)/1 var(--f-head); letter-spacing: -.03em; }
+.gtm-root .phase-a .phase-num { color: var(--red); }
+.gtm-root .phase-b .phase-num { color: var(--blue); }
+.gtm-root .phase-unit { font: 700 24px/1 var(--f-head); color: var(--navy); }
+.gtm-root .phase h3 { margin: 16px 0 6px; padding-top: 16px; border-top: 1px solid rgba(11, 42, 107, .12); font-size: 20px; color: var(--navy); }
+.gtm-root .phase-steps { margin: 0; color: var(--ink-2); }
 .gtm-root .phase-arrow { display: grid; place-items: center; color: var(--red); }
 @media (max-width: 859px) { .gtm-root .phase-arrow { transform: rotate(90deg); } }
 .gtm-root .outcomes { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 16px; }
@@ -648,5 +642,24 @@ body.modal-open { overflow: hidden; }
 .gtm-root .proof-strip li:has(a):hover { border-color: rgba(244, 114, 182, .6); }
 .gtm-root .ps-num { display: block; font: 800 clamp(34px, 4.6vw, 46px)/1 var(--f-head); letter-spacing: -.03em; background: linear-gradient(90deg, #FFFFFF, #93C5FD); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .gtm-root .ps-label { display: block; margin-top: 8px; font-size: 14px; line-height: 1.4; color: #C9D6F2; }
+
+/* Why join?: readable benefit list + proof panel (no icons) */
+.gtm-root .wj-grid { display: grid; gap: 28px; }
+@media (min-width: 1024px) { .gtm-root .wj-grid { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 40px; align-items: start; } }
+.gtm-root .wj-label { margin: 0 0 14px; font: 700 13px/1 var(--f-head); letter-spacing: .14em; text-transform: uppercase; color: #F9A8D4; }
+.gtm-root .wj-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 32px; }
+@media (min-width: 700px) { .gtm-root .wj-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.gtm-root .wj-list li { position: relative; padding: 18px 0 18px 20px; border-top: 1px solid rgba(255, 255, 255, .14); }
+.gtm-root .wj-list li::before { content: ""; position: absolute; left: 0; top: 24px; width: 4px; height: 18px; border-radius: 2px; background: var(--grad-hero); }
+.gtm-root .wj-list h3 { margin: 0 0 4px; font-size: 18px; line-height: 1.3; color: #fff; }
+.gtm-root .wj-list p { margin: 0; color: #C9D6F2; line-height: 1.55; }
+.gtm-root .wj-proof { padding: 24px; border-radius: 20px; background: rgba(255, 255, 255, .05); border: 1px solid rgba(147, 197, 253, .25); }
+.gtm-root .wj-stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 16px; }
+.gtm-root .wj-stats li { display: block; }
+.gtm-root .wj-stats .ps-num { font-size: clamp(32px, 3.6vw, 40px); }
+.gtm-root .wj-stats .ps-label { font-size: 14px; }
+.gtm-root .wj-stats a { color: inherit; text-decoration: underline; text-decoration-color: rgba(201, 214, 242, .4); text-underline-offset: 3px; }
+.gtm-root .wj-stats a:hover { color: #fff; }
+.gtm-root .wj-proof .we-do-it { margin: 22px 0 0; padding: 16px; font-size: 17px; }
 
 @keyframes hop{0%{opacity:0;transform:translate(0.00%, 0.00%) translateY(-18%)}5%{opacity:1;transform:translate(0.00%, 0.00%) translateY(-18%)}8%{transform:translate(0.00%, 0.00%)}12.5%{transform:translate(6.17%, -13.97%)}17%{transform:translate(12.35%, -9.94%)}21.5%{transform:translate(18.22%, -23.26%)}26%{transform:translate(24.09%, -18.58%)}30.5%{transform:translate(29.75%, -31.02%)}35%{transform:translate(35.40%, -25.45%)}39.5%{transform:translate(41.00%, -36.93%)}44%{transform:translate(46.59%, -30.41%)}48.5%{transform:translate(52.32%, -41.01%)}53%{transform:translate(58.04%, -33.60%)}57.5%{transform:translate(64.06%, -43.52%)}62%{transform:translate(70.09%, -35.43%)}66.5%{transform:translate(76.51%, -44.97%)}71%{transform:translate(82.94%, -36.51%)}88%{opacity:1;transform:translate(82.94%, -36.51%)}94%{opacity:0;transform:translate(82.94%, -36.51%) scale(.6)}100%{opacity:0;transform:translate(82.94%, -36.51%) scale(.6)}}.gtm-root .anim-stones.in-view .ball img{animation:hop 9s cubic-bezier(.45,0,.55,1) .9s infinite}@media (prefers-reduced-motion: reduce){.gtm-root .anim-stones .ball img{transform:translate(82.94%, -36.51%)}}@keyframes gate1{0%,16%{transform:none;filter:none}18%{transform:translateY(2.5%);filter:brightness(1.25) drop-shadow(0 0 10px rgba(225,6,0,.55))}23%{transform:none;filter:brightness(1.1) drop-shadow(0 0 6px rgba(225,6,0,.35))}31%,100%{transform:none;filter:none}}.gtm-root .anim-stones.in-view .s1 img{animation:gate1 9s linear .9s infinite}@keyframes gate2{0%,25%{transform:none;filter:none}27%{transform:translateY(2.5%);filter:brightness(1.25) drop-shadow(0 0 10px rgba(225,6,0,.55))}32%{transform:none;filter:brightness(1.1) drop-shadow(0 0 6px rgba(225,6,0,.35))}40%,100%{transform:none;filter:none}}.gtm-root .anim-stones.in-view .s2 img{animation:gate2 9s linear .9s infinite}@keyframes gate5{0%,52%{transform:none;filter:none}54%{transform:translateY(2.5%);filter:brightness(1.25) drop-shadow(0 0 10px rgba(225,6,0,.55))}59%{transform:none;filter:brightness(1.1) drop-shadow(0 0 6px rgba(225,6,0,.35))}67%,100%{transform:none;filter:none}}.gtm-root .anim-stones.in-view .s5 img{animation:gate5 9s linear .9s infinite}/* Inside leadstrategus.ai the site's own navbar and footer replace the page's header and footer. */.gtm-root { --nav-h: 104px; }html:has(.gtm-root) { scroll-padding-top: 116px; }.gtm-root .skip, .gtm-root .site-header, .gtm-root .site-footer { display: none !important; }/* Hide the floating Apply bar while the site's own footer is on screen (set by GtmWorkshop.tsx). */.gtm-root[data-footer-visible] .mobile-bar { transform: translateY(110%); opacity: 0; pointer-events: none; }

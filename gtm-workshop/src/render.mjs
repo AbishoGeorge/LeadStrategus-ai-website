@@ -204,11 +204,19 @@ export function renderPage(c) {
     cls: "band band-glow",
     html: `
     <div class="sec-head"><h2>${esc(WJ.h2)}</h2><p class="sec-sub">${esc(WJ.intro)}</p></div>
-    <ul class="proof-strip">${c.whyUs.proofs
-      .map((p) => `<li>${p.clutch ? `<a href="${esc(S.clutchUrl)}" target="_blank" rel="noopener">` : ""}<span class="ps-num">${esc(p.big)}</span><span class="ps-label">${esc(p.short)}</span>${p.clutch ? "</a>" : ""}</li>`)
-      .join("")}</ul>
-    <div class="benefits">${WJ.cards.map((k, i) => `<article class="benefit" style="--i:${i}"><span class="benefit-ic">${icon(k.icon, "ic-lg")}</span><h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></article>`).join("")}</div>
-    <p class="we-do-it">${esc(c.whyUs.banner[0])} <strong>${esc(c.whyUs.banner[1])}</strong></p>`,
+    <div class="wj-grid">
+      <div>
+        <p class="wj-label">What you get</p>
+        <ul class="wj-list">${WJ.cards.map((k) => `<li><h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></li>`).join("")}</ul>
+      </div>
+      <aside class="wj-proof">
+        <p class="wj-label">Why LeadStrategus</p>
+        <ul class="wj-stats">${c.whyUs.proofs
+          .map((p) => `<li><span class="ps-num">${esc(p.big)}</span><span class="ps-label">${p.clutch ? `<a href="${esc(S.clutchUrl)}" target="_blank" rel="noopener">${esc(p.short)}</a>` : esc(p.short)}</span></li>`)
+          .join("")}</ul>
+        <p class="we-do-it">${esc(c.whyUs.banner[0])} <strong>${esc(c.whyUs.banner[1])}</strong></p>
+      </aside>
+    </div>`,
   };
 
   const SP = c.sponsor;
@@ -279,7 +287,7 @@ export function renderPage(c) {
       .map(
         (d, i) => `${i ? `<span class="phase-arrow" aria-hidden="true">${icon("arrow-right", "ic-lg")}</span>` : ""}<article class="phase phase-${i ? "b" : "a"}">
         <p class="phase-tag">${esc(d.tag)}</p>
-        <p class="phase-big">${icon(d.icon, "ic-lg")}<span class="phase-num">${esc(d.big)}</span><span class="phase-unit">${esc(d.unit)}</span></p>
+        <p class="phase-big"><span class="phase-num">${esc(d.big)}</span><span class="phase-unit">${esc(d.unit)}</span></p>
         <h3>${esc(d.title)}</h3>
         <p class="phase-steps">${d.steps.map(esc).join(" <span aria-hidden=\"true\">·</span> ")}</p>
       </article>`

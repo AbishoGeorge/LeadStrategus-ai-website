@@ -112,7 +112,7 @@ export default {
   },
 
   whyJoin: {
-    h2: "Why join LeadStrategus.",
+    h2: "Why join?",
     intro: "Learn from a firm that runs outbound for clients every week. Here is what you get.",
     cards: [
       { icon: "rocket", title: "Build your own engine", text: "Built on your real customers and offer. You leave with a tested system, not notes." },
@@ -189,8 +189,8 @@ export default {
     ],
     // From the "From learning to real execution" slide: two phases, then what you get.
     phases: [
-      { icon: "calendar", big: "5", unit: "Days", title: "Intensive classroom", steps: ["Principles", "Design", "Build"], tag: "IN PERSON · BENGALURU" },
-      { icon: "calendar-check", big: "4", unit: "Weeks", title: "Guided execution", steps: ["Implement", "Iterate", "Optimise"], tag: "ONLINE · 2 × 1 HR A WEEK" },
+      { icon: "calendar", big: "5", unit: "days", title: "Intensive classroom", steps: ["Principles", "Design", "Build"], tag: "IN PERSON · BENGALURU" },
+      { icon: "calendar-check", big: "4", unit: "weeks", title: "Guided execution", steps: ["Implement", "Iterate", "Optimise"], tag: "ONLINE · 2 × 1 HR A WEEK" },
     ],
     outcomes: [
       { icon: "layers", title: "Capstone project", text: "Build your own outbound engine." },
