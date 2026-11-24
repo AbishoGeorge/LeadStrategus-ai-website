@@ -75,7 +75,15 @@ export default {
   hero: {
     h1Before: "Outbound, ",
     h1Gradient: "engineered.",
-    sub: "In 5 days, build a working outbound engine for your own business: who to target, when to reach out, and what to say. Taught by people who ran marketing at AWS, Gartner and SAP.",
+    eyebrow: "Cohort 1 now open · Bengaluru",
+    sub: "In 5 days, build the outbound engine that finds your buyers and books your meetings. Then run it with us for 4 weeks. Taught by people who ran marketing at AWS, Gartner and SAP.",
+    promises: [
+      "Leave with a working, tested engine built on your own business",
+      "AI does the research and drafting. You make the calls that matter",
+      "4 weeks of live support while you send, learn and improve",
+    ],
+    facts: ["5 days in person · Bengaluru", "4 weeks online support", "{priceIndividual} + GST · teams save {teamDiscountPct}%"],
+    trust: ["★★★★★ 5.0 on Clutch", "No payment to apply", "Seats filling fast"],
     buildLog: [
       { when: "DAY 1", text: "ICP + segments chosen", gate: "gate 1" },
       { when: "DAY 2", text: "Signal model set; accounts ranked A/B/C", gate: "gate 2" },
@@ -166,8 +174,8 @@ export default {
   },
 
   programme: {
-    h2: "8 stages. 3 human gates. One engine.",
-    intro: "Not a course. A build. 30% principles, 70% building on your own business.",
+    h2: "5 days to build. 4 weeks to run it.",
+    intro: "8 stages, 3 human checkpoints, one engine. 30% principles, 70% building on your own business.",
     stages: [
       { n: "01", stage: "Client discovery", build: "Questionnaire, interviews, Claude to organise", leave: "Business brief: what you sell, who buys, why, what success looks like", control: "ai" },
       { n: "02", stage: "ICP and segments", build: "Claude proposes 6–8 segments; you pick 2–3", leave: "ICP, buying committee, disqualifiers; 2–3 segments chosen from 6–8", control: "human" },

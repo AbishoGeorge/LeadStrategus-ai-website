@@ -664,3 +664,15 @@ body.modal-open { overflow: hidden; }
 
 /* "Other" role: the optional text field spans both columns of the form grid */
 .fgrid .field-full { grid-column: 1 / -1; }
+
+/* Sales hero: eyebrow, promises, key facts, two CTAs, trust line */
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 18px; padding: 7px 14px; border-radius: 999px; background: var(--red-tint); border: 1px solid #F6C9C7; font: 700 13px/1.2 var(--f-head); letter-spacing: .04em; color: var(--red-text); }
+.live-dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--red); }
+@media (prefers-reduced-motion: no-preference) { .live-dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--red); opacity: 0; animation: live 1.8s ease-out infinite; } @keyframes live { 0% { transform: scale(.5); opacity: .8; } 100% { transform: scale(1.6); opacity: 0; } } }
+.hero-promises { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; }
+.hero-promises li { display: flex; gap: 10px; align-items: flex-start; font-size: 17px; line-height: 1.45; color: var(--ink); font-weight: 500; }
+.hero-promises .ic { flex: none; width: 22px; height: 22px; padding: 3px; margin-top: 1px; border-radius: 50%; background: var(--ok-tint); color: var(--ok); }
+.hero-facts { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-facts li { padding: 7px 12px; border-radius: 10px; background: var(--card); border: 1px solid var(--line); font: 600 14px/1.2 var(--f-head); color: var(--navy); }
+.hero .cta-row { margin-top: 26px; }
+.hero-trust { margin: 16px 0 0; font-size: 14px; color: var(--ink-3); }

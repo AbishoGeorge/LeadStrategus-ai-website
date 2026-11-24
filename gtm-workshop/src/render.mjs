@@ -170,9 +170,13 @@ export function renderPage(c) {
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
+      <p class="hero-eyebrow"><span class="live-dot" aria-hidden="true"></span>${esc(c.hero.eyebrow)}</p>
       <h1>${esc(c.hero.h1Before)}<span class="grad">${esc(c.hero.h1Gradient)}</span></h1>
       <p class="lead">${esc(c.hero.sub)}</p>
-      <div class="cta-row">${applyBtn("Apply for Cohort 1", "btn-lg")}</div>
+      <ul class="hero-promises">${c.hero.promises.map((t) => `<li>${icon("check")}<span>${esc(t)}</span></li>`).join("")}</ul>
+      <ul class="hero-facts">${c.hero.facts.map((t) => `<li>${esc(fill(t))}</li>`).join("")}</ul>
+      <div class="cta-row">${applyBtn("Apply for Cohort 1", "btn-lg")}<a class="btn btn-ghost btn-lg" href="#apply" data-apply-type="private">Ask a question</a></div>
+      <p class="hero-trust">${c.hero.trust.map(esc).join(' <span aria-hidden="true">·</span> ')}</p>
     </div>
     <div class="hero-visual room"><div class="room-frame">${ROOM}</div>
     </div>
@@ -277,22 +281,17 @@ export function renderPage(c) {
     id: "programme",
     html: `
     <div class="sec-head with-art wide-art"><div><h2>${esc(c.programme.h2)}</h2><p class="sec-sub">${esc(c.programme.intro)}</p></div>${stonesArt}</div>
-    <div class="ptable-wrap">
-      <table class="ptable">
-        <caption class="sr-only">The 8 stages: what you build, the tools, what you leave with, and who is in control</caption>
-        <thead><tr><th scope="col">Stage</th><th scope="col">What you build · Tools</th><th scope="col">You leave with</th><th scope="col">Control</th></tr></thead>
-        <tbody>${c.programme.stages
-          .map(
-            (s) => `<tr class="${s.control === "human" ? "is-gate" : ""}">
-            <th scope="row"><span class="st-n">${s.n}</span><span class="st-name">${esc(s.stage)}</span></th>
-            <td data-label="What you build · Tools">${esc(s.build)}</td>
-            <td data-label="You leave with">${esc(s.leave)}</td>
-            <td data-label="Control">${pill(s.control)}</td></tr>`
-          )
-          .join("")}</tbody>
-      </table>
-    </div>
-    <p class="note">${esc(c.programme.note)}</p>`,
+    <div class="phases">${c.days.phases
+      .map(
+        (d, i) => `${i ? `<span class="phase-arrow" aria-hidden="true">${icon("arrow-right", "ic-lg")}</span>` : ""}<article class="phase phase-${i ? "b" : "a"}">
+        <p class="phase-tag">${esc(d.tag)}</p>
+        <p class="phase-big"><span class="phase-num">${esc(d.big)}</span><span class="phase-unit">${esc(d.unit)}</span></p>
+        <h3>${esc(d.title)}</h3>
+        <p class="phase-steps">${d.steps.map(esc).join(" <span aria-hidden=\"true\">·</span> ")}</p>
+      </article>`
+      )
+      .join("")}</div>
+    <ul class="outcomes">${c.days.outcomes.map((o) => `<li>${icon(o.icon, "ic-lg")}<h3>${esc(o.title)}</h3><p>${esc(o.text)}</p></li>`).join("")}</ul>`,
   };
 
   const days = {
@@ -521,7 +520,7 @@ export function renderPage(c) {
   const applySlot = { id: "apply", slot: true, html: "" };
 
   // Alternate white / silver backgrounds across whichever sections are shown.
-  const sections = [why, whyJoin, programme, days, who, faculty, sponsor, pricing, applySlot, faq].filter(Boolean);
+  const sections = [whyJoin, programme, faculty, sponsor, pricing, applySlot, faq].filter(Boolean);
   const body = sections
     .map((s, i) =>
       s.slot
