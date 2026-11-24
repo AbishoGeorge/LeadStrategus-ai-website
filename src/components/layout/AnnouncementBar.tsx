@@ -1,12 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 // Site-wide strip above the navbar. Its height (h-10) is part of the header
 // height that Layout and the GTM Workshop page offset their content by.
 export default function AnnouncementBar() {
+  const { pathname } = useLocation();
   return (
     <Link
-      to="/gtm-workshop#apply"
+      to="/gtm-workshop"
+      // Already on the workshop page: the route doesn't change, so scroll up ourselves.
+      onClick={() => {
+        if (pathname === '/gtm-workshop') window.scrollTo({ top: 0, behavior: 'smooth' });
+      }}
       className="group relative flex h-10 items-center justify-center gap-1.5 overflow-hidden whitespace-nowrap sm:gap-2 bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 px-4 text-white"
     >
       <span className="text-[12px] font-medium sm:text-sm">

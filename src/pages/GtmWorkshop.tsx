@@ -263,7 +263,7 @@ function WorkshopForm() {
 export default function GtmWorkshop() {
   const { hash, key } = useLocation();
 
-  // Links like /gtm-workshop#apply (the announcement bar) land on that section,
+  // Links like /gtm-workshop#apply land on that section,
   // including when the visitor is already on this page.
   useEffect(() => {
     if (!hash) return;
