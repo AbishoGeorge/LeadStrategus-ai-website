@@ -221,7 +221,7 @@ export default function PrivacyPolicy() {
                   If you require a formal Data Processing Agreement (DPA),
                   which is common for enterprise and EU/UK clients,
                   please refer to Document III of this pack or contact us at
-                  kingshuk@leadstrategus.com.
+                  mail@leadstrategus.com.
                 </p>
               </div>
             </section>
@@ -422,7 +422,7 @@ export default function PrivacyPolicy() {
 
               <p className="mt-5">
                 To exercise any of these rights, contact us at
-                kingshuk@leadstrategus.com. We will respond within
+                mail@leadstrategus.com. We will respond within
                 a reasonable timeframe in accordance with applicable law.
               </p>
             </section>
@@ -491,7 +491,7 @@ export default function PrivacyPolicy() {
                   <span className="font-medium text-navy-900">
                     Privacy enquiries:
                   </span>{' '}
-                  kingshuk@leadstrategus.com
+                  mail@leadstrategus.com
                 </p>
 
                 <p>
