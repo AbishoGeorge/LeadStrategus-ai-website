@@ -513,7 +513,7 @@ export function renderPage(c) {
     html: `
     <div class="sec-head"><h2>Questions, answered plainly.</h2></div>
     <div class="faq">${c.faq
-      .map((f, i) => `<details class="faq-item"${i === 0 ? " open" : ""}><summary><span>${esc(f.q)}</span>${icon("plus", "faq-ic")}</summary><div class="faq-a"><p>${esc(f.a)}</p></div></details>`)
+      .map((f) => `<details class="faq-item"><summary><span>${esc(f.q)}</span>${icon("plus", "faq-ic")}</summary><div class="faq-a"><p>${esc(f.a)}</p></div></details>`)
       .join("")}</div>`,
   };
 
