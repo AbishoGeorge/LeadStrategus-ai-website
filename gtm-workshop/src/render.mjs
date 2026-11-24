@@ -172,11 +172,15 @@ export function renderPage(c) {
       <h1>${esc(c.hero.h1Before)}<span class="grad">${esc(c.hero.h1Gradient)}</span></h1>
       <p class="lead">${esc(c.hero.sub)}</p>
       <ul class="hero-promises">${c.hero.promises.map((t) => `<li>${icon("check")}<span>${esc(t)}</span></li>`).join("")}</ul>
-      <ul class="hero-facts">${c.hero.facts.map((t) => `<li>${esc(fill(t))}</li>`).join("")}</ul>
       <div class="cta-row">${applyBtn("Apply for Cohort 1", "btn-lg")}<a class="btn btn-ghost btn-lg" href="#apply" data-apply-type="private">Ask a question</a></div>
       <p class="hero-trust">${c.hero.trust.map(esc).join(' <span aria-hidden="true">·</span> ')}</p>
     </div>
-    <div class="hero-visual room"><div class="room-frame hero-photo">${pic("/img/hero/workshop-session", "jpg", 768, 512, "A LeadStrategus GTM Engineering Workshop session in progress: a facilitator points to the slide \"AI drafts. You improve. AI executes.\" while participants work on laptops", "", true)}</div>
+    <div class="hero-visual hero-shot">
+      <div class="shot-accent" aria-hidden="true"></div>
+      <div class="shot-frame">${pic("/img/hero/workshop-session", "jpg", 768, 512, "A LeadStrategus GTM Engineering Workshop session in progress: a facilitator points to the slide \"AI drafts. You improve. AI executes.\" while participants work on laptops", "", true)}
+        <span class="shot-tag"><span class="live-dot" aria-hidden="true"></span>In the room, not on a webinar</span>
+      </div>
+      <ul class="shot-facts">${c.hero.facts.map((t, k) => `<li>${icon(k ? "laptop" : "users")}<span>${esc(fill(t))}</span></li>`).join("")}</ul>
     </div>
   </div>
 </section>`;
