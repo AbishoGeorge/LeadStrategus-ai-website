@@ -52,18 +52,34 @@ function stonesCss(st) {
   const [x0, y0] = st.tops[0];
   const T = 9; // seconds per loop
   const land = (i) => 8 + i * 9; // % of the loop at which the ball lands on stone i (stone 7 at 71%)
-  const at = (i) => `translate(${(st.tops[i][0] - x0).toFixed(2)}%, ${(st.tops[i][1] - y0).toFixed(2)}%)`;
   const lift = 9; // hop height, % of the box
-  let k = `0%{opacity:0;transform:${at(0)} translateY(-${lift * 2}%)}5%{opacity:1;transform:${at(0)} translateY(-${lift * 2}%)}${land(0)}%{transform:${at(0)}}`;
-  for (let i = 1; i < 8; i++) {
-    const mid = (land(i - 1) + land(i)) / 2;
-    const mx = ((st.tops[i - 1][0] + st.tops[i][0]) / 2 - x0).toFixed(2);
-    const my = ((st.tops[i - 1][1] + st.tops[i][1]) / 2 - y0 - lift).toFixed(2);
-    k += `${mid}%{transform:translate(${mx}%, ${my}%)}${land(i)}%{transform:${at(i)}}`;
-  }
-  k += `88%{opacity:1;transform:${at(7)}}94%{opacity:0;transform:${at(7)} scale(.6)}100%{opacity:0;transform:${at(7)} scale(.6)}`;
-  let css = `@keyframes hop{${k}}.anim-stones.in-view .ball img{animation:hop ${T}s cubic-bezier(.45,0,.55,1) .9s infinite}`;
-  css += `@media (prefers-reduced-motion: reduce){.anim-stones .ball img{transform:${at(7)}}}`;
+  const pct = (v) => +v.toFixed(2);
+  const pos = (x, y) => `translate(${pct(x - x0)}%, ${pct(y - y0)}%)`;
+  // Sample each hop as a real arc (straight across, parabola up and down) so the
+  // ball travels smoothly instead of jumping between a few keyframes.
+  const frames = [];
+  const add = (at, transform, opacity) => frames.push(`${pct(at)}%{transform:${transform}${opacity == null ? "" : `;opacity:${opacity}`}}`);
+  const arc = (from, to, x1, y1, x2, y2, h, steps = 12) => {
+    for (let k = 1; k <= steps; k++) {
+      const t = k / steps;
+      add(from + (to - from) * t, pos(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t - 4 * h * t * (1 - t)));
+    }
+  };
+  const [sx, sy] = st.tops[0];
+  // Drop in from above the first stone, accelerating like it is falling.
+  add(0, pos(sx, sy - lift * 2), 0);
+  add(3, pos(sx, sy - lift * 2), 1);
+  for (let k = 1; k <= 6; k++) { const t = k / 6; add(3 + (land(0) - 3) * t, pos(sx, sy - lift * 2 * (1 - t * t))); }
+  for (let i = 1; i < 8; i++) arc(land(i - 1), land(i), ...st.tops[i - 1], ...st.tops[i], lift);
+  // Settle on the last stone with two shrinking bounces, rest, then drift up and fade out gently.
+  const [ex, ey] = st.tops[7];
+  arc(land(7), land(7) + 4, ex, ey, ex, ey, lift * 0.3, 8);
+  arc(land(7) + 4, land(7) + 7, ex, ey, ex, ey, lift * 0.1, 6);
+  add(83, pos(ex, ey), 1);
+  for (let k = 1; k <= 8; k++) { const t = k / 8, e = t * t * (3 - 2 * t); add(83 + 14 * t, pos(ex, ey - 6 * e), pct(1 - e)); }
+  add(100, pos(ex, ey - 6), 0);
+  let css = `@keyframes hop{${frames.join("")}}.anim-stones.in-view .ball img{animation:hop ${T}s linear .9s infinite}`;
+  css += `@media (prefers-reduced-motion: reduce){.anim-stones .ball img{opacity:1;transform:${pos(ex, ey)}}}`;
   for (const g of st.gates) {
     const l = land(g);
     css += `@keyframes gate${g}{0%,${l - 1}%{transform:none;filter:none}${l + 1}%{transform:translateY(2.5%);filter:brightness(1.25) drop-shadow(0 0 10px rgba(225,6,0,.55))}${l + 6}%{transform:none;filter:brightness(1.1) drop-shadow(0 0 6px rgba(225,6,0,.35))}${l + 14}%,100%{transform:none;filter:none}}`;
