@@ -17,7 +17,18 @@ const Why = lazy(() => import('./pages/Why'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TrustCenter = lazy(() => import('./pages/TrustCenter'));
-const GtmWorkshop = lazy(() => import('./pages/GtmWorkshop'));
+const loadGtmWorkshop = () =>
+  Promise.all([import('./pages/GtmWorkshop'), import('./pages/gtm-workshop/loadStyles').then((m) => m.loadGtmStyles())]).then(([page]) => page);
+const GtmWorkshop = lazy(loadGtmWorkshop);
+
+// The GTM Workshop page is the heaviest route; fetch it in the background once the
+// current page has settled, so opening it from the navbar is instant.
+if (typeof window !== 'undefined') {
+  window.addEventListener('load', () => {
+    const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 1500));
+    idle(() => void loadGtmWorkshop());
+  });
+}
 
 function PageLoader() {
   return (

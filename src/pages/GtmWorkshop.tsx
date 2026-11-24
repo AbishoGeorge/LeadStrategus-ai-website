@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Check, Mail } from 'lucide-react';
 import pageHtml from './gtm-workshop/content.html?raw';
 import apply from './gtm-workshop/apply.json';
+import { GTM_STYLES_HREF } from './gtm-workshop/loadStyles';
 
 // The GTM Engineering Workshop page is built from gtm-workshop/ by
 // scripts/build-gtm-workshop.mjs. Its styles are scoped under .gtm-root.
@@ -116,7 +117,7 @@ export default function GtmWorkshop() {
   return (
     <>
       <Helmet>
-        <link rel="stylesheet" href="/gtm-workshop/styles.css" />
+        <link rel="stylesheet" href={GTM_STYLES_HREF} />
         <link rel="preload" href="/gtm-workshop/fonts/montserrat.woff2" as="font" type="font/woff2" crossOrigin="" />
       </Helmet>
       <div className="gtm-root">
