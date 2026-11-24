@@ -8,8 +8,6 @@ const TO_EMAIL = 'kingshuk@leadstrategus.com';
 const FROM_EMAIL = 'Website Contact <contact@leadstrategus.ai>';
 
 const LIMITS = { name: 100, email: 254, company: 150, requirement: 100, message: 5000, source: 50 };
-const DETAILS_MAX = 10;
-const DETAIL_LIMIT = 1000;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 // Best-effort per-IP rate limit. Memory is per function instance, so this
@@ -75,24 +73,7 @@ export async function POST(request: Request): Promise<Response> {
       errors.push(`${field[0].toUpperCase()}${field.slice(1)} must be at most ${LIMITS[field]} characters.`);
     }
   }
-  // Optional extra answers from longer forms (e.g. the GTM Workshop application).
-  // The website contact form doesn't send these, so its behaviour is unchanged.
-  const details: [string, string][] = [];
-  if (raw.details !== undefined) {
-    if (typeof raw.details !== 'object' || raw.details === null || Array.isArray(raw.details)) {
-      errors.push('Invalid form details.');
-    } else {
-      for (const [key, value] of Object.entries(raw.details as Record<string, unknown>).slice(0, DETAILS_MAX)) {
-        const label = key.trim().slice(0, 60);
-        const text = typeof value === 'string' ? value.trim() : '';
-        if (!label || !text) continue;
-        if (text.length > DETAIL_LIMIT) errors.push(`${label} must be at most ${DETAIL_LIMIT} characters.`);
-        details.push([label, text]);
-      }
-    }
-  }
   if (errors.length) return json(400, { error: errors.join(' ') });
-  const detailsText = details.map(([k, v]) => `${k}: ${v}`).join('\n');
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
@@ -112,7 +93,7 @@ export async function POST(request: Request): Promise<Response> {
         company: data.company,
         email: data.email,
         requirement: data.requirement,
-        message: [detailsText, data.message].filter(Boolean).join('\n\n'),
+        message: data.message,
       });
     if (error) console.error('contact: Supabase insert failed:', error.message);
     else saved = true;
@@ -123,7 +104,6 @@ export async function POST(request: Request): Promise<Response> {
     ['Email', data.email],
     ['Company', data.company],
     ['Looking for', data.requirement],
-    ...details,
     ['Message', data.message || '(none)'],
     ['Form', data.source || 'website'],
   ];
@@ -147,7 +127,7 @@ export async function POST(request: Request): Promise<Response> {
     from: FROM_EMAIL,
     to: TO_EMAIL,
     replyTo: data.email,
-    subject: `${details.length ? `New ${data.source || 'website'} application` : 'New enquiry'} from ${data.name.replace(/[\r\n]+/g, ' ')}`,
+    subject: `New enquiry from ${data.name.replace(/[\r\n]+/g, ' ')}`,
     text,
     html,
   });

@@ -561,3 +561,12 @@ body.modal-open { overflow: hidden; }
 .mail-card { margin: 0; }
 .mail-card .tag-line { margin: 0 0 12px; }
 .mail-card pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.65 var(--f-body); color: var(--ink-2); background: var(--hero-wash); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 16px; }
+
+/* "Email us" block that replaces the application form */
+.email-card { display: grid; gap: 12px; align-content: start; }
+.email-card .tag-line { margin: 0; }
+.email-card p { margin: 0; }
+.email-addr { font: 700 clamp(20px, 2.4vw, 28px)/1.25 var(--f-head); overflow-wrap: anywhere; }
+.email-addr a { color: var(--navy); text-decoration: none; }
+.email-addr a:hover { color: var(--blue-text); }
+.email-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }

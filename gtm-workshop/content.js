@@ -275,8 +275,9 @@ export default {
   },
 
   apply: {
-    h2: "Tell us what you sell. We'll call within 48 hours.",
-    sub: "Two minutes. We check fit before anyone pays.",
+    h2: "Email us. We'll reply within 48 hours.",
+    sub: "Tell us what you sell and to whom, and whether you're coming on your own or as a team. We check fit before anyone pays.",
+    email: "contact@leadstrategus.com",
     trust: ["NO PAYMENT TO APPLY", "GST INVOICE"],
     roles: ["Founder", "Sales or demand-gen lead", "RevOps", "First GTM hire", "Other"],
     success: "Application received. We'll call you within 48 hours to check fit.",

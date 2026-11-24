@@ -561,6 +561,15 @@ body.modal-open { overflow: hidden; }
 .gtm-root .mail-card { margin: 0; }
 .gtm-root .mail-card .tag-line { margin: 0 0 12px; }
 .gtm-root .mail-card pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.65 var(--f-body); color: var(--ink-2); background: var(--hero-wash); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 16px; }
+
+/* "Email us" block that replaces the application form */
+.gtm-root .email-card { display: grid; gap: 12px; align-content: start; }
+.gtm-root .email-card .tag-line { margin: 0; }
+.gtm-root .email-card p { margin: 0; }
+.gtm-root .email-addr { font: 700 clamp(20px, 2.4vw, 28px)/1.25 var(--f-head); overflow-wrap: anywhere; }
+.gtm-root .email-addr a { color: var(--navy); text-decoration: none; }
+.gtm-root .email-addr a:hover { color: var(--blue-text); }
+.gtm-root .email-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 /* Inside leadstrategus.ai the site's own navbar and footer replace the page's header and footer. */
 .gtm-root { --nav-h: 64px; }
 html:has(.gtm-root) { scroll-padding-top: 76px; }

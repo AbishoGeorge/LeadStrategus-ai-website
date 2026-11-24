@@ -3,7 +3,7 @@
 //   node scripts/build-gtm-workshop.mjs
 // Outputs:
 //   src/pages/gtm-workshop/content.html  page body, rendered by src/pages/GtmWorkshop.tsx
-//   src/pages/gtm-workshop/apply.json    copy for the application form the site renders
+//   src/pages/gtm-workshop/apply.json    copy for the "email us" block the site renders
 //   public/gtm-workshop/                 its images, fonts, script and scoped stylesheet
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -77,12 +77,12 @@ body = body
 fs.mkdirSync(path.dirname(htmlOut), { recursive: true });
 fs.writeFileSync(htmlOut, prefixPaths(body).trim() + '\n');
 
-// Copy for the application form, which the site renders itself (src/pages/GtmWorkshop.tsx).
+// Copy for the "email us" block, which the site renders itself (src/pages/GtmWorkshop.tsx).
 const { default: content } = await import(pathToFileURL(path.join(src, 'content.js')).href);
-const { h2, sub, trust, roles, success } = content.apply;
+const { h2, sub, trust, email } = content.apply;
 fs.writeFileSync(
   path.join(path.dirname(htmlOut), 'apply.json'),
-  JSON.stringify({ h2, sub, trust, roles, success, city: content.settings.city }, null, 2) + '\n'
+  JSON.stringify({ h2, sub, trust, email }, null, 2) + '\n'
 );
 
 fs.rmSync(built, { recursive: true, force: true });
