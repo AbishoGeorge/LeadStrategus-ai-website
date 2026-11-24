@@ -234,6 +234,32 @@ export default function GtmWorkshop() {
     return () => cancelAnimationFrame(frame);
   }, [hash, key]);
 
+  // "Why join." tiles rise in one after another when the section scrolls into view.
+  // They render visible; the effect only hides tiles that are still below the fold.
+  useEffect(() => {
+    const grid = document.querySelector<HTMLElement>('.gtm-root .benefits');
+    if (!grid || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (grid.getBoundingClientRect().top < window.innerHeight) return;
+    grid.classList.add('pre');
+    let timer = 0;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        grid.classList.remove('pre');
+        grid.classList.add('shown');
+        // Drop the staggered transition afterwards so hover feels instant.
+        timer = window.setTimeout(() => grid.classList.remove('shown'), 1400);
+      },
+      { threshold: 0.2 }
+    );
+    io.observe(grid);
+    return () => {
+      io.disconnect();
+      clearTimeout(timer);
+    };
+  }, []);
+
   // "Copy note" button in the sponsor section.
   useEffect(() => {
     const onClick = async (e: MouseEvent) => {

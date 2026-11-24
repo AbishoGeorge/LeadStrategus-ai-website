@@ -204,8 +204,7 @@ export function renderPage(c) {
     cls: "band",
     html: `
     <div class="sec-head"><h2>${esc(WJ.h2)}</h2><p class="sec-sub">${esc(WJ.intro)}</p></div>
-    <ul class="stat-row">${WJ.stats.map((t) => `<li><span class="stat-big">${esc(t.big)}</span><span class="stat-label">${esc(t.label)}</span></li>`).join("")}</ul>
-    <div class="benefits">${WJ.cards.map((k) => `<article class="benefit"><span class="benefit-ic">${icon(k.icon, "ic-lg")}</span><div><h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></div></article>`).join("")}</div>`,
+    <div class="benefits">${WJ.cards.map((k, i) => `<article class="benefit" style="--i:${i}"><span class="benefit-ic">${icon(k.icon, "ic-lg")}</span><h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></article>`).join("")}</div>`,
   };
 
   const SP = c.sponsor;

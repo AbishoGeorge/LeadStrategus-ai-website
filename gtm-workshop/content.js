@@ -114,12 +114,6 @@ export default {
   whyJoin: {
     h2: "Why join.",
     intro: "Five days in the room. Four weeks of support. A system you keep.",
-    stats: [
-      { big: "5", label: "days in person" },
-      { big: "4", label: "weeks of support" },
-      { big: "12", label: "seats only" },
-      { big: "1", label: "engine you keep" },
-    ],
     cards: [
       { icon: "rocket", title: "Build your own engine", text: "Built on your real customers and offer. You leave with a tested system, not notes." },
       { icon: "workflow", title: "Learn the system, not a tool", text: "Swap tools any time without starting over." },

@@ -547,20 +547,29 @@ body.modal-open { overflow: hidden; }
 .gtm-root .section.band { background: var(--navy); color: #fff; }
 .gtm-root .band .sec-head h2, .gtm-root .band h3 { color: #fff; }
 .gtm-root .band .sec-sub { color: #C9D6F2; }
-.gtm-root .stat-row { list-style: none; margin: 0 0 40px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-@media (min-width: 760px) { .gtm-root .stat-row { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.gtm-root .stat-row li { border: 1px solid rgba(255, 255, 255, .16); border-radius: var(--r); padding: 20px; background: rgba(255, 255, 255, .04); }
-.gtm-root .stat-big { display: block; font: 800 clamp(40px, 6vw, 60px)/1 var(--f-head); letter-spacing: -.03em; background: var(--grad-hero); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.gtm-root .stat-label { display: block; margin-top: 8px; font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #C9D6F2; }
-.gtm-root .benefits { display: grid; gap: 12px; }
+.gtm-root .benefits { display: grid; gap: 16px; }
 @media (min-width: 760px) { .gtm-root .benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1100px) { .gtm-root .benefits { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.gtm-root .benefit { display: flex; gap: 16px; align-items: flex-start; padding: 22px; border-radius: var(--r); background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .1); transition: background .2s, transform .2s; }
-.gtm-root .benefit:hover { background: rgba(255, 255, 255, .1); transform: translateY(-2px); }
-.gtm-root .benefit h3 { margin: 0 0 6px; font-size: 18px; }
-.gtm-root .benefit p { margin: 0; color: #C9D6F2; }
-.gtm-root .benefit-ic { flex: none; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: rgba(0, 102, 255, .22); color: #8DB8FF; }
-@media (prefers-reduced-motion: reduce) { .gtm-root .benefit { transition: none; } .gtm-root .benefit:hover { transform: none; } }
+@media (min-width: 1100px) { .gtm-root .benefits { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; } }
+.gtm-root .benefit { position: relative; overflow: hidden; padding: 28px 26px 26px; border-radius: 20px; background: linear-gradient(160deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .03)); border: 1px solid rgba(255, 255, 255, .12); transition: transform .35s cubic-bezier(.22,.61,.36,1), border-color .35s, background .35s; }
+/* thin brand-gradient line that sweeps in along the top edge on hover */
+.gtm-root .benefit::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: var(--grad-hero); transform: scaleX(0); transform-origin: left; transition: transform .5s cubic-bezier(.22,.61,.36,1); }
+/* soft glow behind the icon */
+.gtm-root .benefit::after { content: ""; position: absolute; width: 180px; height: 180px; left: -40px; top: -60px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 102, 255, .28), transparent); opacity: .55; transition: opacity .35s; pointer-events: none; }
+.gtm-root .benefit:hover { transform: translateY(-6px); border-color: rgba(255, 255, 255, .28); background: linear-gradient(160deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, .05)); }
+.gtm-root .benefit:hover::before { transform: scaleX(1); }
+.gtm-root .benefit:hover::after { opacity: 1; }
+.gtm-root .benefit-ic { position: relative; z-index: 1; display: grid; place-items: center; width: 58px; height: 58px; margin-bottom: 20px; border-radius: 16px; background: var(--grad-hero); color: #fff; box-shadow: 0 10px 24px rgba(0, 0, 0, .25); transition: transform .45s cubic-bezier(.34,1.56,.64,1); }
+.gtm-root .benefit:hover .benefit-ic { transform: rotate(-8deg) scale(1.08); }
+.gtm-root .benefit h3 { position: relative; z-index: 1; margin: 0 0 8px; font-size: 19px; line-height: 1.3; color: #fff; }
+.gtm-root .benefit p { position: relative; z-index: 1; margin: 0; color: #C9D6F2; line-height: 1.55; }
+/* entrance: tiles rise in one after another when the section scrolls into view (JS adds .pre / .shown) */
+.gtm-root .benefits.pre .benefit { opacity: 0; transform: translateY(18px); }
+.gtm-root .benefits.shown .benefit { opacity: 1; transform: none; transition: opacity .6s ease calc(var(--i) * 90ms), transform .6s cubic-bezier(.22,.61,.36,1) calc(var(--i) * 90ms), border-color .35s, background .35s; }
+@media (prefers-reduced-motion: reduce) {
+  .gtm-root .benefit, .gtm-root .benefit::before, .gtm-root .benefit-ic { transition: none; }
+  .gtm-root .benefit:hover, .gtm-root .benefit:hover .benefit-ic { transform: none; }
+  .gtm-root .benefits.pre .benefit { opacity: 1; transform: none; }
+}
 
 /* Get your boss to sponsor you: pitch list + letter */
 .gtm-root .sponsor-grid { display: grid; gap: 20px; align-items: start; }
