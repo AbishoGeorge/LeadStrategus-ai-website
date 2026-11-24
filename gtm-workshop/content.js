@@ -159,7 +159,7 @@ export default {
     proofs: [
       { icon: "radar", big: "100+", label: "global outbound projects", title: "Proven global execution", text: "8+ years of real-world B2B demand generation across international markets." },
       { icon: "briefcase", big: "25+", label: "years of founder experience", title: "Operator-led", text: "B2B marketing, BD and GTM at AWS, SAP, Oracle, IBM and Gartner." },
-      { icon: "award", big: "5.0", label: "on Clutch · 7 reviews", title: "Independently recognised", text: "Commended for ABM precision, research depth and delivery quality.", clutch: true },
+      { icon: "award", big: "5.0", label: "★★★★★ on Clutch", title: "Independently recognised", text: "Commended for ABM precision, research depth and delivery quality.", clutch: true },
       { icon: "chart-line", big: "25K+", label: "personalised messages sent", title: "Our own campaign data", text: "Shows which messages get replies, and which conversation stages lead to meetings." },
     ],
     banner: ["We don't just teach outbound.", "We do it."],
