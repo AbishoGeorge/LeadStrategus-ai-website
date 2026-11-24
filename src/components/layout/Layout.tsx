@@ -10,7 +10,7 @@ export default function Layout() {
       <RouteSeo />
       <ScrollToTop />
       <Navbar />
-      <main className="flex-1 pt-16">
+      <main className="flex-1 pt-[104px]">
         <Outlet />
       </main>
       <Footer />

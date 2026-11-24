@@ -3,11 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import textLogoImg from '../../assets/LeadStrategus_medium.png';
+import AnnouncementBar from './AnnouncementBar';
 
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/agents', label: 'Agents' },
   { to: '/build', label: 'Custom Build' },
+  { to: '/gtm-workshop', label: 'GTM Workshop' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ];
@@ -18,6 +20,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100">
+      <AnnouncementBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2.5 shrink-0">
