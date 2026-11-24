@@ -186,7 +186,6 @@ else if(st=='sit'){const k=Math.min(1,(t-stopT)/1.5);sitPose(sm(k,0,1),0,0);if(k
 else if(st=='sat'){const q=t-stopT-1.5;sitPose(1,1*sin(t*.4)+2.2*Math.exp(-5*q)*sin(11*q),t)}
 requestAnimationFrame(loop)}
 if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){sitPose(1,0,0)}else{x=X0;walkPose(0,1);requestAnimationFrame(loop);setTimeout(start,900)}
-$('rp').onclick=start;
 })();
 
   /* ---------- 3D scenes: start animating when they scroll into view ---------- */

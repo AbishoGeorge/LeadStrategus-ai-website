@@ -536,8 +536,6 @@ body.modal-open { overflow: hidden; }
 .gtm-root #rm .rise{animation:rise 5s cubic-bezier(.22,.61,.36,1) forwards}
 @keyframes rise{0%{opacity:0;transform:translateY(8px)}12%{opacity:1}80%{opacity:1}100%{opacity:0;transform:translateY(var(--dy,-20px))}}
 .gtm-root #rm .seat{cursor:pointer}
-.gtm-root #rp{font:500 13px/1 var(--f-body);color:var(--ink-2);background:#FFFFFF;border:1px solid var(--line-input);border-radius:8px;padding:6px 10px;cursor:pointer}
-.gtm-root #rp:hover{border-color:var(--blue);color:var(--blue-text)}
 @media (min-width: 1000px) { .gtm-root .hero-visual.room { padding: 0; } }
 @media (prefers-reduced-motion: reduce) { .gtm-root #rm * { animation: none !important; } }
 

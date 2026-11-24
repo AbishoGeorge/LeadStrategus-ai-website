@@ -76,4 +76,3 @@
 <g id="near"></g>
 <g id="cards"></g>
 </svg>
-<div style="padding:8px 12px;border-top:0.5px solid #DCE3EE;background:#FFFFFF;display:flex;justify-content:flex-end"><button id="rp" style="font-size:13px"><span aria-hidden="true">&#8635;</span> Replay entrance</button></div>
