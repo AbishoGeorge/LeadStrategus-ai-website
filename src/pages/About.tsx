@@ -44,7 +44,7 @@ const teamMembers = [
     name: 'Kiruba Karan', role: 'AI/ML ENGINEER',
     description: 'Builds and deploys the AI systems that power LeadStrategus.ai monitoring and outreach agents.',
     fullBio: 'Kiruba builds the agents that run the platform, from data pipelines scraping 10+ signal sources to LLMs fine-tuned for context-grounded message generation. His work covers the full AI lifecycle: data engineering, model training, RAG pipelines, and production deployment using LangGraph, PyTorch, HuggingFace, and FastAPI. At LeadStrategus, he has automated internal workflows, built NLP pipelines, and integrated OpenAI and Anthropic Claude APIs into live systems.',
-    image: 'https://github.com/AbishoGeorge/LeadStrategus-ai-website/blob/main/public/Kiruba.jpg?raw=true',
+    image: '/Kiruba-Karan.jpg',
     linkedin: 'https://www.linkedin.com/in/kirubakaranperiyasamy/',
     email: 'kirubakaran.p@leadstrategus.com',
   },
