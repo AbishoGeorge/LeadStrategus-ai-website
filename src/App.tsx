@@ -17,6 +17,7 @@ const Why = lazy(() => import('./pages/Why'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TrustCenter = lazy(() => import('./pages/TrustCenter'));
+const GtmBootcamp = lazy(() => import('./pages/GtmBootcamp'));
 
 function PageLoader() {
   return (
@@ -46,6 +47,7 @@ export const routes: RouteObject[] = [
       { path: 'tos', element: <Suspense fallback={<PageLoader />}><TermsOfService /></Suspense> },
       { path: 'privacy', element: <Suspense fallback={<PageLoader />}><PrivacyPolicy /></Suspense> },
       { path: 'trust', element: <Suspense fallback={<PageLoader />}><TrustCenter /></Suspense> },
+      { path: 'gtm-bootcamp', element: <Suspense fallback={<PageLoader />}><GtmBootcamp /></Suspense> },
     ],
   },
 ];

@@ -1,6 +1,8 @@
 /* LeadStrategus GTM Engineering Workshop: page interactions (no dependencies) */
 (() => {
   "use strict";
+  const setInterval = (f, t) => { const id = window.setInterval(f, t); (window.__gtmTimers = window.__gtmTimers || []).push(id); return id; };
+  const setTimeout = (f, t) => { const id = window.setTimeout(f, t); (window.__gtmTimers = window.__gtmTimers || []).push(id); return id; };
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const cfg = JSON.parse($("#site-config").textContent);
@@ -145,7 +147,7 @@ g.addEventListener('mouseenter',()=>{if(g.style.opacity!=='0')card(s,OUT[oi++%OU
 const me=seats[0];
 function card(s,txt){const w=txt.length*6.2+30,x=s.x-w/2,g=document.createElementNS(NS,'g');g.setAttribute('class','rise');const red=/approved|booked|live|seat/.test(txt);
 g.innerHTML='<rect x="'+(x+1)+'" y="'+(s.y-23)+'" width="'+w+'" height="26" rx="13" fill="#0B1F4D" opacity=".08"/><rect x="'+x+'" y="'+(s.y-26)+'" width="'+w+'" height="26" rx="13" fill="#FFFFFF" stroke="#D5DDEA"/><circle cx="'+(x+13)+'" cy="'+(s.y-13)+'" r="4" fill="'+(red?'#E11D2E':'#2563EB')+'"/><text x="'+(x+23)+'" y="'+(s.y-9)+'" font-size="11" fill="#0B1F4D">'+txt+'</text>';
-$('cards').appendChild(g);setTimeout(()=>g.remove(),4700)}
+if(!$('cards'))return;$('cards').appendChild(g);setTimeout(()=>g.remove(),4700)}
 function emit(){const pool=seats.map((s,i)=>i).filter(i=>i!==last&&i!==6&&seats[i].e.style.opacity!=='0');const i=pool[Math.floor(Math.random()*pool.length)];last=i;card(seats[i],OUT[oi++%OUT.length])}
 const anim=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(anim){setInterval(()=>{if(!document.hidden)emit()},2400);setTimeout(emit,700);}

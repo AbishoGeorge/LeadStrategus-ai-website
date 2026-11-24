@@ -8,6 +8,7 @@ const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/agents', label: 'Agents' },
   { to: '/build', label: 'Custom Build' },
+  { to: '/gtm-bootcamp', label: 'GTM Bootcamp' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ];
