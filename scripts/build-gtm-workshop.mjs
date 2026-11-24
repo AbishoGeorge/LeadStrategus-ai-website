@@ -59,8 +59,8 @@ css.walkRules((rule) => {
 });
 css.append(`
 /* Inside leadstrategus.ai the site's own navbar and footer replace the page's header and footer. */
-${SCOPE} { --nav-h: 64px; }
-html:has(${SCOPE}) { scroll-padding-top: 76px; }
+${SCOPE} { --nav-h: 104px; }
+html:has(${SCOPE}) { scroll-padding-top: 116px; }
 ${SCOPE} .skip, ${SCOPE} .site-header, ${SCOPE} .site-footer { display: none !important; }
 `);
 fs.writeFileSync(path.join(assetsOut, 'styles.css'), prefixPaths(css.toString()));

@@ -600,6 +600,6 @@ body.modal-open { overflow: hidden; }
 .gtm-root .email-addr a:hover { color: var(--blue-text); }
 .gtm-root .email-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 /* Inside leadstrategus.ai the site's own navbar and footer replace the page's header and footer. */
-.gtm-root { --nav-h: 64px; }
-html:has(.gtm-root) { scroll-padding-top: 76px; }
+.gtm-root { --nav-h: 104px; }
+html:has(.gtm-root) { scroll-padding-top: 116px; }
 .gtm-root .skip, .gtm-root .site-header, .gtm-root .site-footer { display: none !important; }
