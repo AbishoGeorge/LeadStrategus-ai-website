@@ -9,7 +9,7 @@ import { createClient } from '@supabase/supabase-js';
 const TO_EMAIL = 'mail@leadstrategus.com';
 const FROM_EMAIL = 'GTM Workshop <contact@leadstrategus.ai>';
 
-const LIMITS = { name: 100, email: 254, company: 150, role: 60, sell: 600, comingAs: 30, question: 2000 };
+const LIMITS = { name: 100, email: 254, company: 150, role: 60, roleOther: 80, sell: 600, comingAs: 30, question: 2000 };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const COMING_AS = ['Individual', 'Team of 3+'];
 
@@ -73,7 +73,7 @@ export async function POST(request: Request): Promise<Response> {
     errors.push('Please enter your question.');
   }
   for (const field of Object.keys(LIMITS) as Field[]) {
-    if (data[field].length > LIMITS[field]) errors.push(`Please shorten ${field} to ${LIMITS[field]} characters.`);
+    if (data[field].length > LIMITS[field]) errors.push(`Please shorten ${field === 'roleOther' ? 'your role' : field} to ${LIMITS[field]} characters.`);
   }
   if (errors.length) return json(400, { error: errors.join(' ') });
 
@@ -90,7 +90,7 @@ export async function POST(request: Request): Promise<Response> {
           ['Name', data.name],
           ['Email', data.email],
           ['Company and website', data.company],
-          ['Role', data.role || '(not given)'],
+          ['Role', data.role === 'Other' && data.roleOther ? `Other: ${data.roleOther}` : data.role || '(not given)'],
           ['What they sell, and to whom', data.sell],
           ['Coming as', data.comingAs],
           ['Can attend all 5 days', 'Yes'],

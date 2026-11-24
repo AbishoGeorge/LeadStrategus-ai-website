@@ -661,3 +661,6 @@ body.modal-open { overflow: hidden; }
 .wj-stats a { color: inherit; text-decoration: underline; text-decoration-color: rgba(201, 214, 242, .4); text-underline-offset: 3px; }
 .wj-stats a:hover { color: #fff; }
 .wj-proof .we-do-it { margin: 22px 0 0; padding: 16px; font-size: 17px; }
+
+/* "Other" role: the optional text field spans both columns of the form grid */
+.fgrid .field-full { grid-column: 1 / -1; }

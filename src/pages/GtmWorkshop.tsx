@@ -22,6 +22,7 @@ const emptyForm = {
   email: '',
   company: '',
   role: apply.roles[0],
+  roleOther: '',
   sell: '',
   comingAs: 'Individual' as ComingAs,
   canAttend: false,
@@ -162,6 +163,12 @@ function WorkshopForm() {
                       <option key={r}>{r}</option>
                     ))}
                   </select>
+                </div>
+              )}
+              {isApply && form.role === 'Other' && (
+                <div className="field field-full">
+                  <label htmlFor="gtm-role-other">Tell us your role (optional)</label>
+                  <input id="gtm-role-other" type="text" autoComplete="organization-title" maxLength={80} placeholder="e.g. Partnerships manager" value={form.roleOther} onChange={(e) => update('roleOther', e.target.value)} />
                 </div>
               )}
             </div>
