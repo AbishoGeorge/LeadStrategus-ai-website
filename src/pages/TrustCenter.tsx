@@ -308,7 +308,7 @@ export default function TrustCenter() {
                   <span className="font-medium text-navy-900">
                     Enquiries:
                   </span>{' '}
-                  kingshuk@leadstrategus.com
+                  mail@leadstrategus.com
                 </li>
               </ul>
 

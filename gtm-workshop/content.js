@@ -36,7 +36,7 @@ export default {
     checklistPdfUrl: "", // TODO URL of the "8 questions" PDF. Empty = "we'll email it to you".
     showClientLogos: true, // "Trusted by" strip, same logos as leadstrategus.com
     showTestimonials: true, // Clutch reviews, as published on leadstrategus.ai
-    contactEmail: "kingshuk@leadstrategus.com", // same contact address as leadstrategus.com
+    contactEmail: "mail@leadstrategus.com", // same contact address as leadstrategus.com
     address: "Bizzhub, Brigade Tech Park, near ITPL Main Road, Pattandur Agrahara, Whitefield, Bengaluru, Karnataka 560066",
     whatsapp: "", // digits incl. country code, e.g. "9198xxxxxxxx". Empty = hidden.
     whatsappMessage: "Hi LeadStrategus, I have a question about the GTM Engineering Workshop.",
@@ -44,7 +44,7 @@ export default {
     instagram: "https://www.instagram.com/leadstrategus/",
     clutchRating: "5.0",
     city: "Bengaluru",
-    responseHours: 48,
+    responseHours: 1,
   },
 
   site: {
@@ -282,12 +282,12 @@ export default {
   },
 
   apply: {
-    h2: "Email us. We'll reply within 48 hours.",
+    h2: "Email us. We'll respond within 1 business hour.",
     sub: "Tell us what you sell, to whom, and if you're coming alone or as a team. No payment until we confirm fit.",
     email: "mail@leadstrategus.com",
     trust: ["NO PAYMENT TO APPLY", "GST INVOICE"],
     roles: ["Founder", "Sales or demand-gen lead", "RevOps", "First GTM hire", "Other"],
-    success: "Application received. We'll call you within 48 hours to check fit.",
+    success: "Application received. We'll respond within 1 business hour.",
   },
 
   faq: [
@@ -300,7 +300,7 @@ export default {
 
   finalCta: {
     h2: "12 seats. One engine that's yours.",
-    sub: "We read every email and reply within 48 hours.",
+    sub: "We read every email and respond within 1 business hour.",
   },
 
   // ---------------------------------------------------------------------------
