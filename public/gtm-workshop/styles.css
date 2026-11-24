@@ -207,6 +207,10 @@ html:has(.gtm-root) { scroll-behavior: smooth; scroll-padding-top: calc(var(--na
 .gtm-root .marquee-track ul { display: flex; align-items: center; gap: 72px; padding-right: 72px; }
 .gtm-root .marquee-track li { flex: none; display: flex; align-items: center; height: 48px; }
 .gtm-root .marquee-track img { max-width: none; width: auto; }
+/* Logos sit in grey and show their real colours on hover (or keyboard focus). */
+.gtm-root .marquee-track img { filter: grayscale(1); opacity: .65; transition: filter .3s ease, opacity .3s ease; }
+.gtm-root .marquee-track li:hover img, .gtm-root .marquee-track li:focus-within img { filter: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .gtm-root .marquee-track img { transition: none; } }
 @media (prefers-reduced-motion: no-preference) {
   .gtm-root .marquee-track { animation: marquee 38s linear infinite; }
   .gtm-root .marquee:hover .marquee-track { animation-play-state: paused; }

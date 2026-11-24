@@ -207,6 +207,10 @@ button { font: inherit; color: inherit; }
 .marquee-track ul { display: flex; align-items: center; gap: 72px; padding-right: 72px; }
 .marquee-track li { flex: none; display: flex; align-items: center; height: 48px; }
 .marquee-track img { max-width: none; width: auto; }
+/* Logos sit in grey and show their real colours on hover (or keyboard focus). */
+.marquee-track img { filter: grayscale(1); opacity: .65; transition: filter .3s ease, opacity .3s ease; }
+.marquee-track li:hover img, .marquee-track li:focus-within img { filter: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .marquee-track img { transition: none; } }
 @media (prefers-reduced-motion: no-preference) {
   .marquee-track { animation: marquee 38s linear infinite; }
   .marquee:hover .marquee-track { animation-play-state: paused; }
