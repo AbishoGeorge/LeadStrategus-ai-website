@@ -575,11 +575,7 @@ body.modal-open { overflow: hidden; }
 .letter .tag-line { margin: 0; }
 .letter pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: 400 15px/1.7 var(--f-body); color: var(--ink-2); }
 
-/* "Email us" block that replaces the application form */
-.email-card { display: grid; gap: 12px; align-content: start; }
-.email-card .tag-line { margin: 0; }
-.email-card p { margin: 0; }
-.email-addr { font: 700 clamp(20px, 2.4vw, 28px)/1.25 var(--f-head); overflow-wrap: anywhere; }
-.email-addr a { color: var(--navy); text-decoration: none; }
-.email-addr a:hover { color: var(--blue-text); }
-.email-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+/* Apply / ask-a-question form */
+.mode-pick { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+.email-alt { margin-top: 20px; color: var(--ink-3); font-size: 15px; }
+.email-alt a { color: var(--blue-text); font-weight: 600; }

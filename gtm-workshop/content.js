@@ -282,9 +282,10 @@ export default {
   },
 
   apply: {
-    h2: "Email us. We'll respond within 1 business hour.",
-    sub: "Tell us what you sell, to whom, and if you're coming alone or as a team. No payment until we confirm fit.",
+    h2: "Apply or ask us. We'll respond within 1 business hour.",
+    sub: "Apply for Cohort 1, or ask a question first. No payment until we confirm fit.",
     email: "mail@leadstrategus.com",
+    questionSuccess: "Question received. We'll respond within 1 business hour.",
     trust: ["NO PAYMENT TO APPLY", "GST INVOICE"],
     roles: ["Founder", "Sales or demand-gen lead", "RevOps", "First GTM hire", "Other"],
     success: "Application received. We'll respond within 1 business hour.",

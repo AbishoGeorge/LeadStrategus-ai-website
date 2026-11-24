@@ -1,48 +1,97 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-import { ArrowRight, Check, Mail } from 'lucide-react';
+import { ArrowRight, BadgeCheck, Check } from 'lucide-react';
 import pageHtml from './gtm-workshop/content.html?raw';
 import apply from './gtm-workshop/apply.json';
 import { GTM_STYLES_HREF } from './gtm-workshop/loadStyles';
 
 // The GTM Engineering Workshop page is built from gtm-workshop/ by
 // scripts/build-gtm-workshop.mjs. Its styles are scoped under .gtm-root.
-// The page is split where its application form used to be; an "email us" block
-// is rendered there instead.
+// The page is split where its form goes; WorkshopForm (apply / ask a question)
+// is rendered there and posts to /api/gtm-workshop.
 const [beforeForm, formBand = '', afterForm = ''] = pageHtml.split(/<!--GTM_APPLY_SLOT:(alt)?-->/);
 
-const subjectByType: Record<string, string> = {
-  individual: 'GTM Workshop enquiry',
-  team: 'GTM Workshop enquiry: team of 3+',
-  private: 'GTM Workshop enquiry: private cohort',
+type Mode = 'apply' | 'question';
+type ComingAs = 'Individual' | 'Team of 3+';
+const SELL_MAX = 600;
+const QUESTION_MAX = 2000;
+
+const emptyForm = {
+  name: '',
+  email: '',
+  company: '',
+  role: apply.roles[0],
+  sell: '',
+  comingAs: 'Individual' as ComingAs,
+  canAttend: false,
+  question: '',
+  consent: false,
+  website: '',
 };
 
-function EmailUs() {
-  const [subject, setSubject] = useState(subjectByType.individual);
-  const [copied, setCopied] = useState(false);
+/** Apply for Cohort 1, or ask a question. Posts to /api/gtm-workshop (Resend → mail@leadstrategus.com). */
+function WorkshopForm() {
+  const [mode, setMode] = useState<Mode>('apply');
+  const [form, setForm] = useState(emptyForm);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+  const thanksRef = useRef<HTMLDivElement>(null);
 
-  // Pricing buttons ("Apply as a team", "Talk to us") and ?type=team set the email subject.
+  const update = <K extends keyof typeof emptyForm>(field: K, value: (typeof emptyForm)[K]) =>
+    setForm((prev) => ({ ...prev, [field]: value }));
+
+  // Pricing buttons and ?type= pre-select the form: individual / team apply, private asks a question.
   useEffect(() => {
-    const preset = subjectByType[new URLSearchParams(window.location.search).get('type') ?? ''];
-    if (preset) setSubject(preset);
+    const preset = (type: string | null) => {
+      if (type === 'individual' || type === 'team') {
+        setMode('apply');
+        update('comingAs', type === 'team' ? 'Team of 3+' : 'Individual');
+      } else if (type === 'private') {
+        setMode('question');
+      }
+    };
+    preset(new URLSearchParams(window.location.search).get('type'));
     const onClick = (e: MouseEvent) => {
       const type = (e.target as HTMLElement).closest?.('[data-apply-type]')?.getAttribute('data-apply-type');
-      if (type && subjectByType[type]) setSubject(subjectByType[type]);
+      if (type) preset(type);
     };
     document.addEventListener('click', onClick);
     return () => document.removeEventListener('click', onClick);
   }, []);
 
-  const copy = async () => {
+  useEffect(() => {
+    if (status === 'success') thanksRef.current?.focus();
+  }, [status]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
     try {
-      await navigator.clipboard.writeText(apply.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      setCopied(false);
+      const res = await fetch('/api/gtm-workshop', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ type: mode, ...form }),
+      }).catch(() => {
+        throw new Error('Network error. Please check your connection and try again.');
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        throw new Error(body?.error || 'Something went wrong. Please try again.');
+      }
+      setStatus('success');
+    } catch (err) {
+      setErrorMessage(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+      setStatus('error');
     }
   };
+
+  const reset = () => {
+    setForm(emptyForm);
+    setStatus('idle');
+  };
+
+  const isApply = mode === 'apply';
 
   return (
     <div className="apply-grid">
@@ -57,22 +106,118 @@ function EmailUs() {
             </li>
           ))}
         </ul>
-      </div>
-      <div className="card form-card email-card">
-        <Mail className="ic ic-xl" aria-hidden="true" />
-        <p className="tag-line">Send an email to</p>
-        <p className="email-addr">
-          <a href={`mailto:${apply.email}?subject=${encodeURIComponent(subject)}`}>{apply.email}</a>
+        <p className="email-alt">
+          Prefer email? <a href={`mailto:${apply.email}`}>{apply.email}</a>
         </p>
-        <p>Include what you sell, your role, and how you'll join.</p>
-        <div className="email-actions">
-          <a className="btn btn-primary btn-lg" href={`mailto:${apply.email}?subject=${encodeURIComponent(subject)}`}>
-            Email us <ArrowRight className="ic" aria-hidden="true" />
-          </a>
-          <button type="button" className="btn btn-ghost btn-lg" onClick={copy}>
-            {copied ? 'Copied' : 'Copy address'}
-          </button>
-        </div>
+      </div>
+      <div className="card form-card">
+        {status === 'success' ? (
+          <div className="thanks" tabIndex={-1} ref={thanksRef} role="status">
+            <BadgeCheck className="ic ic-xl" aria-hidden="true" />
+            <h3>{isApply ? apply.success : apply.questionSuccess}</h3>
+            <button type="button" className="btn btn-ghost btn-sm" onClick={reset}>
+              Send another
+            </button>
+          </div>
+        ) : (
+          <form id="gtm-form" onSubmit={handleSubmit}>
+            <fieldset className="field coming mode-pick">
+              <legend>What would you like to do?</legend>
+              <div className="seg">
+                {(['apply', 'question'] as Mode[]).map((m) => (
+                  <label key={m}>
+                    <input type="radio" name="gtm-mode" value={m} checked={mode === m} onChange={() => setMode(m)} />
+                    <span>{m === 'apply' ? 'Apply for Cohort 1' : 'Ask a question'}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            {/* Honeypot: hidden from people, bots tend to fill it */}
+            <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', width: 1, height: 1, overflow: 'hidden' }}>
+              <label htmlFor="gtm-website">Website</label>
+              <input id="gtm-website" type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={(e) => update('website', e.target.value)} />
+            </div>
+
+            <div className="fgrid">
+              <div className="field">
+                <label htmlFor="gtm-name">Full name <span className="req" aria-hidden="true">*</span></label>
+                <input id="gtm-name" type="text" autoComplete="name" required maxLength={100} value={form.name} onChange={(e) => update('name', e.target.value)} />
+              </div>
+              <div className="field">
+                <label htmlFor="gtm-email">Work email <span className="req" aria-hidden="true">*</span></label>
+                <input id="gtm-email" type="email" autoComplete="email" inputMode="email" required maxLength={254} value={form.email} onChange={(e) => update('email', e.target.value)} />
+              </div>
+              <div className="field">
+                <label htmlFor="gtm-company">
+                  Company and website {isApply && <span className="req" aria-hidden="true">*</span>}
+                </label>
+                <input id="gtm-company" type="text" autoComplete="organization" required={isApply} maxLength={150} placeholder="Acme Ltd · acme.com" value={form.company} onChange={(e) => update('company', e.target.value)} />
+              </div>
+              {isApply && (
+                <div className="field">
+                  <label htmlFor="gtm-role">Your role</label>
+                  <select id="gtm-role" value={form.role} onChange={(e) => update('role', e.target.value)}>
+                    {apply.roles.map((r) => (
+                      <option key={r}>{r}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
+            </div>
+
+            {isApply ? (
+              <>
+                <div className="field">
+                  <label htmlFor="gtm-sell">What do you sell, and to whom? <span className="req" aria-hidden="true">*</span></label>
+                  <textarea id="gtm-sell" rows={4} maxLength={SELL_MAX} required value={form.sell} onChange={(e) => update('sell', e.target.value)} aria-describedby="gtm-sell-count" />
+                  <p className="counter" id="gtm-sell-count" aria-live="polite">{form.sell.length} / {SELL_MAX}</p>
+                </div>
+
+                <fieldset className="field coming">
+                  <legend>Coming as <span className="req" aria-hidden="true">*</span></legend>
+                  <div className="seg">
+                    {(['Individual', 'Team of 3+'] as ComingAs[]).map((opt) => (
+                      <label key={opt}>
+                        <input type="radio" name="gtm-coming-as" value={opt} checked={form.comingAs === opt} onChange={() => update('comingAs', opt)} />
+                        <span>{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+              </>
+            ) : (
+              <div className="field">
+                <label htmlFor="gtm-question">Your question <span className="req" aria-hidden="true">*</span></label>
+                <textarea id="gtm-question" rows={5} maxLength={QUESTION_MAX} required placeholder="Ask us anything about the workshop, pricing, dates or team seats." value={form.question} onChange={(e) => update('question', e.target.value)} />
+              </div>
+            )}
+
+            <div className="field checks">
+              {isApply && (
+                <label className="check">
+                  <input type="checkbox" required checked={form.canAttend} onChange={(e) => update('canAttend', e.target.checked)} />
+                  <span>I can attend all 5 days in {apply.city}. <span className="req" aria-hidden="true">*</span></span>
+                </label>
+              )}
+              <label className="check">
+                <input type="checkbox" required checked={form.consent} onChange={(e) => update('consent', e.target.checked)} />
+                <span>
+                  I agree to be contacted about this workshop and accept the{' '}
+                  <button type="button" className="linkish" data-modal="privacy">Privacy Notice</button>.{' '}
+                  <span className="req" aria-hidden="true">*</span>
+                </span>
+              </label>
+            </div>
+
+            {status === 'error' && <div className="form-status" role="alert">{errorMessage}</div>}
+            <button className="btn btn-primary btn-block btn-lg" type="submit" disabled={status === 'loading'} aria-busy={status === 'loading'}>
+              <span className="lbl">{status === 'loading' ? 'Sending…' : isApply ? 'Submit application' : 'Send question'}</span>
+              <ArrowRight className="ic" aria-hidden="true" />
+            </button>
+            <p className="req-note"><span className="req">*</span> Required</p>
+          </form>
+        )}
       </div>
     </div>
   );
@@ -135,7 +280,7 @@ export default function GtmWorkshop() {
         <div dangerouslySetInnerHTML={{ __html: beforeForm }} />
         <section className={`section ${formBand}`} id="apply">
           <div className="wrap">
-            <EmailUs />
+            <WorkshopForm />
           </div>
         </section>
         <div dangerouslySetInnerHTML={{ __html: afterForm }} />
