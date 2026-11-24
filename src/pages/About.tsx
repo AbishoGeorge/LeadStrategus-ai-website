@@ -52,7 +52,7 @@ const teamMembers = [
     name: 'Abisho George', role: 'Strategy Consultant',
     description: 'Works on market intelligence, helping teams understand where to play and who to target before outreach begins.',
     fullBio: "Abisho works on the layer that determines whether the entire outbound motion points in the right direction. He runs market mapping, ICP definition, and account targeting research, the inputs that shape which companies the agents monitor and how they are scored. He works across the GTM and engineering teams to keep that strategic intelligence current as markets and client targets evolve.",
-    image: 'https://github.com/AbishoGeorge/LeadStrategus-ai-website/blob/main/public/Abisho.png?raw=true',
+    image: '/Abisho.jpg',
     linkedin: 'https://www.linkedin.com/in/abishogeorge/',
     email: 'abisho.g@leadstrategus.com',
   },
