@@ -1,0 +1,91 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./three.module.js","three/addons/":"./addons/"}}</script>
+</head><body>
+<script type="module">
+// Renders one layer of one scene. ?s=<scene>&layer=<layer>
+// All layers of a scene share the camera, so they line up exactly when stacked;
+// window.__meta reports screen positions (px) the CSS animation needs.
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const q = new URLSearchParams(location.search);
+const which = q.get('s'), layer = q.get('layer');
+const W = 1200, H = 900;
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+const cam = new THREE.PerspectiveCamera(30, W / H, 0.1, 100);
+const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(4, 9, 6); key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048); key.shadow.radius = 8;
+Object.assign(key.shadow.camera, { left: -9, right: 9, top: 9, bottom: -9 });
+scene.add(key, new THREE.AmbientLight(0xffffff, 0.35));
+
+const mat = (hex, o = {}) => new THREE.MeshPhysicalMaterial({ color: hex, roughness: 0.28, metalness: 0.05, clearcoat: 0.8, clearcoatRoughness: 0.15, ...o });
+const RED = 0xE10600, BLUE = 0x0066FF, NAVY = 0x0B2A6B, SILVER = 0xE8ECF2, WHITE = 0xffffff;
+const mesh = (geo, m, x = 0, y = 0, z = 0) => { const o = new THREE.Mesh(geo, m); o.position.set(x, y, z); o.castShadow = o.receiveShadow = true; return o; };
+const show = (name, obj) => { if (layer === name) scene.add(obj); };
+const shadowGround = (op = 0.12) => { const g = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: op })); g.rotation.x = -Math.PI / 2; g.receiveShadow = true; return g; };
+const toPx = (v) => { cam.updateMatrixWorld(true); const p = v.clone().project(cam); return [ (p.x + 1) / 2 * W, (1 - p.y) / 2 * H ]; };
+const meta = { W, H };
+
+if (which === 'target') {
+  cam.position.set(0, 8.5, 9); cam.lookAt(0.3, 0.6, 0);
+  const board = new THREE.Group();
+  const rings = [[2.6, WHITE], [2.0, SILVER], [1.4, BLUE], [0.8, WHITE], [0.35, RED]];
+  rings.forEach(([r, c], i) => { const h = 0.35 + i * 0.12; board.add(mesh(new THREE.CylinderGeometry(r, r, h, 96), mat(c), 0, h / 2, 0)); });
+  board.add(shadowGround());
+  const topY = 0.35 + 4 * 0.12;
+  const arrow = new THREE.Group();
+  const shaft = mesh(new THREE.CylinderGeometry(0.06, 0.06, 3.4, 24), mat(NAVY)); shaft.position.y = 1.7;
+  const head = mesh(new THREE.ConeGeometry(0.2, 0.5, 32), mat(NAVY)); head.rotation.x = Math.PI; head.position.y = 0.05;
+  const fl = mesh(new RoundedBoxGeometry(0.5, 0.6, 0.04, 2, 0.02), mat(RED)); fl.position.y = 3.2;
+  const fl2 = fl.clone(); fl2.rotation.y = Math.PI / 2;
+  arrow.add(shaft, head, fl, fl2);
+  arrow.position.set(0, topY + 0.01, 0); arrow.rotation.z = -0.6; arrow.rotation.x = 0.25;
+  show('board', board); show('arrow', arrow);
+  if (layer === 'arrow') scene.add(shadowGround(0.0001)); // keep lighting identical
+  arrow.updateMatrixWorld(true);
+  meta.bull = toPx(new THREE.Vector3(0, topY, 0));
+  meta.tail = toPx(new THREE.Vector3(0, 3.3, 0).applyMatrix4(arrow.matrixWorld));
+} else if (which === 'stones') {
+  cam.position.set(0, 8.2, 21); cam.lookAt(0, 0.9, -0.6);
+  const gates = new Set([1, 2, 5]);
+  const stones = [];
+  for (let i = 0; i < 8; i++) {
+    const t = i / 7, h = 0.35 + t * 1.6, x = -5.6 + i * 1.6, z = Math.sin(t * Math.PI) * -1.4;
+    const m = gates.has(i) ? mat(RED) : i === 7 ? mat(BLUE) : mat(i % 2 ? SILVER : WHITE);
+    const g = new THREE.Group();
+    g.add(mesh(new RoundedBoxGeometry(1.25, h, 1.25, 6, 0.2), m, x, h / 2, z));
+    g.add(shadowGround(0.1));
+    stones.push({ g, top: new THREE.Vector3(x, h, z) });
+    show('stone' + i, g);
+  }
+  const ballR = 0.3;
+  const ball = mesh(new THREE.SphereGeometry(ballR, 48, 32), mat(NAVY, { roughness: 0.2 }));
+  ball.position.copy(stones[0].top).add(new THREE.Vector3(0, ballR, 0));
+  show('ball', ball);
+  meta.tops = stones.map((s) => toPx(s.top));
+  meta.ballBottom = toPx(stones[0].top);
+  meta.gates = [...gates];
+} else if (which === 'hero') {
+  cam.position.set(0, 0, 10); cam.lookAt(0, 0, 0);
+  key.castShadow = false;
+  const objs = {
+    cube: () => { const o = mesh(new RoundedBoxGeometry(2.2, 2.2, 2.2, 8, 0.35), mat(RED)); o.rotation.set(0.6, 0.7, 0.1); return o; },
+    sphere: () => mesh(new THREE.SphereGeometry(1.5, 64, 48), mat(BLUE, { roughness: 0.18 })),
+    ring: () => { const o = mesh(new THREE.TorusGeometry(1.5, 0.5, 48, 128), mat(NAVY)); o.rotation.set(1.0, 0.35, 0); return o; },
+    pill: () => { const o = mesh(new THREE.CapsuleGeometry(0.75, 1.8, 16, 48), mat(WHITE)); o.rotation.set(0.3, 0, -0.8); return o; },
+  };
+  scene.add(objs[layer]());
+}
+renderer.render(scene, cam);
+window.__meta = meta;
+window.__done = true;
+</script></body></html>

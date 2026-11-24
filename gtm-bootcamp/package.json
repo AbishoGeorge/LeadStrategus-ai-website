@@ -1,0 +1,12 @@
+{
+  "name": "leadstrategus-gtm-bootcamp",
+  "private": true,
+  "type": "module",
+  "description": "Single-page landing site for the LeadStrategus GTM Engineering Bootcamp",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node build.mjs && node scripts/serve.mjs",
+    "og": "node scripts/make-og.mjs"
+  },
+  "engines": { "node": ">=18" }
+}
