@@ -24,7 +24,7 @@ export default {
     dates: "Dates TBC", // TODO [DATES], e.g. "8–12 Feb 2027"
     startDate: "", // ISO date for search engines, e.g. "2027-02-08". Empty = left out of JSON-LD.
     endDate: "", //   e.g. "2027-02-12"
-    seatsLeft: null, // TODO [X] e.g. 7 → "7 OF 12 SEATS LEFT". null = that part is hidden.
+    seatsLeft: null, // Seat counts are not shown on the site. Keep null.
     totalSeats: 12,
     applicationsCloseDate: "", // TODO [date] e.g. "30 Jan 2027". Empty = sentence left out.
     priceIndividual: "₹70,000", // TODO [₹ price] confirm Cohort 1 introductory price (carried over from the earlier pricing)
@@ -52,7 +52,7 @@ export default {
     name: "GTM Engineering Workshop",
     title: "GTM Engineering Workshop, Bengaluru | LeadStrategus",
     description:
-      "5-day in-person GTM engineering workshop in Bengaluru + 4 weeks of guided implementation. Design, build and test your own outbound engine: ICP, signals, scoring, messaging and measurement. 12 seats.",
+      "5-day in-person GTM engineering workshop in Bengaluru + 4 weeks of guided implementation. Design, build and test your own outbound engine: ICP, signals, scoring, messaging and measurement.",
     ogImage: "/img/og-image.png",
   },
 
@@ -120,7 +120,7 @@ export default {
       { icon: "user-check", title: "AI does the work, you decide", text: "Know exactly where your judgement matters." },
       { icon: "briefcase", title: "Learn from people who do it", text: "Frameworks and data from our own client campaigns." },
       { icon: "calendar-check", title: "Support after the room", text: "Two live sessions a week while you send, read replies and improve." },
-      { icon: "users", title: "A small group of 12", text: "Time on your own engine, plus peers to learn from." },
+      { icon: "users", title: "A small, focused group", text: "Time on your own engine, plus peers to learn from." },
     ],
   },
 
@@ -293,7 +293,7 @@ export default {
   },
 
   pricing: {
-    h2: "12 seats. Introductory pricing.",
+    h2: "Introductory pricing.",
     sub: "First cohort only. Prices go up after Cohort 1.",
   },
 
@@ -316,7 +316,7 @@ export default {
   ],
 
   finalCta: {
-    h2: "12 seats. One engine that's yours.",
+    h2: "One engine that's yours.",
     sub: "We read every email and respond within 1 business hour.",
   },
 

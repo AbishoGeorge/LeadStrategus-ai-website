@@ -547,7 +547,7 @@ export function renderPage(c) {
 <meta property="og:image" content="${esc(ogImg)}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="LeadStrategus GTM Engineering Workshop · Bengaluru · Cohort 1 · 12 seats">
+<meta property="og:image:alt" content="LeadStrategus GTM Engineering Workshop · Bengaluru · Cohort 1">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(c.site.name)}">
@@ -616,7 +616,7 @@ ${body}
 </footer>
 ${personDialogs}
 
-<div class="mobile-bar" id="mobile-bar">${applyBtn(`Apply for Cohort 1 <span class="mb-sub">· ${seats} seats</span>`, "btn-block")}</div>
+<div class="mobile-bar" id="mobile-bar">${applyBtn(`Apply for Cohort 1 <span class="mb-sub">· Seats filling fast</span>`, "btn-block")}</div>
 
 <dialog class="modal" id="modal-privacy" aria-labelledby="mp-h">
   <div class="modal-head"><h2 id="mp-h">Privacy Notice</h2><button type="button" class="modal-x" data-close aria-label="Close">${icon("x")}</button></div>

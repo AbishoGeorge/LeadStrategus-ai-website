@@ -65,7 +65,7 @@ const STATIC_SEO: Record<string, PageSeo> = {
   '/gtm-workshop': {
     title: 'GTM Engineering Workshop, Bengaluru | LeadStrategus',
     description:
-      '5-day in-person GTM engineering workshop in Bengaluru + 4 weeks of guided implementation. Design, build and test your own outbound engine: ICP, signals, scoring, messaging and measurement. 12 seats.',
+      '5-day in-person GTM engineering workshop in Bengaluru + 4 weeks of guided implementation. Design, build and test your own outbound engine: ICP, signals, scoring, messaging and measurement.',
   },
   '/trust': {
     title: 'Trust Center | LeadStrategus',
