@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 import { ArrowRight, Check, Mail } from 'lucide-react';
 import pageHtml from './gtm-workshop/content.html?raw';
 import apply from './gtm-workshop/apply.json';
@@ -78,6 +79,16 @@ function EmailUs() {
 }
 
 export default function GtmWorkshop() {
+  const { hash, key } = useLocation();
+
+  // Links like /gtm-workshop#apply (the announcement bar) land on that section,
+  // including when the visitor is already on this page.
+  useEffect(() => {
+    if (!hash) return;
+    const frame = requestAnimationFrame(() => document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView({ behavior: 'smooth' }));
+    return () => cancelAnimationFrame(frame);
+  }, [hash, key]);
+
   // "Copy note" button in the sponsor section.
   useEffect(() => {
     const onClick = async (e: MouseEvent) => {

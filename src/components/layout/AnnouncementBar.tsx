@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 export default function AnnouncementBar() {
   return (
     <Link
-      to="/gtm-workshop"
+      to="/gtm-workshop#apply"
       className="group relative flex h-10 items-center justify-center gap-2 overflow-hidden bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 px-4 text-white"
     >
       <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
