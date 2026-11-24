@@ -52,18 +52,34 @@ function stonesCss(st) {
   const [x0, y0] = st.tops[0];
   const T = 9; // seconds per loop
   const land = (i) => 8 + i * 9; // % of the loop at which the ball lands on stone i (stone 7 at 71%)
-  const at = (i) => `translate(${(st.tops[i][0] - x0).toFixed(2)}%, ${(st.tops[i][1] - y0).toFixed(2)}%)`;
   const lift = 9; // hop height, % of the box
-  let k = `0%{opacity:0;transform:${at(0)} translateY(-${lift * 2}%)}5%{opacity:1;transform:${at(0)} translateY(-${lift * 2}%)}${land(0)}%{transform:${at(0)}}`;
-  for (let i = 1; i < 8; i++) {
-    const mid = (land(i - 1) + land(i)) / 2;
-    const mx = ((st.tops[i - 1][0] + st.tops[i][0]) / 2 - x0).toFixed(2);
-    const my = ((st.tops[i - 1][1] + st.tops[i][1]) / 2 - y0 - lift).toFixed(2);
-    k += `${mid}%{transform:translate(${mx}%, ${my}%)}${land(i)}%{transform:${at(i)}}`;
-  }
-  k += `88%{opacity:1;transform:${at(7)}}94%{opacity:0;transform:${at(7)} scale(.6)}100%{opacity:0;transform:${at(7)} scale(.6)}`;
-  let css = `@keyframes hop{${k}}.anim-stones.in-view .ball img{animation:hop ${T}s cubic-bezier(.45,0,.55,1) .9s infinite}`;
-  css += `@media (prefers-reduced-motion: reduce){.anim-stones .ball img{transform:${at(7)}}}`;
+  const pct = (v) => +v.toFixed(2);
+  const pos = (x, y) => `translate(${pct(x - x0)}%, ${pct(y - y0)}%)`;
+  // Sample each hop as a real arc (straight across, parabola up and down) so the
+  // ball travels smoothly instead of jumping between a few keyframes.
+  const frames = [];
+  const add = (at, transform, opacity) => frames.push(`${pct(at)}%{transform:${transform}${opacity == null ? "" : `;opacity:${opacity}`}}`);
+  const arc = (from, to, x1, y1, x2, y2, h, steps = 12) => {
+    for (let k = 1; k <= steps; k++) {
+      const t = k / steps;
+      add(from + (to - from) * t, pos(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t - 4 * h * t * (1 - t)));
+    }
+  };
+  const [sx, sy] = st.tops[0];
+  // Drop in from above the first stone, accelerating like it is falling.
+  add(0, pos(sx, sy - lift * 2), 0);
+  add(3, pos(sx, sy - lift * 2), 1);
+  for (let k = 1; k <= 6; k++) { const t = k / 6; add(3 + (land(0) - 3) * t, pos(sx, sy - lift * 2 * (1 - t * t))); }
+  for (let i = 1; i < 8; i++) arc(land(i - 1), land(i), ...st.tops[i - 1], ...st.tops[i], lift);
+  // Settle on the last stone with two shrinking bounces, rest, then drift up and fade out gently.
+  const [ex, ey] = st.tops[7];
+  arc(land(7), land(7) + 4, ex, ey, ex, ey, lift * 0.3, 8);
+  arc(land(7) + 4, land(7) + 7, ex, ey, ex, ey, lift * 0.1, 6);
+  add(83, pos(ex, ey), 1);
+  for (let k = 1; k <= 8; k++) { const t = k / 8, e = t * t * (3 - 2 * t); add(83 + 14 * t, pos(ex, ey - 6 * e), pct(1 - e)); }
+  add(100, pos(ex, ey - 6), 0);
+  let css = `@keyframes hop{${frames.join("")}}.anim-stones.in-view .ball img{animation:hop ${T}s linear .9s infinite}`;
+  css += `@media (prefers-reduced-motion: reduce){.anim-stones .ball img{opacity:1;transform:${pos(ex, ey)}}}`;
   for (const g of st.gates) {
     const l = land(g);
     css += `@keyframes gate${g}{0%,${l - 1}%{transform:none;filter:none}${l + 1}%{transform:translateY(2.5%);filter:brightness(1.25) drop-shadow(0 0 10px rgba(225,6,0,.55))}${l + 6}%{transform:none;filter:brightness(1.1) drop-shadow(0 0 6px rgba(225,6,0,.35))}${l + 14}%,100%{transform:none;filter:none}}`;
@@ -201,11 +217,22 @@ export function renderPage(c) {
   const WJ = c.whyJoin;
   const whyJoin = {
     id: "why-join",
-    cls: "band",
+    cls: "band band-glow",
     html: `
     <div class="sec-head"><h2>${esc(WJ.h2)}</h2><p class="sec-sub">${esc(WJ.intro)}</p></div>
-    <ul class="stat-row">${WJ.stats.map((t) => `<li><span class="stat-big">${esc(t.big)}</span><span class="stat-label">${esc(t.label)}</span></li>`).join("")}</ul>
-    <div class="benefits">${WJ.cards.map((k) => `<article class="benefit"><span class="benefit-ic">${icon(k.icon, "ic-lg")}</span><div><h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></div></article>`).join("")}</div>`,
+    <div class="wj-grid">
+      <div>
+        <p class="wj-label">What you get</p>
+        <ul class="wj-list">${WJ.cards.map((k) => `<li><h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></li>`).join("")}</ul>
+      </div>
+      <aside class="wj-proof">
+        <p class="wj-label">Why LeadStrategus</p>
+        <ul class="wj-stats">${c.whyUs.proofs
+          .map((p) => `<li><span class="ps-num">${esc(p.big)}</span><span class="ps-label">${p.clutch ? `<a href="${esc(S.clutchUrl)}" target="_blank" rel="noopener">${esc(p.short)}</a>` : esc(p.short)}</span></li>`)
+          .join("")}</ul>
+        <p class="we-do-it">${esc(c.whyUs.banner[0])} <strong>${esc(c.whyUs.banner[1])}</strong></p>
+      </aside>
+    </div>`,
   };
 
   const SP = c.sponsor;
@@ -223,6 +250,26 @@ export function renderPage(c) {
         <pre id="sponsor-note">${esc(SP.email.map(fill).join("\n"))}</pre>
       </figure>
     </div>`,
+  };
+
+  const WU = c.whyUs;
+  const whyUs = {
+    id: "why-us",
+    cls: "band band-glow",
+    html: `
+    <div class="sec-head"><h2>${esc(WU.h2)}</h2><p class="sec-sub">${esc(WU.intro)}</p></div>
+    <div class="proofs">${WU.proofs
+      .map(
+        (p, i) => `<article class="proof-card" style="--i:${i}">
+        <span class="proof-ic">${icon(p.icon, "ic-lg")}</span>
+        <p class="proof-title">${esc(p.title)}</p>
+        <p class="proof-big"><span class="proof-num">${esc(p.big)}</span> <span class="proof-label">${esc(p.label)}</span></p>
+        <p class="proof-text">${esc(p.text)}</p>
+        ${p.clutch ? `<a class="proof-link" href="${esc(S.clutchUrl)}" target="_blank" rel="noopener">Read the reviews on Clutch ${icon("arrow-up-right", "ic-sm")}</a>` : ""}
+      </article>`
+      )
+      .join("")}</div>
+    <p class="we-do-it">${esc(WU.banner[0])} <strong>${esc(WU.banner[1])}</strong></p>`,
   };
 
   const pill = (ctl) => (ctl === "human" ? `<span class="pill pill-human">HUMAN GATE</span>` : `<span class="pill pill-ai">AI-ASSISTED</span>`);
@@ -252,9 +299,17 @@ export function renderPage(c) {
     id: "days",
     html: `
     <div class="sec-head"><h2>${esc(c.days.h2)}</h2></div>
-    <div class="cols-2">${c.days.summary
-      .map((d, i) => `<article class="card sum-card ${i ? "online" : "inperson"}"><p class="tag-line">${esc(d.tag)}</p><p class="sum-big"><span>${esc(d.big)}</span> ${esc(d.unit)}</p><p>${esc(d.text)}</p></article>`)
+    <div class="phases">${c.days.phases
+      .map(
+        (d, i) => `${i ? `<span class="phase-arrow" aria-hidden="true">${icon("arrow-right", "ic-lg")}</span>` : ""}<article class="phase phase-${i ? "b" : "a"}">
+        <p class="phase-tag">${esc(d.tag)}</p>
+        <p class="phase-big"><span class="phase-num">${esc(d.big)}</span><span class="phase-unit">${esc(d.unit)}</span></p>
+        <h3>${esc(d.title)}</h3>
+        <p class="phase-steps">${d.steps.map(esc).join(" <span aria-hidden=\"true\">·</span> ")}</p>
+      </article>`
+      )
       .join("")}</div>
+    <ul class="outcomes">${c.days.outcomes.map((o) => `<li>${icon(o.icon, "ic-lg")}<h3>${esc(o.title)}</h3><p>${esc(o.text)}</p></li>`).join("")}</ul>
     <h3 class="subhead">${esc(c.days.subhead)}</h3>
     <ol class="day-cards">${c.days.list
       .map((d) => `<li class="card day-card"><p class="tag-line">${esc(d.label)}</p><h4>${esc(d.title)}</h4><p>${esc(d.text)}</p></li>`)
@@ -508,7 +563,7 @@ export function renderPage(c) {
 <meta property="og:image" content="${esc(ogImg)}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="LeadStrategus GTM Engineering Workshop · Bengaluru · Cohort 1 · 12 seats">
+<meta property="og:image:alt" content="LeadStrategus GTM Engineering Workshop · Bengaluru · Cohort 1">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(c.site.name)}">
@@ -577,7 +632,7 @@ ${body}
 </footer>
 ${personDialogs}
 
-<div class="mobile-bar" id="mobile-bar">${applyBtn(`Apply for Cohort 1 <span class="mb-sub">· ${seats} seats</span>`, "btn-block")}</div>
+<div class="mobile-bar" id="mobile-bar">${applyBtn(`Apply for Cohort 1 <span class="mb-sub">· Seats filling fast</span>`, "btn-block")}</div>
 
 <dialog class="modal" id="modal-privacy" aria-labelledby="mp-h">
   <div class="modal-head"><h2 id="mp-h">Privacy Notice</h2><button type="button" class="modal-x" data-close aria-label="Close">${icon("x")}</button></div>

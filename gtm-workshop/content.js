@@ -24,7 +24,7 @@ export default {
     dates: "Dates TBC", // TODO [DATES], e.g. "8–12 Feb 2027"
     startDate: "", // ISO date for search engines, e.g. "2027-02-08". Empty = left out of JSON-LD.
     endDate: "", //   e.g. "2027-02-12"
-    seatsLeft: null, // TODO [X] e.g. 7 → "7 OF 12 SEATS LEFT". null = that part is hidden.
+    seatsLeft: null, // Seat counts are not shown on the site. Keep null.
     totalSeats: 12,
     applicationsCloseDate: "", // TODO [date] e.g. "30 Jan 2027". Empty = sentence left out.
     priceIndividual: "₹70,000", // TODO [₹ price] confirm Cohort 1 introductory price (carried over from the earlier pricing)
@@ -52,7 +52,7 @@ export default {
     name: "GTM Engineering Workshop",
     title: "GTM Engineering Workshop, Bengaluru | LeadStrategus",
     description:
-      "5-day in-person GTM engineering workshop in Bengaluru + 4 weeks of guided implementation. Design, build and test your own outbound engine: ICP, signals, scoring, messaging and measurement. 12 seats.",
+      "5-day in-person GTM engineering workshop in Bengaluru + 4 weeks of guided implementation. Design, build and test your own outbound engine: ICP, signals, scoring, messaging and measurement.",
     ogImage: "/img/og-image.png",
   },
 
@@ -112,21 +112,15 @@ export default {
   },
 
   whyJoin: {
-    h2: "Why join.",
-    intro: "Five days in the room. Four weeks of support. A system you keep.",
-    stats: [
-      { big: "5", label: "days in person" },
-      { big: "4", label: "weeks of support" },
-      { big: "12", label: "seats only" },
-      { big: "1", label: "engine you keep" },
-    ],
+    h2: "Why join?",
+    intro: "Learn from a firm that runs outbound for clients every week. Here is what you get.",
     cards: [
       { icon: "rocket", title: "Build your own engine", text: "Built on your real customers and offer. You leave with a tested system, not notes." },
       { icon: "workflow", title: "Learn the system, not a tool", text: "Swap tools any time without starting over." },
       { icon: "user-check", title: "AI does the work, you decide", text: "Know exactly where your judgement matters." },
-      { icon: "briefcase", title: "Learn from people who do it", text: "We run these campaigns for clients every week." },
+      { icon: "briefcase", title: "Learn from people who do it", text: "Frameworks and data from our own client campaigns." },
       { icon: "calendar-check", title: "Support after the room", text: "Two live sessions a week while you send, read replies and improve." },
-      { icon: "users", title: "A small group of 12", text: "Time on your own engine, plus peers to learn from." },
+      { icon: "users", title: "A small, focused group", text: "Time on your own engine, plus peers to learn from." },
     ],
   },
 
@@ -150,13 +144,25 @@ export default {
       "",
       "By the end, I'd come back with a working outbound system for us: target accounts, tested messaging, and a plan to keep it running.",
       "",
-      "The fee is {priceIndividual} + GST per seat, with a GST invoice. Teams of 3 or more save {teamDiscountPct}% per seat, if others here would benefit too.",
+      "There’s also a {teamDiscountPct}% per-seat discount if three or more of us attend together.",
       "",
       "Could we discuss it this week?",
       "",
       "Thanks,",
       "[Your name]",
     ],
+  },
+
+  whyUs: {
+    h2: "Why LeadStrategus?",
+    intro: "Real experience. Proven results. A smarter way to do outbound.",
+    proofs: [
+      { icon: "radar", big: "100+", short: "global outbound projects", label: "global outbound projects", title: "Proven global execution", text: "8+ years of real-world B2B demand generation across international markets." },
+      { icon: "briefcase", big: "25+", short: "years founder experience at AWS, SAP, Gartner", label: "years of founder experience", title: "Operator-led", text: "B2B marketing, BD and GTM at AWS, SAP, Oracle, IBM and Gartner." },
+      { icon: "award", big: "5.0", short: "★★★★★ rated on Clutch", label: "★★★★★ on Clutch", title: "Independently recognised", text: "Commended for ABM precision, research depth and delivery quality.", clutch: true },
+      { icon: "chart-line", big: "25K+", short: "personalised messages behind our playbooks", label: "personalised messages sent", title: "Our own campaign data", text: "Shows which messages get replies, and which conversation stages lead to meetings." },
+    ],
+    banner: ["We don't just teach outbound.", "We do it."],
   },
 
   programme: {
@@ -180,6 +186,16 @@ export default {
     summary: [
       { tag: "IN PERSON · BENGALURU", big: "5", unit: "days", text: "Learn in the morning. Build in the afternoon. Demo day on Friday." },
       { tag: "ONLINE · 2 × 1 HR A WEEK", big: "4", unit: "weeks", text: "First sends, replies and a 90-day plan, with our team reviewing your work." },
+    ],
+    // From the "From learning to real execution" slide: two phases, then what you get.
+    phases: [
+      { icon: "calendar", big: "5", unit: "days", title: "Intensive classroom", steps: ["Principles", "Design", "Build"], tag: "IN PERSON · BENGALURU" },
+      { icon: "calendar-check", big: "4", unit: "weeks", title: "Guided execution", steps: ["Implement", "Iterate", "Optimise"], tag: "ONLINE · 2 × 1 HR A WEEK" },
+    ],
+    outcomes: [
+      { icon: "layers", title: "Capstone project", text: "Build your own outbound engine." },
+      { icon: "target", title: "Time to value", text: "Launch in weeks, not months." },
+      { icon: "chart-line", title: "Real outcomes", text: "A working system you can run and scale." },
     ],
     subhead: "The 5 days. Something built every day.",
     list: [
@@ -277,14 +293,15 @@ export default {
   },
 
   pricing: {
-    h2: "12 seats. Introductory pricing.",
+    h2: "Introductory pricing.",
     sub: "First cohort only. Prices go up after Cohort 1.",
   },
 
   apply: {
-    h2: "Email us. We'll respond within 1 business hour.",
-    sub: "Tell us what you sell, to whom, and if you're coming alone or as a team. No payment until we confirm fit.",
+    h2: "Apply or ask us. We'll respond within 1 business hour.",
+    sub: "Apply for Cohort 1, or ask a question first. No payment until we confirm fit.",
     email: "mail@leadstrategus.com",
+    questionSuccess: "Question received. We'll respond within 1 business hour.",
     trust: ["NO PAYMENT TO APPLY", "GST INVOICE"],
     roles: ["Founder", "Sales or demand-gen lead", "RevOps", "First GTM hire", "Other"],
     success: "Application received. We'll respond within 1 business hour.",
@@ -299,7 +316,7 @@ export default {
   ],
 
   finalCta: {
-    h2: "12 seats. One engine that's yours.",
+    h2: "One engine that's yours.",
     sub: "We read every email and respond within 1 business hour.",
   },
 

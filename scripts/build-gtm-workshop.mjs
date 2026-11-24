@@ -3,7 +3,7 @@
 //   node scripts/build-gtm-workshop.mjs
 // Outputs:
 //   src/pages/gtm-workshop/content.html  page body, rendered by src/pages/GtmWorkshop.tsx
-//   src/pages/gtm-workshop/apply.json    copy for the "email us" block the site renders
+//   src/pages/gtm-workshop/apply.json    copy for the apply / ask-a-question form the site renders
 //   public/gtm-workshop/                 its images, fonts, script and scoped stylesheet
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -52,7 +52,12 @@ const scopeSelector = (sel) => {
   if (sel === ':root' || sel === 'body') return SCOPE;
   return `${SCOPE} ${sel}`;
 };
-const css = postcss.parse(fs.readFileSync(path.join(built, 'styles.css'), 'utf8'));
+// The page also writes generated CSS into <style> tags in its <head> (e.g. the
+// stepping-stones ball keyframes). Only the body is embedded in the site, so
+// carry that CSS over into the stylesheet.
+const builtPage = fs.readFileSync(path.join(built, 'index.html'), 'utf8');
+const headCss = [...builtPage.slice(0, builtPage.indexOf('<body>')).matchAll(/<style>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join('\n');
+const css = postcss.parse(fs.readFileSync(path.join(built, 'styles.css'), 'utf8') + '\n' + headCss);
 css.walkRules((rule) => {
   if (rule.parent?.type === 'atrule' && /keyframes$/.test(rule.parent.name)) return;
   rule.selectors = rule.selectors.map(scopeSelector);
@@ -62,6 +67,8 @@ css.append(`
 ${SCOPE} { --nav-h: 104px; }
 html:has(${SCOPE}) { scroll-padding-top: 116px; }
 ${SCOPE} .skip, ${SCOPE} .site-header, ${SCOPE} .site-footer { display: none !important; }
+/* Hide the floating Apply bar while the site's own footer is on screen (set by GtmWorkshop.tsx). */
+${SCOPE}[data-footer-visible] .mobile-bar { transform: translateY(110%); opacity: 0; pointer-events: none; }
 `);
 fs.writeFileSync(path.join(assetsOut, 'styles.css'), prefixPaths(css.toString()));
 
@@ -77,12 +84,12 @@ body = body
 fs.mkdirSync(path.dirname(htmlOut), { recursive: true });
 fs.writeFileSync(htmlOut, prefixPaths(body).trim() + '\n');
 
-// Copy for the "email us" block, which the site renders itself (src/pages/GtmWorkshop.tsx).
+// Copy for the apply / ask-a-question form, which the site renders itself (src/pages/GtmWorkshop.tsx).
 const { default: content } = await import(pathToFileURL(path.join(src, 'content.js')).href);
-const { h2, sub, trust, email } = content.apply;
+const { h2, sub, trust, email, roles, success, questionSuccess } = content.apply;
 fs.writeFileSync(
   path.join(path.dirname(htmlOut), 'apply.json'),
-  JSON.stringify({ h2, sub, trust, email }, null, 2) + '\n'
+  JSON.stringify({ h2, sub, trust, email, roles, success, questionSuccess, city: content.settings.city }, null, 2) + '\n'
 );
 
 fs.rmSync(built, { recursive: true, force: true });
