@@ -15,6 +15,10 @@ const [beforeForm, formBand = '', afterForm = ''] = pageHtml.split(/<!--GTM_APPL
 type Mode = 'apply' | 'question';
 type ComingAs = 'Individual' | 'Team of 3+';
 const SELL_MAX = 600;
+// Any real email address: work domain or personal (Gmail etc.), but it must have
+// a name, an @ and a domain with a dot, e.g. name@company.com. Same rule as the server.
+const EMAIL_PATTERN = '[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}';
+const isEmail = (v: string) => new RegExp(`^${EMAIL_PATTERN}$`).test(v.trim());
 const QUESTION_MAX = 2000;
 
 const emptyForm = {
@@ -37,6 +41,8 @@ function WorkshopForm() {
   const [form, setForm] = useState(emptyForm);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [emailTouched, setEmailTouched] = useState(false);
+  const emailInvalid = emailTouched && form.email.trim() !== '' && !isEmail(form.email);
   const thanksRef = useRef<HTMLDivElement>(null);
 
   const update = <K extends keyof typeof emptyForm>(field: K, value: (typeof emptyForm)[K]) =>
@@ -67,6 +73,11 @@ function WorkshopForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isEmail(form.email)) {
+      setEmailTouched(true);
+      document.getElementById('gtm-email')?.focus();
+      return;
+    }
     setStatus('loading');
     try {
       const res = await fetch('/api/gtm-workshop', {
@@ -88,6 +99,7 @@ function WorkshopForm() {
   };
 
   const reset = () => {
+    setEmailTouched(false);
     setForm(emptyForm);
     setStatus('idle');
   };
@@ -147,7 +159,25 @@ function WorkshopForm() {
               </div>
               <div className="field">
                 <label htmlFor="gtm-email">Work email <span className="req" aria-hidden="true">*</span></label>
-                <input id="gtm-email" type="email" autoComplete="email" inputMode="email" required maxLength={254} value={form.email} onChange={(e) => update('email', e.target.value)} />
+                <input
+                  id="gtm-email"
+                  type="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  required
+                  maxLength={254}
+                  pattern={EMAIL_PATTERN}
+                  title="Enter an email address, e.g. name@company.com"
+                  placeholder="name@company.com"
+                  aria-invalid={emailInvalid}
+                  aria-describedby="gtm-email-err"
+                  value={form.email}
+                  onChange={(e) => update('email', e.target.value)}
+                  onBlur={() => setEmailTouched(true)}
+                />
+                <p className="err" id="gtm-email-err" aria-live="polite">
+                  {emailInvalid ? 'Please enter a valid email address, e.g. name@company.com.' : ''}
+                </p>
               </div>
               <div className="field">
                 <label htmlFor="gtm-company">
