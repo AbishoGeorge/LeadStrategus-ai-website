@@ -535,6 +535,7 @@ body.modal-open { overflow: hidden; }
 .gtm-root .hero-visual.room { padding: 0; max-width: 820px; }
 .gtm-root .room-frame { background: #F4F7FC; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); }
 .gtm-root #rm { display: block; width: 100%; height: auto; }
+.gtm-root .hero-photo picture, .gtm-root .hero-photo img { display: block; width: 100%; height: auto; }
 .gtm-root #rm text{font-family:var(--f-body)}
 .gtm-root #rm #slo text{font-family:var(--f-head);font-weight:800}
 .gtm-root #rm .rise{animation:rise 5s cubic-bezier(.22,.61,.36,1) forwards}

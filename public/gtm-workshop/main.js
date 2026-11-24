@@ -122,6 +122,7 @@
 
   /* ---------- hero: workshop room illustration (from leadstrategus_workshop_room_polished.html) ---------- */
   (()=>{
+if(!document.getElementById('rm'))return;
 const NS='http://www.w3.org/2000/svg',$=i=>document.getElementById(i),S=(e,v)=>e.setAttribute('transform',v),sin=Math.sin;
 const OUT=["ICP approved","A-tier: 212 accounts","Signal: new CRO hired","Workflow live","Sequence approved","Reply rate 11.4%","Meeting booked","Deliverability 98%","CRM sync on","Buying committee mapped"];
 const P=[{s:"#E3B592",h:"#6B3A1E",c:"#E2E8F0",t:"long"},{s:"#8A5A3A",h:"#111827",c:"#475569",t:"short"},{s:"#B57B4E",h:"#111827",c:"#334155",t:"short"},{s:"#EBC49F",h:"#57534E",c:"#64748B",t:"bun",hand:1},{s:"#C58C5C",h:"#3F2A1D",c:"#0B1F4D",t:"short"}];

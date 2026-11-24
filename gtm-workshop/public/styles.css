@@ -535,6 +535,7 @@ body.modal-open { overflow: hidden; }
 .hero-visual.room { padding: 0; max-width: 820px; }
 .room-frame { background: #F4F7FC; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); }
 #rm { display: block; width: 100%; height: auto; }
+.hero-photo picture, .hero-photo img { display: block; width: 100%; height: auto; }
 #rm text{font-family:var(--f-body)}
 #rm #slo text{font-family:var(--f-head);font-weight:800}
 #rm .rise{animation:rise 5s cubic-bezier(.22,.61,.36,1) forwards}

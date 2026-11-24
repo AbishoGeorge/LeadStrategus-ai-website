@@ -40,8 +40,6 @@ const pic = (base, ext, w, h, alt = "", cls = "", eager = false) => `<picture${c
       <img src="${base}@1x.${ext}" srcset="${base}@1x.${ext} 1x, ${base}@2x.${ext} 2x" width="${w}" height="${h}" alt="${esc(alt)}"${eager ? "" : ' loading="lazy"'} decoding="async">
     </picture>`;
 
-/** Hero illustration: the animated workshop room (src/workshop-room.svg). */
-const ROOM = readFileSync(join(here, "workshop-room.svg"), "utf8");
 
 /** Positions for the 3D animations, written by scripts/make-3d.mjs. */
 const animPath = join(here, "..", "public", "img", "3d", "anim.json");
@@ -178,7 +176,7 @@ export function renderPage(c) {
       <div class="cta-row">${applyBtn("Apply for Cohort 1", "btn-lg")}<a class="btn btn-ghost btn-lg" href="#apply" data-apply-type="private">Ask a question</a></div>
       <p class="hero-trust">${c.hero.trust.map(esc).join(' <span aria-hidden="true">·</span> ')}</p>
     </div>
-    <div class="hero-visual room"><div class="room-frame">${ROOM}</div>
+    <div class="hero-visual room"><div class="room-frame hero-photo">${pic("/img/hero/workshop-session", "jpg", 768, 512, "A LeadStrategus GTM Engineering Workshop session in progress: a facilitator points to the slide \"AI drafts. You improve. AI executes.\" while participants work on laptops", "", true)}</div>
     </div>
   </div>
 </section>`;
