@@ -37,14 +37,7 @@ export default function Footer() {
     <footer className="border-t border-gray-200">
       <div className="bg-navy-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6">
-            <div className="col-span-2 md:col-span-3 lg:col-span-1">
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Contextual Intelligence for B2B Sales.
-              </p>
-              <p className="text-gray-500 text-sm mt-3">Bengaluru, India</p>
-            </div>
-
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
             <div>
               <h4 className="text-sm font-semibold text-gray-300 mb-4">Product</h4>
               <ul className="space-y-2.5">
