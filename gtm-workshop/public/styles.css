@@ -555,12 +555,41 @@ body.modal-open { overflow: hidden; }
 @media (min-width: 1000px) { .hero-visual.room { padding: 0; } }
 @media (prefers-reduced-motion: reduce) { #rm * { animation: none !important; } }
 
-/* Get your boss to sponsor you */
-.sponsor-grid { display: grid; gap: 16px; align-items: start; }
-@media (min-width: 1024px) { .sponsor-grid { grid-template-columns: 3fr 2fr; } }
-.mail-card { margin: 0; }
-.mail-card .tag-line { margin: 0 0 12px; }
-.mail-card pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.65 var(--f-body); color: var(--ink-2); background: var(--hero-wash); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 16px; }
+/* Why join: navy band with a stat row and benefit tiles */
+.section.band { background: var(--navy); color: #fff; }
+.band .sec-head h2, .band h3 { color: #fff; }
+.band .sec-sub { color: #C9D6F2; }
+.stat-row { list-style: none; margin: 0 0 40px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 760px) { .stat-row { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.stat-row li { border: 1px solid rgba(255, 255, 255, .16); border-radius: var(--r); padding: 20px; background: rgba(255, 255, 255, .04); }
+.stat-big { display: block; font: 800 clamp(40px, 6vw, 60px)/1 var(--f-head); letter-spacing: -.03em; background: var(--grad-hero); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stat-label { display: block; margin-top: 8px; font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #C9D6F2; }
+.benefits { display: grid; gap: 12px; }
+@media (min-width: 760px) { .benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .benefits { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.benefit { display: flex; gap: 16px; align-items: flex-start; padding: 22px; border-radius: var(--r); background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .1); transition: background .2s, transform .2s; }
+.benefit:hover { background: rgba(255, 255, 255, .1); transform: translateY(-2px); }
+.benefit h3 { margin: 0 0 6px; font-size: 18px; }
+.benefit p { margin: 0; color: #C9D6F2; }
+.benefit-ic { flex: none; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: rgba(0, 102, 255, .22); color: #8DB8FF; }
+@media (prefers-reduced-motion: reduce) { .benefit { transition: none; } .benefit:hover { transform: none; } }
+
+/* Get your boss to sponsor you: pitch list + letter */
+.sponsor-grid { display: grid; gap: 20px; align-items: start; }
+@media (min-width: 1024px) { .sponsor-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.pitch-card .tag-line { margin: 0 0 8px; }
+.pitch-list { list-style: none; margin: 0; padding: 0; }
+.pitch-list li { display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid var(--line); }
+.pitch-list li:first-child { border-top: 0; }
+.pitch-list h3 { margin: 0 0 4px; font-size: 18px; }
+.pitch-list p { margin: 0; color: var(--ink-3); }
+.pitch-ic { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--red-tint); color: var(--red-text); }
+.letter { position: relative; margin: 0; padding: 24px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow-lg); transform: rotate(-.5deg); }
+.letter::before { content: ""; position: absolute; inset: 0 0 auto; height: 6px; border-radius: var(--r) var(--r) 0 0; background: var(--grad-hero); }
+@media (max-width: 1023px) { .letter { transform: none; } }
+.letter-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+.letter .tag-line { margin: 0; }
+.letter pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: 400 15px/1.7 var(--f-body); color: var(--ink-2); }
 
 /* "Email us" block that replaces the application form */
 .email-card { display: grid; gap: 12px; align-content: start; }

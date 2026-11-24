@@ -62,7 +62,7 @@ function EmailUs() {
         <p className="email-addr">
           <a href={`mailto:${apply.email}?subject=${encodeURIComponent(subject)}`}>{apply.email}</a>
         </p>
-        <p>Include what you sell and to whom, your role, and whether you're coming on your own, as a team of 3+, or want a private cohort. We reply within 48 hours.</p>
+        <p>Include what you sell, your role, and how you'll join.</p>
         <div className="email-actions">
           <a className="btn btn-primary btn-lg" href={`mailto:${apply.email}?subject=${encodeURIComponent(subject)}`}>
             Email us <ArrowRight className="ic" aria-hidden="true" />
@@ -77,6 +77,25 @@ function EmailUs() {
 }
 
 export default function GtmWorkshop() {
+  // "Copy note" button in the sponsor section.
+  useEffect(() => {
+    const onClick = async (e: MouseEvent) => {
+      const btn = (e.target as HTMLElement).closest?.('[data-copy-target]') as HTMLButtonElement | null;
+      const text = btn && document.getElementById(btn.dataset.copyTarget ?? '')?.textContent;
+      if (!btn || !text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = 'Copied';
+      } catch {
+        window.getSelection()?.selectAllChildren(document.getElementById(btn.dataset.copyTarget!)!);
+        btn.textContent = 'Selected, press Ctrl+C';
+      }
+      setTimeout(() => (btn.textContent = 'Copy note'), 2500);
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = '/gtm-workshop/main.js';

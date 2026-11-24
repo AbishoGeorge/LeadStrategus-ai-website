@@ -198,11 +198,14 @@ export function renderPage(c) {
     <div class="cols-3">${c.why.cols.map((k) => `<article class="card why-card">${icon(k.icon, "ic-lg")}<h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></article>`).join("")}</div>`,
   };
 
+  const WJ = c.whyJoin;
   const whyJoin = {
     id: "why-join",
+    cls: "band",
     html: `
-    <div class="sec-head"><h2>${esc(c.whyJoin.h2)}</h2><p class="sec-sub">${esc(c.whyJoin.intro)}</p></div>
-    <div class="cols-3">${c.whyJoin.cards.map((k) => `<article class="card why-card">${icon(k.icon, "ic-lg")}<h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></article>`).join("")}</div>`,
+    <div class="sec-head"><h2>${esc(WJ.h2)}</h2><p class="sec-sub">${esc(WJ.intro)}</p></div>
+    <ul class="stat-row">${WJ.stats.map((t) => `<li><span class="stat-big">${esc(t.big)}</span><span class="stat-label">${esc(t.label)}</span></li>`).join("")}</ul>
+    <div class="benefits">${WJ.cards.map((k) => `<article class="benefit"><span class="benefit-ic">${icon(k.icon, "ic-lg")}</span><div><h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></div></article>`).join("")}</div>`,
   };
 
   const SP = c.sponsor;
@@ -211,8 +214,14 @@ export function renderPage(c) {
     html: `
     <div class="sec-head"><h2>${esc(SP.h2)}</h2><p class="sec-sub">${esc(SP.intro)}</p></div>
     <div class="sponsor-grid">
-      <div class="cols-2">${SP.points.map((k) => `<article class="card why-card">${icon(k.icon, "ic-lg")}<h3>${esc(k.title)}</h3><p>${esc(fill(k.text))}</p></article>`).join("")}</div>
-      <figure class="card mail-card"><figcaption class="tag-line">${esc(SP.emailLabel)}</figcaption><pre>${esc(SP.email.map(fill).join("\n"))}</pre></figure>
+      <div class="card pitch-card">
+        <p class="tag-line">${esc(SP.pitchTitle)}</p>
+        <ul class="pitch-list">${SP.points.map((k) => `<li><span class="pitch-ic">${icon(k.icon)}</span><div><h3>${esc(k.title)}</h3><p>${esc(fill(k.text))}</p></div></li>`).join("")}</ul>
+      </div>
+      <figure class="letter">
+        <div class="letter-head"><figcaption class="tag-line">${esc(SP.emailLabel)}</figcaption><button type="button" class="btn btn-ghost btn-sm" data-copy-target="sponsor-note">Copy note</button></div>
+        <pre id="sponsor-note">${esc(SP.email.map(fill).join("\n"))}</pre>
+      </figure>
     </div>`,
   };
 

@@ -75,7 +75,7 @@ export default {
   hero: {
     h1Before: "Outbound, ",
     h1Gradient: "engineered.",
-    sub: "Beyond the AI hype. Design, build and test a complete outbound prospecting engine for your own business: target logic, signals, scoring, messaging and measurement. Taught by operators who ran marketing at AWS, Gartner and SAP.",
+    sub: "In 5 days, build a working outbound engine for your own business: who to target, when to reach out, and what to say. Taught by people who ran marketing at AWS, Gartner and SAP.",
     buildLog: [
       { when: "DAY 1", text: "ICP + segments chosen", gate: "gate 1" },
       { when: "DAY 2", text: "Signal model set; accounts ranked A/B/C", gate: "gate 2" },
@@ -103,49 +103,56 @@ export default {
 
   why: {
     h2: "Same tools. Different system.",
-    intro: "AI made outbound easier to assemble, not easier to win. When everyone uses the same models, data and prompts, outbound converges. Three things decide who books the meeting.",
+    intro: "AI made outbound easy to build and hard to win. Everyone has the same tools. Three things set you apart.",
     cols: [
-      { icon: "target", title: "A sharper view of who buys, and why now.", text: "Signals that predict a purchase in your market, not just signals that are interesting." },
-      { icon: "shield-check", title: "Human judgement at three gates.", text: "AI does research, data and drafting. You decide segments, buying criteria and every message." },
-      { icon: "refresh-cw", title: "A loop that learns.", text: "Replies and meetings feed back into targeting, scoring and messaging every cycle." },
+      { icon: "target", title: "Know who buys, and why now.", text: "Track the signals that predict a purchase in your market." },
+      { icon: "shield-check", title: "People decide at three key points.", text: "AI researches and drafts. You choose the segments, the buying criteria and every message." },
+      { icon: "refresh-cw", title: "A loop that learns.", text: "Replies and meetings improve your targeting and messages every week." },
     ],
   },
 
   whyJoin: {
     h2: "Why join.",
-    intro: "Five days in a room, four weeks of guided practice, and a system you keep running after we leave.",
+    intro: "Five days in the room. Four weeks of support. A system you keep.",
+    stats: [
+      { big: "5", label: "days in person" },
+      { big: "4", label: "weeks of support" },
+      { big: "12", label: "seats only" },
+      { big: "1", label: "engine you keep" },
+    ],
     cards: [
-      { icon: "rocket", title: "Leave with your own engine", text: "You build on your real ICP, accounts and offer, so you leave with a documented, tested outbound system, not notes from a demo." },
-      { icon: "workflow", title: "Learn the system, not one tool", text: "Choose tools by the job they do. When a tool changes or gets expensive, you swap it without rebuilding everything." },
-      { icon: "user-check", title: "Keep humans where it counts", text: "AI handles research, data and drafts. You learn exactly where your judgement goes: segments, buying criteria and every message." },
-      { icon: "briefcase", title: "Taught by working operators", text: "Frameworks come from campaigns we run for clients every week, with people who led marketing at AWS, Gartner and SAP." },
-      { icon: "calendar-check", title: "Four weeks of guided practice", text: "Two live sessions a week while you run real sends, read the replies and tune targeting, scoring and messaging." },
-      { icon: "users", title: "A small room of 12", text: "Every participant gets review time on their own engine, and you learn from peers solving the same problem in other markets." },
+      { icon: "rocket", title: "Build your own engine", text: "Built on your real customers and offer. You leave with a tested system, not notes." },
+      { icon: "workflow", title: "Learn the system, not a tool", text: "Swap tools any time without starting over." },
+      { icon: "user-check", title: "AI does the work, you decide", text: "Know exactly where your judgement matters." },
+      { icon: "briefcase", title: "Learn from people who do it", text: "We run these campaigns for clients every week." },
+      { icon: "calendar-check", title: "Support after the room", text: "Two live sessions a week while you send, read replies and improve." },
+      { icon: "users", title: "A small group of 12", text: "Time on your own engine, plus peers to learn from." },
     ],
   },
 
   sponsor: {
     h2: "Get your boss to sponsor you.",
-    intro: "Most participants are funded by their company. Here is what to tell your manager, and a note you can send today.",
+    intro: "Most people here are paid for by their company. Use these points, or send the note.",
+    pitchTitle: "What your company gets",
     points: [
-      { icon: "target", title: "Built on the company's market", text: "The engine is designed around your ICP, accounts and offer, so the work is useful on day one back at the desk." },
-      { icon: "file-text", title: "Assets the company keeps", text: "A scored account list, signal tracking, messaging, a measurement plan and a 90-day plan to run it." },
-      { icon: "receipt", title: "Easy to pay for", text: "GST invoice, payment by Razorpay link or bank transfer against a PO. Registered businesses may be able to claim GST credit." },
-      { icon: "users", title: "Cheaper as a team", text: "Teams of 3 or more save {teamDiscountPct}% per seat and share one workspace, so the whole function learns the same system." },
+      { icon: "target", title: "Built for your company", text: "Designed around your customers and offer. Useful from day one." },
+      { icon: "file-text", title: "Assets you keep", text: "A ranked account list, tested messages and a 90-day plan." },
+      { icon: "receipt", title: "Easy to pay", text: "GST invoice. Pay by Razorpay or bank transfer against a PO." },
+      { icon: "users", title: "Cheaper for teams", text: "Teams of 3+ save {teamDiscountPct}% per seat." },
     ],
-    emailLabel: "A note to send your manager",
+    emailLabel: "Note to your manager",
     email: [
-      "Subject: Request to attend the GTM Engineering Workshop",
+      "Subject: GTM Engineering Workshop request",
       "",
-      "Hi [Manager's name],",
+      "Hi [Name],",
       "",
-      "I'd like to attend LeadStrategus's GTM Engineering Workshop in Bengaluru: 5 days in person, then 4 weeks of guided implementation.",
+      "I'd like to attend the GTM Engineering Workshop by LeadStrategus in Bengaluru: 5 days in person, then 4 weeks of online support.",
       "",
-      "During the workshop I'd build our own outbound engine on our real ICP, accounts and offer. We would come away with a scored target account list, signal tracking, tested messaging, a measurement plan and a 90-day plan to run it.",
+      "I'd build an outbound engine for our business, using our customers and offer. We'd keep a ranked account list, tested messages and a 90-day plan.",
       "",
-      "The fee is {priceIndividual} + GST per seat, with a GST invoice and payment against a PO. Teams of 3 or more save {teamDiscountPct}% per seat.",
+      "The fee is {priceIndividual} + GST, with a GST invoice. Teams of 3+ save {teamDiscountPct}% per seat.",
       "",
-      "Could we discuss this week?",
+      "Can we discuss this week?",
       "",
       "Thanks,",
       "[Your name]",
@@ -154,7 +161,7 @@ export default {
 
   programme: {
     h2: "8 stages. 3 human gates. One engine.",
-    intro: "This isn't a course. It's a build. About 30% principles, 70% building on your own business. You leave with a working, documented engine and a plan to run it.",
+    intro: "Not a course. A build. 30% principles, 70% building on your own business.",
     stages: [
       { n: "01", stage: "Client discovery", build: "Questionnaire, interviews, Claude to organise", leave: "Business brief: what you sell, who buys, why, what success looks like", control: "ai" },
       { n: "02", stage: "ICP and segments", build: "Claude proposes 6–8 segments; you pick 2–3", leave: "ICP, buying committee, disqualifiers; 2–3 segments chosen from 6–8", control: "human" },
@@ -165,14 +172,14 @@ export default {
       { n: "07", stage: "Launch", build: "Instantly, human-led LinkedIn, HubSpot", leave: "Email and human-led LinkedIn, tracked in your CRM", control: "ai" },
       { n: "08", stage: "Review and improve", build: "HubSpot, n8n logs, weekly review", leave: "Weekly review; results feed targeting and messages", control: "ai" },
     ],
-    note: "Prefer full automation? You can switch the gates off. We'll show you what that costs in quality.",
+    note: "Want full automation? You can switch the gates off. We'll show you what it costs in quality.",
   },
 
   days: {
     h2: "5 days to build. 1 month to implement.",
     summary: [
-      { tag: "IN PERSON · BENGALURU", big: "5", unit: "days", text: "Principles in the morning. Building on your own business in the afternoon. Demo day on Friday." },
-      { tag: "ONLINE · 2 × 1 HR A WEEK", big: "4", unit: "weeks", text: "First sends, replies, refinement and a 90-day plan, with our team reviewing your engine." },
+      { tag: "IN PERSON · BENGALURU", big: "5", unit: "days", text: "Learn in the morning. Build in the afternoon. Demo day on Friday." },
+      { tag: "ONLINE · 2 × 1 HR A WEEK", big: "4", unit: "weeks", text: "First sends, replies and a 90-day plan, with our team reviewing your work." },
     ],
     subhead: "The 5 days. Something built every day.",
     list: [
@@ -185,11 +192,11 @@ export default {
   },
 
   who: {
-    h2: "For serious practitioners who own pipeline.",
+    h2: "Who it's for.",
     cards: [
       { icon: "rocket", title: "Founders who sell B2B", text: "Need a repeatable way to create first meetings." },
-      { icon: "user-round", title: "GTM engineers and other GTM hires", text: "Know the tools; want the judgement behind them." },
-      { icon: "briefcase", title: "Sales, demand-gen and RevOps leads", text: "Building or fixing an outbound motion." },
+      { icon: "user-round", title: "GTM engineers and hires", text: "Know the tools. Want the thinking behind them." },
+      { icon: "briefcase", title: "Sales, demand-gen and RevOps leads", text: "Building or fixing outbound." },
       { icon: "users", title: "Teams of 3+", text: "Best results. Save {teamDiscountPct}% per seat.", link: "#pricing" },
     ],
     note: "Not a tool certification. Not a placement programme.",
@@ -212,12 +219,12 @@ export default {
 
   faculty: {
     h2: "An operating firm that trains.",
-    sub: "Everything we teach, we run for clients every week.",
+    sub: "We run everything we teach for clients every week.",
     // "long" paragraphs appear in the "More about" profile window.
     people: [
       {
         name: "Kingshuk Hazra", role: "Founder", photo: "kingshuk-hazra",
-        bio: "Former Head of Marketing, Amazon Web Services India. Two decades across marketing, business-development analytics and advisory at SAP, Oracle, IBM, Gartner, Pluralsight and IMRB.",
+        bio: "Former Head of Marketing, AWS India. 20 years at SAP, Oracle, IBM, Gartner and Pluralsight.",
         long: [
           "Kingshuk founded LeadStrategus in 2018 after leading marketing for Amazon Web Services in India and, before that, holding progressively senior roles across marketing, BD analytics and advisory at SAP, Oracle Consulting, IBM, Gartner, Pluralsight (Director, Enterprise Marketing) and IMRB.",
           "A statistics graduate with an MBA from the Indian Institute of Foreign Trade, Kingshuk is the reason every LeadStrategus engagement starts with the numbers and ends with a forecast someone is prepared to defend.",
@@ -227,7 +234,7 @@ export default {
       },
       {
         name: "Anindita Hazra", role: "Co-founder", photo: "anindita-hazra",
-        bio: "Co-founder of LeadStrategus. Leads client delivery across demand generation and sales enablement.",
+        bio: "Leads client delivery in demand generation and sales enablement.",
         long: [
           "Anindita co-founded LeadStrategus and leads client delivery: the pods, the programmes and the weekly pipeline reviews that keep the firm accountable for meetings rather than activity.",
           "Anindita's background spans marketing operations, content and programme management for technology companies.",
@@ -236,7 +243,7 @@ export default {
       },
       {
         name: "Komala Maran", role: "Head Go-To-Market & Growth", photo: "komala-maran",
-        bio: "Leads Go-To-Market and Market Intelligence at LeadStrategus. Built the firm’s Market Insights and Open Source Intelligence practice. An IT engineer from IIIT Allahabad.",
+        bio: "Leads Go-To-Market and Market Intelligence. Built our research practice. Engineer from IIIT Allahabad.",
         long: [
           "Komala joined LeadStrategus in 2019 and has grown with the firm from Smarketing consultant to Manager of its Market Insights and Open Source Intelligence practice, and now to Head of Go-To-Market. She runs the intelligence engine behind client engagements: the market selection, opportunity assessment, ICP development and account prioritisation that decide who a client should go after, and when. Her work spans international market entry, buyer and competitive intelligence, and intelligence-led demand generation for B2B and technology companies.",
           "An engineer by training, Komala is the reason a LeadStrategus target list comes with a why attached to every account: what changed at that company, why now, and how to start the conversation.",
@@ -246,7 +253,7 @@ export default {
       },
       {
         name: "Kirubakaran Periyaswamy", role: "Technical Lead", photo: "kirubakaran-periyaswamy", // TODO confirm the role title
-        bio: "Builds the agents that run the platform, from data pipelines scraping 10+ signal sources to LLMs fine-tuned for context-grounded message generation.",
+        bio: "Builds the AI agents behind our platform, from data pipelines to message writing.",
         long: [
           "Kiruba builds the agents that run the platform, from data pipelines scraping 10+ signal sources to LLMs fine-tuned for context-grounded message generation. His work covers the full AI lifecycle: data engineering, model training, RAG pipelines, and production deployment using LangGraph, PyTorch, HuggingFace, and FastAPI. At LeadStrategus, he has automated internal workflows, built NLP pipelines, and integrated OpenAI and Anthropic Claude APIs into live systems.",
         ],
@@ -271,12 +278,12 @@ export default {
 
   pricing: {
     h2: "12 seats. Introductory pricing.",
-    sub: "First cohort only. Price rises after Cohort 1.",
+    sub: "First cohort only. Prices go up after Cohort 1.",
   },
 
   apply: {
     h2: "Email us. We'll reply within 48 hours.",
-    sub: "Tell us what you sell and to whom, and whether you're coming on your own or as a team. We check fit before anyone pays.",
+    sub: "Tell us what you sell, to whom, and if you're coming alone or as a team. No payment until we confirm fit.",
     email: "contact@leadstrategus.com",
     trust: ["NO PAYMENT TO APPLY", "GST INVOICE"],
     roles: ["Founder", "Sales or demand-gen lead", "RevOps", "First GTM hire", "Other"],
@@ -284,16 +291,16 @@ export default {
   },
 
   faq: [
-    { q: "How is this different from a Clay or n8n course?", a: "Those teach a tool. We teach you to design a system and choose tools by job, with frameworks from our own client campaigns." },
-    { q: "Do I need to code?", a: "No. You'll work with no-code and low-code tools; we show basic expressions where useful. Comfort with spreadsheets and browser tools is enough." },
-    { q: "Will my engine be production-ready after 5 days?", a: "You'll leave with a working, documented and tested engine. The 4-week implementation is where you run real sends and refine it; hardening it for full production use in your company is separate work." },
-    { q: "Do you guarantee meetings or a job?", a: "No. Results depend on your offer, market, data and execution. This is not a placement programme. We teach you to build and run the system that creates meetings." },
-    { q: "Can my employer pay?", a: "Yes. We issue a GST invoice and accept payment by Razorpay link or bank transfer against a PO. Registered businesses may be able to claim GST credit; please check with your CA." },
+    { q: "How is this different from a Clay or n8n course?", a: "Those teach one tool. We teach you to design a system and pick the right tool for each job." },
+    { q: "Do I need to code?", a: "No. We use no-code and low-code tools. If you're comfortable with spreadsheets, you're ready." },
+    { q: "Will my engine be ready to use after 5 days?", a: "You'll leave with a working, tested engine. In the 4 weeks after, you run real sends and improve it." },
+    { q: "Do you guarantee meetings or a job?", a: "No. Results depend on your offer, market and execution. We teach you to build and run the system." },
+    { q: "Can my employer pay?", a: "Yes. We give a GST invoice and accept Razorpay or bank transfer against a PO." },
   ],
 
   finalCta: {
     h2: "12 seats. One engine that's yours.",
-    sub: "We read every one and call you within 48 hours to check fit.",
+    sub: "We read every email and reply within 48 hours.",
   },
 
   // ---------------------------------------------------------------------------
