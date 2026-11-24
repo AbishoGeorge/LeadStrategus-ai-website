@@ -381,7 +381,8 @@ export function renderPage(c) {
           }</div>` : ""}
         </article>`
       )
-      .join("")}</div>`,
+      .join("")}</div>
+    <p class="swipe-hint" aria-hidden="true">Swipe to see more →</p>`,
   };
   const personDialogs = people
     .map((f, k) =>
@@ -443,7 +444,8 @@ export function renderPage(c) {
         <ul class="ticks"><li>${icon("check")}At your office or ours</li><li>${icon("check")}Built around your stack</li><li>${icon("check")}Unlimited review slots</li></ul>
         <a class="btn btn-ghost btn-block" href="#apply" data-apply-type="private">Talk to us ${icon("arrow-right")}</a>
       </article>
-    </div>`,
+    </div>
+    <p class="swipe-hint" aria-hidden="true">Swipe to see more →</p>`,
   };
 
   const A = c.apply;
