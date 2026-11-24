@@ -153,6 +153,18 @@ export default {
     ],
   },
 
+  whyUs: {
+    h2: "Why LeadStrategus?",
+    intro: "Real experience. Proven results. A smarter way to do outbound.",
+    proofs: [
+      { icon: "radar", big: "100+", label: "global outbound projects", title: "Proven global execution", text: "8+ years of real-world B2B demand generation across international markets." },
+      { icon: "briefcase", big: "25+", label: "years of founder experience", title: "Operator-led", text: "B2B marketing, BD and GTM at AWS, SAP, Oracle, IBM and Gartner." },
+      { icon: "award", big: "5.0", label: "on Clutch · 7 reviews", title: "Independently recognised", text: "Commended for ABM precision, research depth and delivery quality.", clutch: true },
+      { icon: "chart-line", big: "25K+", label: "personalised messages sent", title: "Our own campaign data", text: "Shows which messages get replies, and which conversation stages lead to meetings." },
+    ],
+    banner: ["We don't just teach outbound.", "We do it."],
+  },
+
   programme: {
     h2: "8 stages. 3 human gates. One engine.",
     intro: "Not a course. A build. 30% principles, 70% building on your own business.",
@@ -174,6 +186,16 @@ export default {
     summary: [
       { tag: "IN PERSON · BENGALURU", big: "5", unit: "days", text: "Learn in the morning. Build in the afternoon. Demo day on Friday." },
       { tag: "ONLINE · 2 × 1 HR A WEEK", big: "4", unit: "weeks", text: "First sends, replies and a 90-day plan, with our team reviewing your work." },
+    ],
+    // From the "From learning to real execution" slide: two phases, then what you get.
+    phases: [
+      { icon: "calendar", big: "5", unit: "Days", title: "Intensive classroom", steps: ["Principles", "Design", "Build"], tag: "IN PERSON · BENGALURU" },
+      { icon: "calendar-check", big: "4", unit: "Weeks", title: "Guided execution", steps: ["Implement", "Iterate", "Optimise"], tag: "ONLINE · 2 × 1 HR A WEEK" },
+    ],
+    outcomes: [
+      { icon: "layers", title: "Capstone project", text: "Build your own outbound engine." },
+      { icon: "target", title: "Time to value", text: "Launch in weeks, not months." },
+      { icon: "chart-line", title: "Real outcomes", text: "A working system you can run and scale." },
     ],
     subhead: "The 5 days. Something built every day.",
     list: [

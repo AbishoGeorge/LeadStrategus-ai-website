@@ -224,6 +224,26 @@ export function renderPage(c) {
     </div>`,
   };
 
+  const WU = c.whyUs;
+  const whyUs = {
+    id: "why-us",
+    cls: "band band-glow",
+    html: `
+    <div class="sec-head"><h2>${esc(WU.h2)}</h2><p class="sec-sub">${esc(WU.intro)}</p></div>
+    <div class="proofs">${WU.proofs
+      .map(
+        (p, i) => `<article class="proof-card" style="--i:${i}">
+        <span class="proof-ic">${icon(p.icon, "ic-lg")}</span>
+        <p class="proof-title">${esc(p.title)}</p>
+        <p class="proof-big"><span class="proof-num">${esc(p.big)}</span> <span class="proof-label">${esc(p.label)}</span></p>
+        <p class="proof-text">${esc(p.text)}</p>
+        ${p.clutch ? `<a class="proof-link" href="${esc(S.clutchUrl)}" target="_blank" rel="noopener">Read the reviews on Clutch ${icon("arrow-up-right", "ic-sm")}</a>` : ""}
+      </article>`
+      )
+      .join("")}</div>
+    <p class="we-do-it">${esc(WU.banner[0])} <strong>${esc(WU.banner[1])}</strong></p>`,
+  };
+
   const pill = (ctl) => (ctl === "human" ? `<span class="pill pill-human">HUMAN GATE</span>` : `<span class="pill pill-ai">AI-ASSISTED</span>`);
   const programme = {
     id: "programme",
@@ -251,9 +271,17 @@ export function renderPage(c) {
     id: "days",
     html: `
     <div class="sec-head"><h2>${esc(c.days.h2)}</h2></div>
-    <div class="cols-2">${c.days.summary
-      .map((d, i) => `<article class="card sum-card ${i ? "online" : "inperson"}"><p class="tag-line">${esc(d.tag)}</p><p class="sum-big"><span>${esc(d.big)}</span> ${esc(d.unit)}</p><p>${esc(d.text)}</p></article>`)
+    <div class="phases">${c.days.phases
+      .map(
+        (d, i) => `${i ? `<span class="phase-arrow" aria-hidden="true">${icon("arrow-right", "ic-lg")}</span>` : ""}<article class="phase phase-${i ? "b" : "a"}">
+        <p class="phase-tag">${esc(d.tag)}</p>
+        <p class="phase-big">${icon(d.icon, "ic-lg")}<span class="phase-num">${esc(d.big)}</span><span class="phase-unit">${esc(d.unit)}</span></p>
+        <h3>${esc(d.title)}</h3>
+        <p class="phase-steps">${d.steps.map(esc).join(" <span aria-hidden=\"true\">·</span> ")}</p>
+      </article>`
+      )
       .join("")}</div>
+    <ul class="outcomes">${c.days.outcomes.map((o) => `<li>${icon(o.icon, "ic-lg")}<h3>${esc(o.title)}</h3><p>${esc(o.text)}</p></li>`).join("")}</ul>
     <h3 class="subhead">${esc(c.days.subhead)}</h3>
     <ol class="day-cards">${c.days.list
       .map((d) => `<li class="card day-card"><p class="tag-line">${esc(d.label)}</p><h4>${esc(d.title)}</h4><p>${esc(d.text)}</p></li>`)
@@ -465,7 +493,7 @@ export function renderPage(c) {
   const applySlot = { id: "apply", slot: true, html: "" };
 
   // Alternate white / silver backgrounds across whichever sections are shown.
-  const sections = [why, whyJoin, programme, days, who, faculty, sponsor, pricing, applySlot, faq].filter(Boolean);
+  const sections = [why, whyJoin, programme, days, who, whyUs, faculty, sponsor, pricing, applySlot, faq].filter(Boolean);
   const body = sections
     .map((s, i) =>
       s.slot
