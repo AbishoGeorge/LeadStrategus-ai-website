@@ -260,6 +260,16 @@ export default function GtmWorkshop() {
     };
   }, []);
 
+  // On phones the page's floating "Apply" bar would sit over the site footer; hide it there.
+  useEffect(() => {
+    const root = document.querySelector<HTMLElement>('.gtm-root');
+    const footer = Array.from(document.querySelectorAll('footer')).find((f) => !f.closest('.gtm-root'));
+    if (!root || !footer || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(([entry]) => root.toggleAttribute('data-footer-visible', entry.isIntersecting));
+    io.observe(footer);
+    return () => io.disconnect();
+  }, []);
+
   // "Copy note" button in the sponsor section.
   useEffect(() => {
     const onClick = async (e: MouseEvent) => {

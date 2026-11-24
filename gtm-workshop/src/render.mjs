@@ -201,10 +201,14 @@ export function renderPage(c) {
   const WJ = c.whyJoin;
   const whyJoin = {
     id: "why-join",
-    cls: "band",
+    cls: "band band-glow",
     html: `
     <div class="sec-head"><h2>${esc(WJ.h2)}</h2><p class="sec-sub">${esc(WJ.intro)}</p></div>
-    <div class="benefits">${WJ.cards.map((k, i) => `<article class="benefit" style="--i:${i}"><span class="benefit-ic">${icon(k.icon, "ic-lg")}</span><h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></article>`).join("")}</div>`,
+    <ul class="proof-strip">${c.whyUs.proofs
+      .map((p) => `<li>${p.clutch ? `<a href="${esc(S.clutchUrl)}" target="_blank" rel="noopener">` : ""}<span class="ps-num">${esc(p.big)}</span><span class="ps-label">${esc(p.short)}</span>${p.clutch ? "</a>" : ""}</li>`)
+      .join("")}</ul>
+    <div class="benefits">${WJ.cards.map((k, i) => `<article class="benefit" style="--i:${i}"><span class="benefit-ic">${icon(k.icon, "ic-lg")}</span><h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></article>`).join("")}</div>
+    <p class="we-do-it">${esc(c.whyUs.banner[0])} <strong>${esc(c.whyUs.banner[1])}</strong></p>`,
   };
 
   const SP = c.sponsor;
@@ -493,7 +497,7 @@ export function renderPage(c) {
   const applySlot = { id: "apply", slot: true, html: "" };
 
   // Alternate white / silver backgrounds across whichever sections are shown.
-  const sections = [why, whyJoin, programme, days, who, whyUs, faculty, sponsor, pricing, applySlot, faq].filter(Boolean);
+  const sections = [why, whyJoin, programme, days, who, faculty, sponsor, pricing, applySlot, faq].filter(Boolean);
   const body = sections
     .map((s, i) =>
       s.slot

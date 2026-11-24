@@ -596,19 +596,23 @@ body.modal-open { overflow: hidden; }
 /* From learning to real execution: two phase cards + outcomes */
 .gtm-root .phases { display: grid; gap: 16px; align-items: stretch; }
 @media (min-width: 860px) { .gtm-root .phases { grid-template-columns: 1fr auto 1fr; } }
-.gtm-root .phase { position: relative; overflow: hidden; padding: 28px; border-radius: 22px; color: #fff; isolation: isolate; }
-.gtm-root .phase::before { content: ""; position: absolute; inset: 0; z-index: -1; }
-.gtm-root .phase-a { background: linear-gradient(150deg, #0B2A6B, #0A3FA8); box-shadow: 0 0 0 1px rgba(96, 165, 250, .5), 0 18px 40px rgba(0, 102, 255, .25); }
-.gtm-root .phase-b { background: linear-gradient(150deg, #3B1A6B, #7A1E5A 55%, #B1361E); box-shadow: 0 0 0 1px rgba(244, 114, 182, .5), 0 18px 40px rgba(225, 6, 0, .22); }
-.gtm-root .phase-tag { margin: 0 0 14px; font: 700 12px/1 var(--f-head); letter-spacing: .12em; color: rgba(255, 255, 255, .7); }
+.gtm-root .phase { position: relative; overflow: hidden; padding: 28px; border-radius: 22px; color: var(--navy); }
+.gtm-root .phase-a { background: linear-gradient(150deg, #FFFFFF 0%, #EEF4FF 100%); border: 1px solid #C7DBFF; box-shadow: 0 10px 28px rgba(0, 102, 255, .08); }
+.gtm-root .phase-b { background: linear-gradient(150deg, #FFFFFF 0%, #FBF0F6 100%); border: 1px solid #F1CFE0; box-shadow: 0 10px 28px rgba(180, 40, 110, .08); }
+.gtm-root .phase::after { content: ""; position: absolute; width: 220px; height: 220px; right: -70px; top: -90px; border-radius: 50%; opacity: .5; pointer-events: none; }
+.gtm-root .phase-a::after { background: radial-gradient(closest-side, rgba(0, 102, 255, .18), transparent); }
+.gtm-root .phase-b::after { background: radial-gradient(closest-side, rgba(225, 6, 0, .14), transparent); }
+.gtm-root .phase-tag { margin: 0 0 14px; font: 700 12px/1 var(--f-head); letter-spacing: .12em; color: var(--ink-3); }
 .gtm-root .phase-big { display: flex; align-items: baseline; gap: 10px; margin: 0; }
-.gtm-root .phase-big .ic { align-self: center; color: rgba(255, 255, 255, .85); }
+.gtm-root .phase-big .ic { align-self: center; }
+.gtm-root .phase-a .phase-big .ic { color: var(--blue); }
+.gtm-root .phase-b .phase-big .ic { color: #B4286E; }
 .gtm-root .phase-num { font: 800 clamp(56px, 7vw, 76px)/1 var(--f-head); letter-spacing: -.04em; }
-.gtm-root .phase-a .phase-num { background: linear-gradient(180deg, #FFFFFF, #93C5FD); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.gtm-root .phase-b .phase-num { background: linear-gradient(180deg, #FFE4C7, #FB923C); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.gtm-root .phase-unit { font: 800 italic 30px/1 var(--f-head); }
-.gtm-root .phase h3 { margin: 16px 0 6px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, .2); font-size: 22px; color: #fff; }
-.gtm-root .phase-steps { margin: 0; color: rgba(255, 255, 255, .8); }
+.gtm-root .phase-a .phase-num { background: linear-gradient(180deg, #3B82F6, #0B2A6B); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.gtm-root .phase-b .phase-num { background: linear-gradient(180deg, #FB7185, #9D174D); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.gtm-root .phase-unit { font: 800 italic 30px/1 var(--f-head); color: var(--navy); }
+.gtm-root .phase h3 { margin: 16px 0 6px; padding-top: 16px; border-top: 1px solid rgba(11, 42, 107, .12); font-size: 22px; color: var(--navy); }
+.gtm-root .phase-steps { margin: 0; color: var(--ink-3); }
 .gtm-root .phase-arrow { display: grid; place-items: center; color: var(--red); }
 @media (max-width: 859px) { .gtm-root .phase-arrow { transform: rotate(90deg); } }
 .gtm-root .outcomes { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 16px; }
@@ -635,7 +639,14 @@ body.modal-open { overflow: hidden; }
 .gtm-root .we-do-it { margin: 32px 0 0; padding: 22px; text-align: center; border-radius: 20px; border: 1px solid rgba(244, 114, 182, .45); background: rgba(255, 255, 255, .04); font: 800 clamp(20px, 3vw, 28px)/1.3 var(--f-head); color: #fff; text-transform: uppercase; letter-spacing: .02em; }
 .gtm-root .we-do-it strong { display: block; font-size: 1.4em; background: linear-gradient(90deg, #FB7185, #E879F9); -webkit-background-clip: text; background-clip: text; color: transparent; }
 @media (prefers-reduced-motion: reduce) { .gtm-root .proof-card { transition: none; } .gtm-root .proof-card:hover { transform: none; } }
-/* Inside leadstrategus.ai the site's own navbar and footer replace the page's header and footer. */
-.gtm-root { --nav-h: 104px; }
-html:has(.gtm-root) { scroll-padding-top: 116px; }
-.gtm-root .skip, .gtm-root .site-header, .gtm-root .site-footer { display: none !important; }
+
+/* Why join LeadStrategus: proof numbers above the benefit tiles */
+.gtm-root .proof-strip { list-style: none; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 900px) { .gtm-root .proof-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.gtm-root .proof-strip li > a, .gtm-root .proof-strip li { display: block; color: inherit; text-decoration: none; }
+.gtm-root .proof-strip li { padding: 18px 20px; border-radius: 16px; border: 1px solid rgba(147, 197, 253, .25); background: rgba(255, 255, 255, .04); }
+.gtm-root .proof-strip li:has(a):hover { border-color: rgba(244, 114, 182, .6); }
+.gtm-root .ps-num { display: block; font: 800 clamp(34px, 4.6vw, 46px)/1 var(--f-head); letter-spacing: -.03em; background: linear-gradient(90deg, #FFFFFF, #93C5FD); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.gtm-root .ps-label { display: block; margin-top: 8px; font-size: 14px; line-height: 1.4; color: #C9D6F2; }
+
+@keyframes hop{0%{opacity:0;transform:translate(0.00%, 0.00%) translateY(-18%)}5%{opacity:1;transform:translate(0.00%, 0.00%) translateY(-18%)}8%{transform:translate(0.00%, 0.00%)}12.5%{transform:translate(6.17%, -13.97%)}17%{transform:translate(12.35%, -9.94%)}21.5%{transform:translate(18.22%, -23.26%)}26%{transform:translate(24.09%, -18.58%)}30.5%{transform:translate(29.75%, -31.02%)}35%{transform:translate(35.40%, -25.45%)}39.5%{transform:translate(41.00%, -36.93%)}44%{transform:translate(46.59%, -30.41%)}48.5%{transform:translate(52.32%, -41.01%)}53%{transform:translate(58.04%, -33.60%)}57.5%{transform:translate(64.06%, -43.52%)}62%{transform:translate(70.09%, -35.43%)}66.5%{transform:translate(76.51%, -44.97%)}71%{transform:translate(82.94%, -36.51%)}88%{opacity:1;transform:translate(82.94%, -36.51%)}94%{opacity:0;transform:translate(82.94%, -36.51%) scale(.6)}100%{opacity:0;transform:translate(82.94%, -36.51%) scale(.6)}}.gtm-root .anim-stones.in-view .ball img{animation:hop 9s cubic-bezier(.45,0,.55,1) .9s infinite}@media (prefers-reduced-motion: reduce){.gtm-root .anim-stones .ball img{transform:translate(82.94%, -36.51%)}}@keyframes gate1{0%,16%{transform:none;filter:none}18%{transform:translateY(2.5%);filter:brightness(1.25) drop-shadow(0 0 10px rgba(225,6,0,.55))}23%{transform:none;filter:brightness(1.1) drop-shadow(0 0 6px rgba(225,6,0,.35))}31%,100%{transform:none;filter:none}}.gtm-root .anim-stones.in-view .s1 img{animation:gate1 9s linear .9s infinite}@keyframes gate2{0%,25%{transform:none;filter:none}27%{transform:translateY(2.5%);filter:brightness(1.25) drop-shadow(0 0 10px rgba(225,6,0,.55))}32%{transform:none;filter:brightness(1.1) drop-shadow(0 0 6px rgba(225,6,0,.35))}40%,100%{transform:none;filter:none}}.gtm-root .anim-stones.in-view .s2 img{animation:gate2 9s linear .9s infinite}@keyframes gate5{0%,52%{transform:none;filter:none}54%{transform:translateY(2.5%);filter:brightness(1.25) drop-shadow(0 0 10px rgba(225,6,0,.55))}59%{transform:none;filter:brightness(1.1) drop-shadow(0 0 6px rgba(225,6,0,.35))}67%,100%{transform:none;filter:none}}.gtm-root .anim-stones.in-view .s5 img{animation:gate5 9s linear .9s infinite}/* Inside leadstrategus.ai the site's own navbar and footer replace the page's header and footer. */.gtm-root { --nav-h: 104px; }html:has(.gtm-root) { scroll-padding-top: 116px; }.gtm-root .skip, .gtm-root .site-header, .gtm-root .site-footer { display: none !important; }/* Hide the floating Apply bar while the site's own footer is on screen (set by GtmWorkshop.tsx). */.gtm-root[data-footer-visible] .mobile-bar { transform: translateY(110%); opacity: 0; pointer-events: none; }
