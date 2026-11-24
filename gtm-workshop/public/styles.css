@@ -554,3 +554,10 @@ body.modal-open { overflow: hidden; }
 #rm .seat{transition:opacity 1s ease;cursor:pointer}
 @media (min-width: 1000px) { .hero-visual.room { padding: 0; } }
 @media (prefers-reduced-motion: reduce) { #rm * { animation: none !important; } }
+
+/* Get your boss to sponsor you */
+.sponsor-grid { display: grid; gap: 16px; align-items: start; }
+@media (min-width: 1024px) { .sponsor-grid { grid-template-columns: 3fr 2fr; } }
+.mail-card { margin: 0; }
+.mail-card .tag-line { margin: 0 0 12px; }
+.mail-card pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.65 var(--f-body); color: var(--ink-2); background: var(--hero-wash); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 16px; }

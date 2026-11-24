@@ -1,26 +1,27 @@
-// Builds the GTM Bootcamp page from gtm-bootcamp/ (its own source, edit content.js there)
-// into the main site, where it renders at /gtm-bootcamp inside the normal navbar and footer.
-//   node scripts/build-gtm-bootcamp.mjs
+// Builds the GTM Workshop page from gtm-workshop/ (its own source, edit content.js there)
+// into the main site, where it renders at /gtm-workshop inside the normal navbar and footer.
+//   node scripts/build-gtm-workshop.mjs
 // Outputs:
-//   src/pages/gtm-bootcamp/content.html  page body, rendered by src/pages/GtmBootcamp.tsx
-//   public/gtm-bootcamp/                 its images, fonts, script and scoped stylesheet
+//   src/pages/gtm-workshop/content.html  page body, rendered by src/pages/GtmWorkshop.tsx
+//   src/pages/gtm-workshop/apply.json    copy for the application form the site renders
+//   public/gtm-workshop/                 its images, fonts, script and scoped stylesheet
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import postcss from 'postcss';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const src = path.join(root, 'gtm-bootcamp');
+const src = path.join(root, 'gtm-workshop');
 const built = path.join(src, 'dist');
-const BASE = '/gtm-bootcamp';
+const BASE = '/gtm-workshop';
 const SCOPE = '.gtm-root';
-const assetsOut = path.join(root, 'public', 'gtm-bootcamp');
-const htmlOut = path.join(root, 'src', 'pages', 'gtm-bootcamp', 'content.html');
+const assetsOut = path.join(root, 'public', 'gtm-workshop');
+const htmlOut = path.join(root, 'src', 'pages', 'gtm-workshop', 'content.html');
 
 execFileSync(process.execPath, ['build.mjs'], { cwd: src, stdio: 'inherit' });
 
-// The page was written for a site root; move its root-relative asset paths under /gtm-bootcamp.
+// The page was written for a site root; move its root-relative asset paths under /gtm-workshop.
 const prefixPaths = (text) =>
   text
     .replace(/(["'(\s,])\/(img|brand|fonts)\//g, `$1${BASE}/$2/`)
@@ -69,10 +70,20 @@ const page = fs.readFileSync(path.join(built, 'index.html'), 'utf8');
 let body = page.slice(page.indexOf('<body>') + '<body>'.length, page.lastIndexOf('</body>'));
 body = body
   .replace(/<script src="[^"]*main\.js[^"]*"[^>]*><\/script>\s*/, '')
-  .replace('<main id="main">', '<div id="main">')
-  .replace(/<\/main>/, '</div>');
+  // Drop the <main> wrapper: the site's layout already has one, and the page is split
+  // into sibling fragments around the form, so no element may stay open across the split.
+  .replace('<main id="main">', '')
+  .replace(/<\/main>/, '');
 fs.mkdirSync(path.dirname(htmlOut), { recursive: true });
 fs.writeFileSync(htmlOut, prefixPaths(body).trim() + '\n');
 
+// Copy for the application form, which the site renders itself (src/pages/GtmWorkshop.tsx).
+const { default: content } = await import(pathToFileURL(path.join(src, 'content.js')).href);
+const { h2, sub, trust, roles, success } = content.apply;
+fs.writeFileSync(
+  path.join(path.dirname(htmlOut), 'apply.json'),
+  JSON.stringify({ h2, sub, trust, roles, success, city: content.settings.city }, null, 2) + '\n'
+);
+
 fs.rmSync(built, { recursive: true, force: true });
-console.log('✔ GTM Bootcamp page built into src/pages/gtm-bootcamp/ and public/gtm-bootcamp/');
+console.log('✔ GTM Workshop page built into src/pages/gtm-workshop/ and public/gtm-workshop/');

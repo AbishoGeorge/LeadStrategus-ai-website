@@ -2,9 +2,9 @@
    Mobile-first. Light theme with the official LeadStrategus brand colours.
    Every colour comes from the tokens on :root. */
 
-@font-face { font-family: "Montserrat"; src: url("/gtm-bootcamp/fonts/montserrat.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Inter"; src: url("/gtm-bootcamp/fonts/inter.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-@font-face { font-family: "Cinzel"; src: url("/gtm-bootcamp/fonts/cinzel-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("/gtm-workshop/fonts/montserrat.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("/gtm-workshop/fonts/inter.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Cinzel"; src: url("/gtm-workshop/fonts/cinzel-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
 
 .gtm-root {
   /* brand (LeadStrategus brand sheet) */
@@ -554,6 +554,13 @@ body.modal-open { overflow: hidden; }
 .gtm-root #rm .seat{transition:opacity 1s ease;cursor:pointer}
 @media (min-width: 1000px) { .gtm-root .hero-visual.room { padding: 0; } }
 @media (prefers-reduced-motion: reduce) { .gtm-root #rm * { animation: none !important; } }
+
+/* Get your boss to sponsor you */
+.gtm-root .sponsor-grid { display: grid; gap: 16px; align-items: start; }
+@media (min-width: 1024px) { .gtm-root .sponsor-grid { grid-template-columns: 3fr 2fr; } }
+.gtm-root .mail-card { margin: 0; }
+.gtm-root .mail-card .tag-line { margin: 0 0 12px; }
+.gtm-root .mail-card pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 400 14px/1.65 var(--f-body); color: var(--ink-2); background: var(--hero-wash); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 16px; }
 /* Inside leadstrategus.ai the site's own navbar and footer replace the page's header and footer. */
 .gtm-root { --nav-h: 64px; }
 html:has(.gtm-root) { scroll-padding-top: 76px; }

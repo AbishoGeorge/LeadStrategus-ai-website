@@ -78,7 +78,7 @@ const digits = (s) => String(s || "").replace(/[^\d]/g, "");
 export function renderPage(c) {
   const S = c.settings;
   const seats = S.totalSeats;
-  const fill = (s) => String(s).replaceAll("{teamDiscountPct}", S.teamDiscountPct);
+  const fill = (s) => String(s).replaceAll("{teamDiscountPct}", S.teamDiscountPct).replaceAll("{priceIndividual}", S.priceIndividual);
   const wa = S.whatsapp ? `https://wa.me/${encodeURIComponent(S.whatsapp)}?text=${encodeURIComponent(S.whatsappMessage)}` : "";
   const applyBtn = (label = "Apply for Cohort 1", extra = "", type = "") =>
     `<a class="btn btn-primary ${extra}" href="#apply"${type ? ` data-apply-type="${type}"` : ""}>${label} ${icon("arrow-right")}</a>`;
@@ -196,6 +196,24 @@ export function renderPage(c) {
     html: `
     <div class="sec-head with-art"><div><h2>${esc(c.why.h2)}</h2><p class="sec-sub">${esc(c.why.intro)}</p></div>${targetArt}</div>
     <div class="cols-3">${c.why.cols.map((k) => `<article class="card why-card">${icon(k.icon, "ic-lg")}<h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></article>`).join("")}</div>`,
+  };
+
+  const whyJoin = {
+    id: "why-join",
+    html: `
+    <div class="sec-head"><h2>${esc(c.whyJoin.h2)}</h2><p class="sec-sub">${esc(c.whyJoin.intro)}</p></div>
+    <div class="cols-3">${c.whyJoin.cards.map((k) => `<article class="card why-card">${icon(k.icon, "ic-lg")}<h3>${esc(k.title)}</h3><p>${esc(k.text)}</p></article>`).join("")}</div>`,
+  };
+
+  const SP = c.sponsor;
+  const sponsor = {
+    id: "sponsor",
+    html: `
+    <div class="sec-head"><h2>${esc(SP.h2)}</h2><p class="sec-sub">${esc(SP.intro)}</p></div>
+    <div class="sponsor-grid">
+      <div class="cols-2">${SP.points.map((k) => `<article class="card why-card">${icon(k.icon, "ic-lg")}<h3>${esc(k.title)}</h3><p>${esc(fill(k.text))}</p></article>`).join("")}</div>
+      <figure class="card mail-card"><figcaption class="tag-line">${esc(SP.emailLabel)}</figcaption><pre>${esc(SP.email.map(fill).join("\n"))}</pre></figure>
+    </div>`,
   };
 
   const pill = (ctl) => (ctl === "human" ? `<span class="pill pill-human">HUMAN GATE</span>` : `<span class="pill pill-ai">AI-ASSISTED</span>`);
@@ -434,11 +452,17 @@ export function renderPage(c) {
       .join("")}</div>`,
   };
 
+  // The application form is rendered by the leadstrategus.ai site (it posts to the site's
+  // contact endpoint); the build splits the page at this marker.
+  const applySlot = { id: "apply", slot: true, html: "" };
+
   // Alternate white / silver backgrounds across whichever sections are shown.
-  const sections = [why, programme, days, who, proof, faculty, checklist, pricing, apply, faq].filter(Boolean);
+  const sections = [why, whyJoin, programme, days, who, faculty, sponsor, pricing, applySlot, faq].filter(Boolean);
   const body = sections
-    .map(
-      (s, i) => `
+    .map((s, i) =>
+      s.slot
+        ? `\n<!--GTM_APPLY_SLOT:${i % 2 ? "alt" : ""}-->\n`
+        : `
 <!-- ${s.id} -->
 <section class="section ${i % 2 ? "alt" : ""} ${s.cls || ""}" id="${s.id}">
   <div class="wrap${s.narrow ? " wrap-narrow" : ""}">${s.html}
@@ -452,6 +476,7 @@ export function renderPage(c) {
     ["programme", "Programme"],
     ["who", "Who it's for"],
     ["faculty", "Meet our team"],
+    ["sponsor", "Sponsorship"],
     ["pricing", "Pricing"],
   ];
 

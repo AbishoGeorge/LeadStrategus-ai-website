@@ -48,7 +48,7 @@ export default {
   },
 
   site: {
-    url: "https://leadstrategus.ai/gtm-bootcamp", // Served as a page of leadstrategus.ai (used for canonical, OG and JSON-LD)
+    url: "https://leadstrategus.ai/gtm-workshop", // Served as a page of leadstrategus.ai (used for canonical, OG and JSON-LD)
     name: "GTM Engineering Workshop",
     title: "GTM Engineering Workshop, Bengaluru | LeadStrategus",
     description:
@@ -108,6 +108,47 @@ export default {
       { icon: "target", title: "A sharper view of who buys, and why now.", text: "Signals that predict a purchase in your market, not just signals that are interesting." },
       { icon: "shield-check", title: "Human judgement at three gates.", text: "AI does research, data and drafting. You decide segments, buying criteria and every message." },
       { icon: "refresh-cw", title: "A loop that learns.", text: "Replies and meetings feed back into targeting, scoring and messaging every cycle." },
+    ],
+  },
+
+  whyJoin: {
+    h2: "Why join.",
+    intro: "Five days in a room, four weeks of guided practice, and a system you keep running after we leave.",
+    cards: [
+      { icon: "rocket", title: "Leave with your own engine", text: "You build on your real ICP, accounts and offer, so you leave with a documented, tested outbound system, not notes from a demo." },
+      { icon: "workflow", title: "Learn the system, not one tool", text: "Choose tools by the job they do. When a tool changes or gets expensive, you swap it without rebuilding everything." },
+      { icon: "user-check", title: "Keep humans where it counts", text: "AI handles research, data and drafts. You learn exactly where your judgement goes: segments, buying criteria and every message." },
+      { icon: "briefcase", title: "Taught by working operators", text: "Frameworks come from campaigns we run for clients every week, with people who led marketing at AWS, Gartner and SAP." },
+      { icon: "calendar-check", title: "Four weeks of guided practice", text: "Two live sessions a week while you run real sends, read the replies and tune targeting, scoring and messaging." },
+      { icon: "users", title: "A small room of 12", text: "Every participant gets review time on their own engine, and you learn from peers solving the same problem in other markets." },
+    ],
+  },
+
+  sponsor: {
+    h2: "Get your boss to sponsor you.",
+    intro: "Most participants are funded by their company. Here is what to tell your manager, and a note you can send today.",
+    points: [
+      { icon: "target", title: "Built on the company's market", text: "The engine is designed around your ICP, accounts and offer, so the work is useful on day one back at the desk." },
+      { icon: "file-text", title: "Assets the company keeps", text: "A scored account list, signal tracking, messaging, a measurement plan and a 90-day plan to run it." },
+      { icon: "receipt", title: "Easy to pay for", text: "GST invoice, payment by Razorpay link or bank transfer against a PO. Registered businesses may be able to claim GST credit." },
+      { icon: "users", title: "Cheaper as a team", text: "Teams of 3 or more save {teamDiscountPct}% per seat and share one workspace, so the whole function learns the same system." },
+    ],
+    emailLabel: "A note to send your manager",
+    email: [
+      "Subject: Request to attend the GTM Engineering Workshop",
+      "",
+      "Hi [Manager's name],",
+      "",
+      "I'd like to attend LeadStrategus's GTM Engineering Workshop in Bengaluru: 5 days in person, then 4 weeks of guided implementation.",
+      "",
+      "During the workshop I'd build our own outbound engine on our real ICP, accounts and offer. We would come away with a scored target account list, signal tracking, tested messaging, a measurement plan and a 90-day plan to run it.",
+      "",
+      "The fee is {priceIndividual} + GST per seat, with a GST invoice and payment against a PO. Teams of 3 or more save {teamDiscountPct}% per seat.",
+      "",
+      "Could we discuss this week?",
+      "",
+      "Thanks,",
+      "[Your name]",
     ],
   },
 

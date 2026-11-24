@@ -6,6 +6,8 @@ export interface ContactPayload {
   message?: string;
   /** Which form sent it, shown in the email. */
   source: string;
+  /** Extra labelled answers shown in the email (longer forms only). */
+  details?: Record<string, string>;
   /** Honeypot; must stay empty. */
   website: string;
 }
