@@ -82,7 +82,7 @@ export default {
       "AI does the research and drafting. You make the calls that matter",
       "4 weeks of live support while you send, learn and improve",
     ],
-    facts: ["5 days in person · Bengaluru", "4 weeks online support", "{priceIndividual} + GST · teams save {teamDiscountPct}%"],
+    facts: ["5 days in person · Bengaluru", "4 weeks online support"],
     trust: ["★★★★★ 5.0 on Clutch", "No payment to apply", "Seats filling fast"],
     buildLog: [
       { when: "DAY 1", text: "ICP + segments chosen", gate: "gate 1" },
