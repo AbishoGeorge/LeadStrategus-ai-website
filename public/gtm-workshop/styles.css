@@ -527,31 +527,17 @@ body.modal-open { overflow: hidden; }
 .gtm-root .person[data-open] { cursor: pointer; }
 .gtm-root .card p.q-by { margin-top: 22px; font-size: 15px; color: var(--ink-3); }
 
-/* ---------- hero: workshop room illustration (from leadstrategus_workshop_room_static_slogan.html) ---------- */
+/* ---------- hero: workshop room illustration (from leadstrategus_workshop_room_polished.html) ---------- */
 .gtm-root .hero-visual.room { padding: 0; max-width: 820px; }
 .gtm-root .room-frame { background: #F4F7FC; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); }
 .gtm-root #rm { display: block; width: 100%; height: auto; }
 .gtm-root #rm text{font-family:var(--f-body)}
-.gtm-root #slo text{font-family:var(--f-head);font-weight:800}
-.gtm-root #rm .hd{transform-origin:0px -18px}
-.gtm-root #rm .look{animation:look 13s ease-in-out infinite}
-@keyframes look{0%,28%{transform:translateY(1.6px)}40%,68%{transform:translateY(-1.2px)}80%,100%{transform:translateY(1.6px)}}
-.gtm-root #rm .nod{animation:nod 11s ease-in-out infinite}
-@keyframes nod{0%,58%{transform:translateY(-1px)}62%{transform:translateY(1.6px)}66%{transform:translateY(-1px)}70%{transform:translateY(1.6px)}75%,100%{transform:translateY(-1px)}}
-.gtm-root #rm .lean{transform-origin:0px 70px;animation:lean 17s ease-in-out infinite}
-@keyframes lean{0%,35%{transform:rotate(0deg)}46%,68%{transform:rotate(2.6deg)}80%,100%{transform:rotate(0deg)}}
-.gtm-root #rm .rz{transform-origin:30px 0px;animation:rz 16s cubic-bezier(.4,0,.2,1) infinite}
-@keyframes rz{0%,48%{transform:translateY(76px)}58%{transform:translateY(0px) rotate(0deg)}64%{transform:translateY(0px) rotate(5deg)}70%{transform:translateY(0px) rotate(-4deg)}76%{transform:translateY(0px) rotate(4deg)}82%{transform:translateY(0px) rotate(0deg)}93%,100%{transform:translateY(76px)}}
-.gtm-root #pua{transform-origin:587px 218px;animation:pua 6.5s ease-in-out infinite}
-.gtm-root #pfa{transform-origin:587px 244px;animation:pfa 6.5s ease-in-out infinite}
-@keyframes pua{0%,100%{transform:rotate(34deg)}50%{transform:rotate(46deg)}}
-@keyframes pfa{0%,100%{transform:rotate(-90deg)}50%{transform:rotate(-114deg)}}
-.gtm-root #fac{animation:sway 8s ease-in-out infinite;transform-origin:606px 330px}
-@keyframes sway{50%{transform:rotate(-.9deg)}}
-.gtm-root #rm .rise{animation:rise 4.6s cubic-bezier(.22,.61,.36,1) forwards}
-@keyframes rise{0%{opacity:0;transform:translateY(10px)}14%{opacity:1}78%{opacity:1}100%{opacity:0;transform:translateY(-44px)}}
-.gtm-root #rm .leaf{transform-origin:648px 300px;animation:leaf 9s ease-in-out infinite}@keyframes leaf{50%{transform:rotate(1.6deg)}}
-.gtm-root #rm .seat{transition:opacity 1s ease;cursor:pointer}
+.gtm-root #rm #slo text{font-family:var(--f-head);font-weight:800}
+.gtm-root #rm .rise{animation:rise 5s cubic-bezier(.22,.61,.36,1) forwards}
+@keyframes rise{0%{opacity:0;transform:translateY(8px)}12%{opacity:1}80%{opacity:1}100%{opacity:0;transform:translateY(var(--dy,-20px))}}
+.gtm-root #rm .seat{cursor:pointer}
+.gtm-root #rp{font:500 13px/1 var(--f-body);color:var(--ink-2);background:#FFFFFF;border:1px solid var(--line-input);border-radius:8px;padding:6px 10px;cursor:pointer}
+.gtm-root #rp:hover{border-color:var(--blue);color:var(--blue-text)}
 @media (min-width: 1000px) { .gtm-root .hero-visual.room { padding: 0; } }
 @media (prefers-reduced-motion: reduce) { .gtm-root #rm * { animation: none !important; } }
 
