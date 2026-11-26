@@ -57,7 +57,10 @@ const scopeSelector = (sel) => {
 // carry that CSS over into the stylesheet.
 const builtPage = fs.readFileSync(path.join(built, 'index.html'), 'utf8');
 const headCss = [...builtPage.slice(0, builtPage.indexOf('<body>')).matchAll(/<style>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join('\n');
-const css = postcss.parse(fs.readFileSync(path.join(built, 'styles.css'), 'utf8') + '\n' + headCss);
+// The 8-step system section ships its own stylesheet (already scoped under .lsgtm).
+const systemCss = fs.readFileSync(path.join(built, 'system.css'), 'utf8');
+fs.rmSync(path.join(assetsOut, 'system.css'), { force: true });
+const css = postcss.parse(fs.readFileSync(path.join(built, 'styles.css'), 'utf8') + '\n' + headCss + '\n' + systemCss);
 css.walkRules((rule) => {
   if (rule.parent?.type === 'atrule' && /keyframes$/.test(rule.parent.name)) return;
   rule.selectors = rule.selectors.map(scopeSelector);
@@ -65,6 +68,7 @@ css.walkRules((rule) => {
 css.append(`
 /* Inside leadstrategus.ai the site's own navbar and footer replace the page's header and footer. */
 ${SCOPE} { --nav-h: 104px; }
+${SCOPE} .system-sec .lsgtm .sys { margin-bottom: 0; }
 html:has(${SCOPE}) { scroll-padding-top: 116px; }
 ${SCOPE} .skip, ${SCOPE} .site-header, ${SCOPE} .site-footer { display: none !important; }
 /* Hide the floating Apply bar while the site's own footer is on screen (set by GtmWorkshop.tsx). */
