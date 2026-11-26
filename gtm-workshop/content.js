@@ -173,6 +173,11 @@ export default {
     banner: ["We don't just teach outbound.", "We do it."],
   },
 
+  system: {
+    h2: "8 stages. 3 human gates. One engine.",
+    intro: "This isn't a course. It's a build. About 30% principles, 70% building on your own business. You leave with a working, documented engine and a plan to run it.",
+  },
+
   programme: {
     h2: "5 days to build. 4 weeks to run it.",
     intro: "8 stages, 3 human checkpoints, one engine. 30% principles, 70% building on your own business.",

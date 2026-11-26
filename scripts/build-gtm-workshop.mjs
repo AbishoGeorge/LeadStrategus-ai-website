@@ -69,6 +69,13 @@ css.append(`
 /* Inside leadstrategus.ai the site's own navbar and footer replace the page's header and footer. */
 ${SCOPE} { --nav-h: 104px; }
 ${SCOPE} .system-sec .lsgtm .sys { margin-bottom: 0; }
+/* The map widens past the content column on big screens. Centre the wrapper rather than the
+   map itself: the map gets shrunk with CSS zoom to fit the screen height, and zoom also scales
+   its own left/translate offsets, which pushed it off-centre to the right. */
+@media (min-width: 1320px) {
+  ${SCOPE} .system-sec .lsgtm { position: relative; left: 50%; translate: -50% 0; width: min(1760px, calc(100vw - 48px)); }
+  ${SCOPE} .system-sec .lsgtm .sys { position: static; left: auto; translate: none; width: auto; }
+}
 html:has(${SCOPE}) { scroll-padding-top: 116px; }
 ${SCOPE} .skip, ${SCOPE} .site-header, ${SCOPE} .site-footer { display: none !important; }
 /* Hide the floating Apply bar while the site's own footer is on screen (set by GtmWorkshop.tsx). */

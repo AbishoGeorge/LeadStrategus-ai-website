@@ -296,7 +296,13 @@ export function renderPage(c) {
     <ul class="outcomes">${c.days.outcomes.map((o) => `<li>${icon(o.icon, "ic-lg")}<h3>${esc(o.title)}</h3><p>${esc(o.text)}</p></li>`).join("")}</ul>`,
   };
 
-  const system = { id: "system", cls: "system-sec", html: SYSTEM };
+  const system = {
+    id: "system",
+    cls: "system-sec",
+    html: `
+    <div class="sec-head"><h2>${esc(c.system.h2)}</h2><p class="sec-sub">${esc(c.system.intro)}</p></div>
+    ${SYSTEM}`,
+  };
 
   const days = {
     id: "days",
