@@ -315,7 +315,7 @@ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){sitPose(1,0,0)
     full_name: { el: "#f-name", err: "#e-name", test: (v) => v.trim().length >= 2, msg: "Please enter your full name." },
     work_email: { el: "#f-email", err: "#e-email", test: emailOk, msg: "Please enter a valid work email." },
     company: { el: "#f-company", err: "#e-company", test: (v) => v.trim().length >= 2, msg: "Please enter your company and website." },
-    what_you_sell: { el: "#f-sell", err: "#e-sell", test: (v) => v.trim().length >= 10 && v.length <= 600, msg: "Tell us a little more: what you sell, and to whom (10–600 characters)." },
+    what_you_sell: { el: "#f-sell", err: "#e-sell", test: (v) => v.trim().length >= 10 && v.length <= 600, msg: "Tell us a little more: what you sell, and to whom (10 to 600 characters)." },
   };
   const checks = {
     can_attend: { err: "#e-attend", msg: "The workshop is in person, so we need you there all 5 days." },

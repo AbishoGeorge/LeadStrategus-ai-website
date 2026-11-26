@@ -73,6 +73,11 @@ ${SCOPE} .system-sec .lsgtm .sys { margin-bottom: 0; }
    stage titles: lines fill left to right, and hyphenated words stay on one line. */
 ${SCOPE} .system-sec .lsgtm h3, ${SCOPE} .system-sec .lsgtm h4 { text-wrap: wrap; letter-spacing: normal; }
 ${SCOPE} .system-sec .lsgtm .nw { white-space: nowrap; }
+/* Stage header: number on the left, icon on the right edge, title underneath. */
+@media (min-width: 1320px) {
+  ${SCOPE} .system-sec .lsgtm .sc-head { grid-template-columns: auto 1fr; }
+  ${SCOPE} .system-sec .lsgtm .sc-head .sc-ic { justify-self: end; margin-left: 0; }
+}
 /* The map widens past the content column on big screens. Centre the wrapper rather than the
    map itself: the map gets shrunk with CSS zoom to fit the screen height, and zoom also scales
    its own left/translate offsets, which pushed it off-centre to the right. */
