@@ -179,7 +179,7 @@ export function renderPage(c) {
       <p class="hero-trust">${c.hero.trust.map(esc).join(' <span aria-hidden="true">·</span> ')}</p>
     </div>
     <div class="hero-visual hero-shot">
-      <div class="shot-frame">${pic("/img/hero/workshop-session", "jpg", 768, 512, "A LeadStrategus GTM Engineering Workshop session in progress: a facilitator points to the slide \"AI drafts. You improve. AI executes.\" while participants work on laptops", "", true)}</div>
+      <div class="shot-frame">${pic("/img/hero/workshop-session-2", "jpg", 768, 512, "A LeadStrategus GTM Engineering Workshop session in progress: a facilitator points to the slide \"AI drafts. You improve. AI executes.\" while participants work on laptops", "", true)}</div>
       <ul class="shot-facts">${c.hero.facts.map((t, k) => `<li>${icon(k ? "laptop" : "users")}<span>${esc(fill(t))}</span></li>`).join("")}</ul>
     </div>
   </div>
