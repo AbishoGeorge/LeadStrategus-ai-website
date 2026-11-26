@@ -69,6 +69,10 @@ css.append(`
 /* Inside leadstrategus.ai the site's own navbar and footer replace the page's header and footer. */
 ${SCOPE} { --nav-h: 104px; }
 ${SCOPE} .system-sec .lsgtm .sys { margin-bottom: 0; }
+/* The page's own heading style (balanced wrapping, tight tracking) must not reach the map's
+   stage titles: lines fill left to right, and hyphenated words stay on one line. */
+${SCOPE} .system-sec .lsgtm h3, ${SCOPE} .system-sec .lsgtm h4 { text-wrap: wrap; letter-spacing: normal; }
+${SCOPE} .system-sec .lsgtm .nw { white-space: nowrap; }
 /* The map widens past the content column on big screens. Centre the wrapper rather than the
    map itself: the map gets shrunk with CSS zoom to fit the screen height, and zoom also scales
    its own left/translate offsets, which pushed it off-centre to the right. */
