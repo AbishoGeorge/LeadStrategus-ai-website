@@ -57,7 +57,10 @@ const scopeSelector = (sel) => {
 // carry that CSS over into the stylesheet.
 const builtPage = fs.readFileSync(path.join(built, 'index.html'), 'utf8');
 const headCss = [...builtPage.slice(0, builtPage.indexOf('<body>')).matchAll(/<style>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join('\n');
-const css = postcss.parse(fs.readFileSync(path.join(built, 'styles.css'), 'utf8') + '\n' + headCss);
+// The 8-step system section ships its own stylesheet (already scoped under .lsgtm).
+const systemCss = fs.readFileSync(path.join(built, 'system.css'), 'utf8');
+fs.rmSync(path.join(assetsOut, 'system.css'), { force: true });
+const css = postcss.parse(fs.readFileSync(path.join(built, 'styles.css'), 'utf8') + '\n' + headCss + '\n' + systemCss);
 css.walkRules((rule) => {
   if (rule.parent?.type === 'atrule' && /keyframes$/.test(rule.parent.name)) return;
   rule.selectors = rule.selectors.map(scopeSelector);
@@ -65,6 +68,23 @@ css.walkRules((rule) => {
 css.append(`
 /* Inside leadstrategus.ai the site's own navbar and footer replace the page's header and footer. */
 ${SCOPE} { --nav-h: 104px; }
+${SCOPE} .system-sec .lsgtm .sys { margin-bottom: 0; }
+/* The page's own heading style (balanced wrapping, tight tracking) must not reach the map's
+   stage titles: lines fill left to right, and hyphenated words stay on one line. */
+${SCOPE} .system-sec .lsgtm h3, ${SCOPE} .system-sec .lsgtm h4 { text-wrap: wrap; letter-spacing: normal; }
+${SCOPE} .system-sec .lsgtm .nw { white-space: nowrap; }
+/* Stage header: number on the left, icon on the right edge, title underneath. */
+@media (min-width: 1320px) {
+  ${SCOPE} .system-sec .lsgtm .sc-head { grid-template-columns: auto 1fr; }
+  ${SCOPE} .system-sec .lsgtm .sc-head .sc-ic { justify-self: end; margin-left: 0; }
+}
+/* The map widens past the content column on big screens. Centre the wrapper rather than the
+   map itself: the map gets shrunk with CSS zoom to fit the screen height, and zoom also scales
+   its own left/translate offsets, which pushed it off-centre to the right. */
+@media (min-width: 1320px) {
+  ${SCOPE} .system-sec .lsgtm { position: relative; left: 50%; translate: -50% 0; width: min(1760px, calc(100vw - 48px)); }
+  ${SCOPE} .system-sec .lsgtm .sys { position: static; left: auto; translate: none; width: auto; }
+}
 html:has(${SCOPE}) { scroll-padding-top: 116px; }
 ${SCOPE} .skip, ${SCOPE} .site-header, ${SCOPE} .site-footer { display: none !important; }
 /* Hide the floating Apply bar while the site's own footer is on screen (set by GtmWorkshop.tsx). */

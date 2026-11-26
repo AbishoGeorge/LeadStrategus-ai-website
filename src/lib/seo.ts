@@ -11,7 +11,7 @@ export interface PageSeo {
 }
 
 const DEFAULT_SEO: PageSeo = {
-  title: 'LeadStrategus – AI Agents for B2B Revenue',
+  title: 'LeadStrategus | AI Agents for B2B Revenue',
   description:
     'AI-powered agents that find, qualify, and convert your next best customers. From discovery to revenue.',
 };

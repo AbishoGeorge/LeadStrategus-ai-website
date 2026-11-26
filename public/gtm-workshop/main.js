@@ -317,7 +317,7 @@ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){sitPose(1,0,0)
     full_name: { el: "#f-name", err: "#e-name", test: (v) => v.trim().length >= 2, msg: "Please enter your full name." },
     work_email: { el: "#f-email", err: "#e-email", test: emailOk, msg: "Please enter a valid work email." },
     company: { el: "#f-company", err: "#e-company", test: (v) => v.trim().length >= 2, msg: "Please enter your company and website." },
-    what_you_sell: { el: "#f-sell", err: "#e-sell", test: (v) => v.trim().length >= 10 && v.length <= 600, msg: "Tell us a little more: what you sell, and to whom (10–600 characters)." },
+    what_you_sell: { el: "#f-sell", err: "#e-sell", test: (v) => v.trim().length >= 10 && v.length <= 600, msg: "Tell us a little more: what you sell, and to whom (10 to 600 characters)." },
   };
   const checks = {
     can_attend: { err: "#e-attend", msg: "The workshop is in person, so we need you there all 5 days." },
@@ -405,5 +405,44 @@ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){sitPose(1,0,0)
       submitBtn.removeAttribute("aria-busy");
       lbl.textContent = orig;
     }
+  });
+})();
+
+/* ---------- 8-step outbound GTM execution system (supplied with the section) ---------- */
+(function () {
+  // Optional: set this to your site's sticky header selector so the map fits under it.
+  var HEADER_SELECTOR = "nav.fixed";
+  document.querySelectorAll(".lsgtm").forEach(function (root) {
+    root.classList.add("js-on");
+    var el = root.querySelector(".sys");
+    if (!el) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Desktop: shrink the phases + 8 stages just enough to fit the screen (bands may sit below).
+    function fit() {
+      el.style.zoom = "";
+      if (window.innerWidth < 1320) return;
+      var bar = document.querySelector(HEADER_SELECTOR);
+      var barH = bar && getComputedStyle(bar).position.match(/fixed|sticky/) ? bar.offsetHeight : 0;
+      var avail = window.innerHeight - barH - 24;
+      var bands = el.querySelector(".sys-bands");
+      var need = el.offsetHeight - (bands ? bands.offsetHeight + 12 : 0);
+      var s = Math.max(0.85, Math.min(1, avail / need));
+      if (s < 1) el.style.zoom = s.toFixed(3);
+    }
+    fit();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    var t = 0; window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(fit, 120); });
+    // Small screens: each stage opens to show key activities and output.
+    el.querySelectorAll(".sc-toggle").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var col = b.closest(".sys-col"), open = !col.classList.contains("open");
+        col.classList.toggle("open", open);
+        b.setAttribute("aria-expanded", String(open));
+      });
+    });
+    // Desktop entrance animation, once, when the map scrolls into view.
+    if (reduce || !("IntersectionObserver" in window) || window.innerWidth < 1320) { el.classList.add("in-view"); return; }
+    var o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { el.classList.add("in-view"); o.disconnect(); } }, { threshold: 0, rootMargin: "0px 0px -15% 0px" });
+    o.observe(el);
   });
 })();

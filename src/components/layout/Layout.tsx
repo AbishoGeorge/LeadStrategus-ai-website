@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
 import RouteSeo from './RouteSeo';
+import FirstPageMotion from './FirstPageMotion';
 
 export default function Layout() {
   return (
@@ -11,7 +12,9 @@ export default function Layout() {
       <ScrollToTop />
       <Navbar />
       <main className="flex-1 pt-[104px]">
-        <Outlet />
+        <FirstPageMotion>
+          <Outlet />
+        </FirstPageMotion>
       </main>
       <Footer />
     </div>

@@ -21,7 +21,7 @@ export default {
   // 1. SETTINGS: the placeholders from the reference copy live here
   // ---------------------------------------------------------------------------
   settings: {
-    dates: "Dates TBC", // TODO [DATES], e.g. "8–12 Feb 2027"
+    dates: "Dates TBC", // TODO [DATES], e.g. "8 to 12 Feb 2027"
     startDate: "", // ISO date for search engines, e.g. "2027-02-08". Empty = left out of JSON-LD.
     endDate: "", //   e.g. "2027-02-12"
     seatsLeft: null, // Seat counts are not shown on the site. Keep null.
@@ -90,7 +90,7 @@ export default {
       { when: "DAY 3", text: "Contacts verified; n8n workflow running" },
       { when: "DAY 4", text: "Sequences approved", gate: "gate 3" },
       { when: "DAY 5", text: "QA, deliverability, demo day" },
-      { when: "WK 1–4", text: "First sends · replies · refine · 90-day plan" },
+      { when: "WK 1 to 4", text: "First sends · replies · refine · 90-day plan" },
     ],
     steps: ["Define the market", "Score on buying signals", "Launch, measure, improve"],
   },
@@ -173,12 +173,17 @@ export default {
     banner: ["We don't just teach outbound.", "We do it."],
   },
 
+  system: {
+    h2: "8 stages. 3 human gates. One engine.",
+    intro: "This isn't a course. It's a build. About 30% principles, 70% building on your own business. You leave with a working, documented engine and a plan to run it.",
+  },
+
   programme: {
     h2: "5 days to build. 4 weeks to run it.",
     intro: "8 stages, 3 human checkpoints, one engine. 30% principles, 70% building on your own business.",
     stages: [
       { n: "01", stage: "Client discovery", build: "Questionnaire, interviews, Claude to organise", leave: "Business brief: what you sell, who buys, why, what success looks like", control: "ai" },
-      { n: "02", stage: "ICP and segments", build: "Claude proposes 6–8 segments; you pick 2–3", leave: "ICP, buying committee, disqualifiers; 2–3 segments chosen from 6–8", control: "human" },
+      { n: "02", stage: "ICP and segments", build: "Claude proposes 6 to 8 segments; you pick 2 or 3", leave: "ICP, buying committee, disqualifiers; 2 or 3 segments chosen from 6 to 8", control: "human" },
       { n: "03", stage: "Signal-led account scoring", build: "Claude research agents, Apollo, n8n", leave: "Your buying-intent criteria and a ranked account list", control: "human" },
       { n: "04", stage: "Contact discovery", build: "Apollo, Claude agents, verification", leave: "Verified decision-makers in priority accounts", control: "ai" },
       { n: "05", stage: "Prioritisation and campaign plan", build: "Scoring model, tiers A / B / C", leave: "Tiers A / B / C, waves, channels, cadence", control: "ai" },
@@ -207,11 +212,11 @@ export default {
     ],
     subhead: "The 5 days. Something built every day.",
     list: [
-      { label: "DAY 1 · STAGES 1–2", title: "Foundations and discovery", text: "Brief, ICP, chosen segments, signal thesis, success metrics" },
+      { label: "DAY 1 · STAGES 1 TO 2", title: "Foundations and discovery", text: "Brief, ICP, chosen segments, signal thesis, success metrics" },
       { label: "DAY 2 · STAGE 3", title: "Signals and account scoring", text: "Your scoring model and a ranked account list" },
-      { label: "DAY 3 · STAGES 4–5", title: "Contacts and orchestration", text: "Contact database, tiers, campaign plan, n8n workflow running" },
+      { label: "DAY 3 · STAGES 4 TO 5", title: "Contacts and orchestration", text: "Contact database, tiers, campaign plan, n8n workflow running" },
       { label: "DAY 4 · STAGE 6", title: "Messaging and AI agents", text: "Approved message library; Clay and Claude Code demo" },
-      { label: "DAY 5 · STAGES 7–8", title: "Launch readiness and demo day", text: "Deliverability, QA, dashboard, live demo to the cohort" },
+      { label: "DAY 5 · STAGES 7 TO 8", title: "Launch readiness and demo day", text: "Deliverability, QA, dashboard, live demo to the cohort" },
     ],
   },
 

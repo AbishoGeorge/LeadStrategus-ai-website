@@ -43,6 +43,9 @@ const pic = (base, ext, w, h, alt = "", cls = "", eager = false) => `<picture${c
 
 /** Positions for the 3D animations, written by scripts/make-3d.mjs. */
 const animPath = join(here, "..", "public", "img", "3d", "anim.json");
+/** The 8-step outbound GTM execution system (supplied as one embeddable block). */
+const SYSTEM = readFileSync(join(here, "system-section.html"), "utf8");
+
 const ANIM = existsSync(animPath) ? JSON.parse(readFileSync(animPath, "utf8")) : null;
 
 /** CSS keyframes for the stepping-stone hop and the gate pulses, built from the stone positions. */
@@ -293,6 +296,14 @@ export function renderPage(c) {
     <ul class="outcomes">${c.days.outcomes.map((o) => `<li>${icon(o.icon, "ic-lg")}<h3>${esc(o.title)}</h3><p>${esc(o.text)}</p></li>`).join("")}</ul>`,
   };
 
+  const system = {
+    id: "system",
+    cls: "system-sec",
+    html: `
+    <div class="sec-head"><h2>${esc(c.system.h2)}</h2><p class="sec-sub">${esc(c.system.intro)}</p></div>
+    ${SYSTEM}`,
+  };
+
   const days = {
     id: "days",
     html: `
@@ -521,7 +532,7 @@ export function renderPage(c) {
   const applySlot = { id: "apply", slot: true, html: "" };
 
   // Alternate white / silver backgrounds across whichever sections are shown.
-  const sections = [whyJoin, programme, faculty, sponsor, pricing, applySlot, faq].filter(Boolean);
+  const sections = [whyJoin, programme, system, faculty, sponsor, pricing, applySlot, faq].filter(Boolean);
   const body = sections
     .map((s, i) =>
       s.slot

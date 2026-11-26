@@ -21,8 +21,14 @@ const { render, getPrerenderRoutes } = await import(pathToFileURL(serverEntry).h
 const routes = getPrerenderRoutes();
 for (const route of routes) {
   const { html, head } = await render(route);
+  // The GTM Workshop stylesheet goes in as a plain tag, outside react-helmet's control:
+  // as a Helmet tag it was removed and re-added while the page hydrated, flashing the
+  // page unstyled. Client-side visits load it through loadGtmStyles() instead.
+  const pageHead = html.includes('class="gtm-root"')
+    ? `${head}\n    <link rel="stylesheet" href="/gtm-workshop/styles.css" />\n    <link rel="preload" href="/gtm-workshop/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin />`
+    : head;
   const page = template
-    .replace(SEO_BLOCK, head)
+    .replace(SEO_BLOCK, pageHead)
     .replace('<div id="root"></div>', `<div id="root">${html}</div>`);
   // "/" -> index.html, "/why" -> why.html (served at /why via cleanUrls)
   const file = route === '/' ? 'index.html' : `${route.slice(1)}.html`;
