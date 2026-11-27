@@ -445,7 +445,7 @@ export function renderPage(c) {
         <span class="badge">RECOMMENDED</span>
         <p class="tag-line">FULL 5 DAYS</p>
         <p class="price-val">${esc(S.priceFull)} <span>+ GST</span></p>
-        <ul class="ticks"><li>${icon("check")}5-day workshop, ${esc(S.city)}</li><li>${icon("check")}4 weeks guided implementation</li><li>${icon("check")}Cloud workspace, 2 months</li><li>${icon("check")}1 private review slot</li></ul>
+        <ul class="ticks"><li>${icon("check")}5-day workshop, ${esc(S.city)}</li><li>${icon("check")}4 weeks guided implementation</li><li>${icon("check")}1 private review slot</li></ul>
         ${applyBtn("Apply", "btn-block", "individual")}
       </article>
       <article class="card price">
