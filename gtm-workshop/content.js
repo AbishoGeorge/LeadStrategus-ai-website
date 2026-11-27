@@ -27,9 +27,8 @@ export default {
     seatsLeft: null, // Seat counts are not shown on the site. Keep null.
     totalSeats: 12,
     applicationsCloseDate: "", // TODO [date] e.g. "30 Jan 2027". Empty = sentence left out.
-    priceIndividual: "₹70,000", // TODO [₹ price] confirm Cohort 1 introductory price (carried over from the earlier pricing)
-    priceTeam: "₹60,000", //       TODO [₹ price] per person for a team of 3+ (carried over)
-    teamDiscountPct: 14, //        TODO [X]% saving per seat for teams
+    priceFull: "₹50,000", // all 5 days, before GST
+    priceDay: "₹10,000", //  one day, before GST
     fitCallUrl: "", // TODO booking link for the 15-min fit call (Calendly etc.). Empty = opens an email to contactEmail.
     clutchUrl: "https://clutch.co/profile/leadstrategus",
     checklistEndpoint: "", // where the checklist email-capture POSTs JSON {email}. Empty = no capture, link shown straight away.
@@ -140,7 +139,7 @@ export default {
       { icon: "target", title: "Built for your company", text: "Designed around your customers and offer. Useful from day one." },
       { icon: "file-text", title: "Assets you keep", text: "A ranked account list, tested messages and a 90-day plan." },
       { icon: "receipt", title: "Easy to pay", text: "GST invoice. Pay by Razorpay or bank transfer against a PO." },
-      { icon: "users", title: "Cheaper for teams", text: "Teams of 3+ save {teamDiscountPct}% per seat." },
+      { icon: "calendar", title: "Simple pricing", text: "{priceFull} for all 5 days, or {priceDay} per day, plus GST." },
     ],
     emailLabel: "Note to your manager",
     email: [
@@ -152,7 +151,7 @@ export default {
       "",
       "By the end, I'd come back with a working outbound system for us: target accounts, tested messaging, and a plan to keep it running.",
       "",
-      "There’s also a {teamDiscountPct}% per-seat discount if three or more of us attend together.",
+      "It costs {priceFull} plus GST for all 5 days, or {priceDay} per day.",
       "",
       "Could we discuss it this week?",
       "",
@@ -226,7 +225,7 @@ export default {
       { icon: "rocket", title: "Founders who sell B2B", text: "Need a repeatable way to create first meetings." },
       { icon: "user-round", title: "GTM engineers and hires", text: "Know the tools. Want the thinking behind them." },
       { icon: "briefcase", title: "Sales, demand-gen and RevOps leads", text: "Building or fixing outbound." },
-      { icon: "users", title: "Teams of 3+", text: "Best results. Save {teamDiscountPct}% per seat.", link: "#pricing" },
+      { icon: "users", title: "Teams", text: "Best results when a team builds it together.", link: "#pricing" },
     ],
     note: "Not a tool certification. Not a placement programme.",
   },

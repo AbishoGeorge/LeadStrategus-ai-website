@@ -95,7 +95,7 @@ const digits = (s) => String(s || "").replace(/[^\d]/g, "");
 export function renderPage(c) {
   const S = c.settings;
   const seats = S.totalSeats;
-  const fill = (s) => String(s).replaceAll("{teamDiscountPct}", S.teamDiscountPct).replaceAll("{priceIndividual}", S.priceIndividual);
+  const fill = (s) => String(s).replaceAll("{priceFull}", S.priceFull).replaceAll("{priceDay}", S.priceDay);
   const wa = S.whatsapp ? `https://wa.me/${encodeURIComponent(S.whatsapp)}?text=${encodeURIComponent(S.whatsappMessage)}` : "";
   const applyBtn = (label = "Apply for Cohort 1", extra = "", type = "") =>
     `<a class="btn btn-primary ${extra}" href="#apply"${type ? ` data-apply-type="${type}"` : ""}>${label} ${icon("arrow-right")}</a>`;
@@ -116,8 +116,8 @@ export function renderPage(c) {
     sameAs: ["https://leadstrategus.com", "https://leadstrategus.ai", "https://expotofunnel.com", S.linkedin, S.instagram].filter(Boolean),
   };
   const offers = [
-    digits(S.priceIndividual) && { "@type": "Offer", name: "Individual", price: digits(S.priceIndividual), priceCurrency: "INR", url: ogUrl + "/#pricing", category: "Paid", description: "Price before GST" },
-    digits(S.priceTeam) && { "@type": "Offer", name: "Team of 3+, per person", price: digits(S.priceTeam), priceCurrency: "INR", url: ogUrl + "/#pricing", category: "Paid", description: "Price per person before GST" },
+    digits(S.priceFull) && { "@type": "Offer", name: "Full 5 days", price: digits(S.priceFull), priceCurrency: "INR", url: ogUrl + "/#pricing", category: "Paid", description: "Price before GST" },
+    digits(S.priceDay) && { "@type": "Offer", name: "Per day", price: digits(S.priceDay), priceCurrency: "INR", url: ogUrl + "/#pricing", category: "Paid", description: "Price per day before GST" },
   ].filter(Boolean);
   const place = {
     "@type": "Place",
@@ -436,17 +436,17 @@ export function renderPage(c) {
     <div class="sec-head"><h2>${esc(P.h2)}</h2><p class="sec-sub">${esc(P.sub)}</p></div>
     <div class="prices">
       <article class="card price">
-        <p class="tag-line">INDIVIDUAL</p>
-        <p class="price-val">${esc(S.priceIndividual)} <span>+ GST</span></p>
-        <ul class="ticks"><li>${icon("check")}5-day workshop, ${esc(S.city)}</li><li>${icon("check")}4 weeks guided implementation</li><li>${icon("check")}Cloud workspace, 2 months</li><li>${icon("check")}1 private review slot</li></ul>
+        <p class="tag-line">PER DAY</p>
+        <p class="price-val">${esc(S.priceDay)} <span>per day + GST</span></p>
+        <ul class="ticks"><li>${icon("check")}Choose the days you attend</li><li>${icon("check")}In person, ${esc(S.city)}</li></ul>
         ${applyBtn("Apply", "btn-block", "individual")}
       </article>
       <article class="card price featured">
         <span class="badge">RECOMMENDED</span>
-        <p class="tag-line">TEAM OF 3+</p>
-        <p class="price-val">${esc(S.priceTeam)} <span>per person + GST</span></p>
-        <ul class="ticks"><li>${icon("check")}Everything in Individual</li><li>${icon("check")}Save ${esc(S.teamDiscountPct)}% per seat</li><li>${icon("check")}Shared workspace for the team</li><li>${icon("check")}2 private review slots</li></ul>
-        ${applyBtn("Apply as a team", "btn-block", "team")}
+        <p class="tag-line">FULL 5 DAYS</p>
+        <p class="price-val">${esc(S.priceFull)} <span>+ GST</span></p>
+        <ul class="ticks"><li>${icon("check")}5-day workshop, ${esc(S.city)}</li><li>${icon("check")}4 weeks guided implementation</li><li>${icon("check")}Cloud workspace, 2 months</li><li>${icon("check")}1 private review slot</li></ul>
+        ${applyBtn("Apply", "btn-block", "individual")}
       </article>
       <article class="card price">
         <p class="tag-line">PRIVATE COHORT</p>
